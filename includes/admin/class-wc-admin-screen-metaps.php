@@ -77,7 +77,7 @@ class WC_Admin_Screen_Metaps {
 	/**
 	 * Use WooCommerce Admin pages to display the WooCommerce Admin header
 	 * and to load WooCommerce CSS and JS files.
-	 * 
+	 *
 	 * Reference: https://developer.woocommerce.com/docs/integrating-admin-pages-into-woocommerce-extensions/
 	 */
 	public function wc_admin_connect_metaps_pages() {
@@ -95,35 +95,35 @@ class WC_Admin_Screen_Metaps {
 	/**
 	 * Registers the setting and defines its type and default value.
 	 */
-	public function metaps_for_wc_settings(){
+	public function metaps_for_wc_settings() {
 		$default = array(
-			'prefixorder' => '',
-			'creditcardcheck' => false,
-			'creditcardtokencheck' => false,
+			'prefixorder'              => '',
+			'creditcardcheck'          => false,
+			'creditcardtokencheck'     => false,
 			'conveniencepaymentscheck' => false,
-			'payeasypaymentcheck' => false,
+			'payeasypaymentcheck'      => false,
 		);
 		$schema  = array(
 			'type'       => 'object',
 			'properties' => array(
-				'prefixorder' => array(
+				'prefixorder'              => array(
 					'type' => 'string',
 				),
-				'creditcardcheck' => array(
+				'creditcardcheck'          => array(
 					'type' => 'boolean',
 				),
-				'creditcardtokencheck'    => array(
+				'creditcardtokencheck'     => array(
 					'type' => 'boolean',
 				),
-				'conveniencepaymentscheck'    => array(
+				'conveniencepaymentscheck' => array(
 					'type' => 'boolean',
 				),
-				'payeasypaymentcheck'    => array(
+				'payeasypaymentcheck'      => array(
 					'type' => 'boolean',
 				),
 			),
 		);
-	
+
 		register_setting(
 			'options',
 			'woocommerce_metaps_settings',
@@ -139,6 +139,10 @@ class WC_Admin_Screen_Metaps {
 
 	/**
 	 * Enqueue style and script.
+	 *
+	 * @param string $admin_page Admin page.
+	 * @since 1.0.0
+	 * @return void
 	 */
 	public function wc_admin_metaps_settings_page_enqueue_style_script( $admin_page ) {
 		$screen = get_current_screen();
@@ -148,11 +152,11 @@ class WC_Admin_Screen_Metaps {
 			if ( ! file_exists( $asset_file ) ) {
 				return;
 			}
-		
+
 			$asset = include $asset_file;
 
-			wp_enqueue_style( 
-				'metaps-for-wc-admin-style', 
+			wp_enqueue_style(
+				'metaps-for-wc-admin-style',
 				METAPS_FOR_WC_URL . 'includes/gateways/metaps/asset/admin/settings.css',
 				array_filter(
 					$asset['dependencies'],
