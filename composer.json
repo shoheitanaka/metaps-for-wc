@@ -1,0 +1,39 @@
+{
+	"name": "artisanworkshop/metaps-for-wc",
+	"description": "Metaps for WooCommerce",
+	"license": "GPL-3.0-or-later",
+	"version": "0.9.0",
+	"type": "wordpress-plugin",
+	"authors": [
+		{
+			"name": "Shohei Tanaka",
+			"homepage": "https://wc.artws.info/"
+		}
+	],
+	"require": {
+		"php": ">=7.4"
+	},
+	"require-dev": {
+		"ergebnis/composer-normalize": "^2.42",
+		"phpcompatibility/phpcompatibility-wp": "*",
+		"roots/wordpress": "~6.4.2",
+		"wp-coding-standards/wpcs": "^3.0",
+		"phpunit/phpunit": "^9.0",
+		"automattic/jetpack-autoloader": "^2"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"ergebnis/composer-normalize": true,
+			"roots/wordpress-core-installer": true,
+			"automattic/jetpack-autoloader": true
+		}
+	},
+	"extra": {
+		"wordpress-install-dir": "vendor/wordpress"
+	},
+	"scripts": {
+		"phpcs": "@php ./vendor/bin/phpcs",
+		"phpcs:fix": "@php ./vendor/bin/phpcbf"
+	}
+}
