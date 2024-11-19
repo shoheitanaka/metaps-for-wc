@@ -1,9 +1,19 @@
 <?php
+/**
+ * WC Gateway Metaps Request Class
+ *
+ * This file contains the class WC_Gateway_Metaps_Request which handles requests to Metaps.
+ *
+ * @category PaymentGateway
+ * @package  MetapsForWC
+ * @license  GPL-3.0
+ * @link     https://wc.artws.info/
+ */
 
 use ArtisanWorkshop\PluginFramework\v2_0_12 as Framework;
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit; // Exit if accessed directly.
 }
 
 /**
@@ -33,25 +43,25 @@ class WC_Gateway_Metaps_Request {
 	/**
 	 * Get metaps PAYMENT Args for passing to PP
 	 *
-	 * @param WC_Order $order
-	 * @param string   $connect_url
-	 * @param array    $setting
-	 * @param string   $thanks_url
-	 * @param string   $debug
-	 * @param string   $emv_tds
-	 * @return string URL
+	 * @param WC_Order $order order data.
+	 * @param string   $connect_url connect URL.
+	 * @param array    $setting setting data.
+	 * @param string   $thanks_url thanks URL.
+	 * @param string   $debug debug mode.
+	 * @param string   $emv_tds 3D Secure mode.
+	 * @return string URL for metaps.
 	 */
 	public function get_post_to_metaps( $order, $connect_url, $setting, $thanks_url = null, $debug = 'yes', $emv_tds = 'no' ) {
 		global $woocommerce;
-		// Set States Information
+		// Set States Information.
 		$states = WC()->countries->get_allowed_country_states();
 
 		$post_data['OKURL'] = $thanks_url;
 		$post_data['RT']    = $woocommerce->cart->get_cart_url() . '?pd=return&sid=' . $setting['sid'];
-		// Customer parameter
+		// Customer parameter.
 		$post_data = $this->metaps_address( $post_data, $order, $states );
 		$post_data = $this->metaps_setting( $post_data, $order, $setting );
-		if ( $emv_tds == 'yes' ) {
+		if ( 'yes' === $emv_tds ) {
 			$post_data = $this->emv_tds_parameter( $post_data, $order );
 		}
 		$get_source = http_build_query( $post_data );
@@ -59,42 +69,34 @@ class WC_Gateway_Metaps_Request {
 
 		$this->metaps_set_log( $connect_url, $order, $post_data, $debug );
 
-		// GET URL
+		// GET URL.
 		return $get_url;
 	}
 
 	/**
 	 * Set User Information
 	 *
-	 * @param array post_data
-	 * @param object WP_order
-	 * @param array State data
+	 * @param array    $post_data post data.
+	 * @param WP_order $order    order data.
+	 * @param array    $states State data.
 	 * @return array post data
 	 */
 	public function metaps_address( $post_data, $order, $states ) {
-		if ( version_compare( WC_VERSION, '2.7', '<' ) ) {
-			$post_data['MAIL']           = $order->billing_email;
-			$post_data['NAME1']          = mb_convert_encoding( $order->billing_last_name, 'SJIS' );
-			$post_data['NAME2']          = mb_convert_encoding( $order->billing_first_name, 'SJIS' );
-			$post_data['YUBIN1']         = str_replace( '-', '', $order->billing_postcode );
-			$state                       = $states['JP'][ $order->billing_state ];
-			$post_data['ADR1']           = mb_convert_encoding( $state . $order->billing_city, 'SJIS' );
-			$post_data['TEL']            = substr( str_replace( '-', '', $order->billing_phone ), 0, 11 );
-			$billing_address_1           = $order->billing_address_1;
-			$billing_address_2           = $order->billing_address_2;
-			$billing_yomigana_last_name  = $order->billing_yomigana_last_name;
-			$billing_yomigana_first_name = $order->billing_yomigana_first_name;
-		} else {
-			$post_data['MAIL']           = $order->get_billing_email();
-			$post_data['NAME1']          = mb_convert_encoding( $order->get_billing_last_name(), 'SJIS' );
-			$post_data['NAME2']          = mb_convert_encoding( $order->get_billing_first_name(), 'SJIS' );
-			$post_data['YUBIN1']         = str_replace( '-', '', $order->get_billing_postcode() );
-			$state                       = $states['JP'][ $order->get_billing_state() ];
-			$post_data['ADR1']           = mb_convert_encoding( $state . $order->get_billing_city(), 'SJIS' );
-			$post_data['TEL']            = substr( str_replace( '-', '', $order->get_billing_phone() ), 0, 11 );
-			$billing_address_1           = $order->get_billing_address_1();
-			$billing_address_2           = $order->get_billing_address_2();
-			$billing_yomigana_last_name  = $order->get_meta( $order->get_id(), '_billing_yomigana_last_name', true );
+		$post_data['MAIL']          = $order->get_billing_email();
+		$post_data['NAME1']         = mb_convert_encoding( $order->get_billing_last_name(), 'SJIS' );
+		$post_data['NAME2']         = mb_convert_encoding( $order->get_billing_first_name(), 'SJIS' );
+		$post_data['YUBIN1']        = str_replace( '-', '', $order->get_billing_postcode() );
+		$state                      = $states['JP'][ $order->get_billing_state() ];
+		$post_data['ADR1']          = mb_convert_encoding( $state . $order->get_billing_city(), 'SJIS' );
+		$post_data['TEL']           = substr( str_replace( '-', '', $order->get_billing_phone() ), 0, 11 );
+		$billing_address_1          = $order->get_billing_address_1();
+		$billing_address_2          = $order->get_billing_address_2();
+		$billing_yomigana_last_name = $order->get_meta( '_wc_billing/jp4wc/yomigana-last-name', true );
+		if ( ! $billing_yomigana_last_name ) {
+			$billing_yomigana_last_name = $order->get_meta( $order->get_id(), '_billing_yomigana_last_name', true );
+		}
+		$billing_yomigana_first_name = $order->get_meta( '_wc_billing/jp4wc/yomigana-first-name', true );
+		if ( ! $billing_yomigana_first_name ) {
 			$billing_yomigana_first_name = $order->get_meta( $order->get_id(), '_billing_yomigana_first_name', true );
 		}
 		if ( strlen( $post_data['NAME1'] ) > 20 ) {
@@ -135,12 +137,12 @@ class WC_Gateway_Metaps_Request {
 	/**
 	 * Set User Information for 3D Secure
 	 *
-	 * @param array post_data
-	 * @param object WP_order
-	 * @return array post_data
+	 * @param array    $post_data      post data.
+	 * @param WP_order $order order data.
+	 * @return array $post_data
 	 */
 	public function emv_tds_parameter( $post_data, $order ) {
-		// ISO 3166-1 alpha-2 to numeric mapping
+		// ISO 3166-1 alpha-2 to numeric mapping.
 		$iso_codes    = array(
 			'AF' => '004',
 			'AL' => '008',
@@ -339,7 +341,7 @@ class WC_Gateway_Metaps_Request {
 		if ( isset( $iso_codes[ $country_code ] ) ) {
 			$post_data['BILL_ADDR_COUNTRY'] = $iso_codes[ $country_code ];
 		} else {
-			$post_data['BILL_ADDR_COUNTRY'] = '392';// Japan
+			$post_data['BILL_ADDR_COUNTRY'] = '392';// Japan code.
 		}
 		$post_data['BILL_ADDR_STATE'] = substr( $order->get_billing_state(), 2 );
 		$post_data['BILL_ADDR_ZIP']   = str_replace( '-', '', $order->get_billing_postcode() );
@@ -356,14 +358,14 @@ class WC_Gateway_Metaps_Request {
 	/**
 	 * Set Setting Information
 	 *
-	 * @param array post_data
-	 * @param object WP_order
-	 * @param array setting data
-	 * @return array post_data
+	 * @param array    $post_data post data.
+	 * @param WP_order $order order data.
+	 * @param array    $setting setting data.
+	 * @return array $post_data post data.
 	 */
 	public function metaps_setting( $post_data, $order, $setting ) {
 
-		// set post data
+		// set post data.
 		$post_data['IP']  = $setting['ip'];
 		$post_data['SID'] = $setting['sid'];
 		if ( isset( $setting['kakutei'] ) ) {
@@ -381,28 +383,19 @@ class WC_Gateway_Metaps_Request {
 		if ( isset( $setting['ip_user_id'] ) ) {
 			$post_data['IP_USER_ID'] = $setting['ip_user_id'];
 		}
-		// Set Products Name
-		if ( version_compare( WC_VERSION, '2.7', '<' ) ) {
-			foreach ( $order->get_items() as $product ) {
-				$item_name[] = mb_convert_encoding( $product['name'], 'SJIS' );
-			}
-		} else {
-			foreach ( $order->get_items() as $item_key => $item_values ) {
-				$item_name[] = mb_convert_encoding( $item_values->get_name(), 'SJIS' );
-			}
+		// Set Products Name.
+		$order_items = $order->get_items();
+		foreach ( $order_items as $item_key => $item_values ) {
+			$item_name[] = mb_convert_encoding( $item_values->get_name(), 'SJIS' );
 		}
 		$post_data['N1'] = mb_convert_encoding( substr( $item_name[0], 0, 50 ), 'SJIS', 'SJIS' );
-		if ( version_compare( WC_VERSION, '2.7', '<' ) ) {
-			$post_data['K1'] = $order->order_total;
-		} else {
-			$post_data['K1'] = $order->get_total();
-		}
+		$post_data['K1'] = $order->get_total();
 
-		// Convenience parameter
+		// Convenience parameter.
 		if ( isset( $setting['kigen'] ) ) {
 			$post_data['KIGEN'] = $setting['kigen'];
 		}
-		// Token parameter
+		// Token parameter.
 		if ( isset( $setting['token'] ) ) {
 			$post_data['TOKEN'] = $setting['token'];
 		}
@@ -416,18 +409,27 @@ class WC_Gateway_Metaps_Request {
 
 		return $post_data;
 	}
+
 	/**
 	 * Send the request to metaps's API for URL
 	 *
-	 * @param array $data, $connect_url, $order
+	 * @param array  $data post data.
+	 * @param string $connect_url connect URL.
+	 * @param object $order order data.
+	 * @param string $debug debug mode.
 	 * @return string response_url
 	 */
 	public function metaps_request( $data, $connect_url, $order, $debug = 'yes' ) {
 		$get_source = http_build_query( $data );
 		$get_url    = $connect_url . '?' . $get_source;
-		$response   = file_get_contents( $get_url );
+		$response   = wp_remote_get( $get_url );
+		if ( is_wp_error( $response ) ) {
+			return '';
+		}
+		$response = wp_remote_retrieve_body( $response );
 
-		$this->metaps_set_log( $connect_url, $order, $data, $debug );
+		$this->metaps_set_log( $connect_url, $order, $data, 'request', $debug );
+		$this->metaps_set_log( $connect_url, $order, $response, 'response', $debug );
 
 		return $response;
 	}
@@ -435,22 +437,21 @@ class WC_Gateway_Metaps_Request {
 	/**
 	 * Send the request to metaps's API to module
 	 *
-	 * @param array  $setting
-	 * @param string $connect_url
-	 * @param object $order
-	 * @param string $debug
-	 * @param string $emv_tds
-	 * @return string response
+	 * @param WP_Order $order order data.
+	 * @param string   $connect_url connect URL.
+	 * @param array    $setting setting data.
+	 * @param string   $debug debug mode.
+	 * @param string   $emv_tds 3D Secure mode.
+	 * @return string response data.
 	 */
 	public function metaps_post_request( $order, $connect_url, $setting, $debug = 'yes', $emv_tds = 'no' ) {
-		global $woocommerce;
-		// Set States Information
+		// Set States Information.
 		$states = WC()->countries->get_allowed_country_states();
 
 		$post_data = array();
 		$post_data = $this->metaps_setting( $post_data, $order, $setting );
 		$post_data = $this->metaps_address( $post_data, $order, $states );
-		if ( $emv_tds == 'yes' ) {
+		if ( 'yes' === $emv_tds ) {
 			$post_data = $this->emv_tds_parameter( $post_data, $order );
 		}
 
@@ -458,25 +459,35 @@ class WC_Gateway_Metaps_Request {
 		$get_url    = $connect_url . '?' . $get_source;
 		$response   = file( $get_url );
 
-		$this->metaps_set_log( $connect_url, $order, $post_data, $debug );
+		$this->metaps_set_log( $connect_url, $order, $post_data, 'request', $debug );
+		$this->metaps_set_log( $connect_url, $order, $response, 'response', $debug );
 
 		return $response;
 	}
 
 	/**
+	 * Set log for debug
 	 *
+	 * @param string $connect_url connect URL.
+	 * @param object $order order data.
+	 * @param array  $data post data.
+	 * @param string $type type.
+	 * @param string $debug debug mode.
+	 * @return void
 	 */
-	public function metaps_set_log( $connect_url, $order, $data, $debug ) {
+	public function metaps_set_log( $connect_url, $order, $data, $type, $debug ) {
 		// Save debug send data.
 		$send_message = 'connect URL : ' . $connect_url . "\n";
 		if ( ! is_null( $order ) ) {
-			$send_message .= __( 'This request send data for order ID:', 'metaps-for-wc' ) . $order->get_id() . "\n";
+			// translators: %s is the type of data being sent.
+			$send_message .= sprintf( __( 'This %s send data for order ID:', 'metaps-for-wc' ), $type ) . $order->get_id() . "\n";
 		}
 		$request_array = array();
 		foreach ( $data as $key => $value ) {
 			$request_array[ $key ] = mb_convert_encoding( $value, 'UTF-8', 'SJIS' );
 		}
-		$send_message .= __( 'The request post data is shown below.', 'metaps-for-wc' ) . "\n" . $this->jp4wc_framework->jp4wc_array_to_message( $request_array );
+		// translators: %s is the type of data being sent.
+		$send_message .= sprintf( __( 'The %s post data is shown below.', 'metaps-for-wc' ), $type ) . "\n" . $this->jp4wc_framework->jp4wc_array_to_message( $request_array );
 		$this->jp4wc_framework->jp4wc_debug_log( $send_message, $debug, 'wc-metaps' );
 	}
 }

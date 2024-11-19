@@ -1,0 +1,41 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/@wordpress/scripts/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/metaps/frontend/payments/creditcardtoken/index.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
+.wc-block-components-checkout-step__container .metaps_cc_token .components-base-control .components-base-control__field .number_of_payments {
+  width: 400px;
+}
+@media (max-width: 797px) {
+  .wc-block-components-checkout-step__container .metaps_cc_token .components-base-control .components-base-control__field .number_of_payments {
+    width: 100%;
+  }
+}
+.wc-block-components-checkout-step__container .metaps_cc_token .wc-block-card-elements {
+  padding-top: 15px;
+}
+.wc-block-components-checkout-step__container .metaps_cc_token .wc-block-card-elements .wc-block-gateway-container .wc-block-gateway-input {
+  background-color: #fff;
+  border: 1px solid #50575e;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #2b2d2f;
+  cursor: text;
+  font-family: inherit;
+  font-size: 1em;
+  height: 3em;
+  line-height: 1.375;
+  margin: 0;
+  padding: 0.75em 16px 0.75em 0;
+  width: 100%;
+}
+.wc-block-components-checkout-step__container .metaps_cc_token .wc-block-card-elements .wc-block-gateway-container .wc-block-gateway-input input {
+  background-color: transparent;
+  border: none;
+  display: block;
+  font-family: sans-serif;
+  font-size: 1.35em;
+  height: 1.5em;
+  line-height: 1.2em;
+  margin: 0;
+  padding: 0;
+  width: 90%;
+}

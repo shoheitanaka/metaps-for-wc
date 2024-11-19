@@ -2,121 +2,20 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/metaps/admin/components/controls.jsx":
-/*!**************************************************!*\
-  !*** ./src/metaps/admin/components/controls.jsx ***!
-  \**************************************************/
+/***/ "./src/metaps/frontend/payments/creditcard/components/number_of_payments.jsx":
+/*!***********************************************************************************!*\
+  !*** ./src/metaps/frontend/payments/creditcard/components/number_of_payments.jsx ***!
+  \***********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ConveniencePaymentsCheckControl: () => (/* binding */ ConveniencePaymentsCheckControl),
-/* harmony export */   CreditCardCheckControl: () => (/* binding */ CreditCardCheckControl),
-/* harmony export */   CreditCardTokenCheckControl: () => (/* binding */ CreditCardTokenCheckControl),
-/* harmony export */   PayEasyPaymentCheckControl: () => (/* binding */ PayEasyPaymentCheckControl),
-/* harmony export */   PrefixOrderTextControl: () => (/* binding */ PrefixOrderTextControl)
+/* harmony export */   NumberOfPaymentsSelectControl: () => (/* binding */ NumberOfPaymentsSelectControl)
 /* harmony export */ });
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-const PrefixOrderTextControl = ({
-  value,
-  onChange
-}) => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Prefix Order', 'metaps-for-wc'),
-    className: "prefix_order_text",
-    onChange: onChange,
-    value: value,
-    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please input Word for prefix of Order Number and Customer ID. Alphabet only.', 'metaps-for-wc')
-  });
-};
-const CreditCardCheckControl = ({
-  value,
-  onChange
-}) => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.CheckboxControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Credit Card', 'metaps-for-wc'),
-    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please check it if you want to use the payment method of %s.', 'metaps-for-wc').replace('%s', (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Credit Card', 'metaps-for-wc')),
-    className: "credit_card_check",
-    checked: value,
-    onChange: onChange
-  });
-};
-const CreditCardTokenCheckControl = ({
-  value,
-  onChange
-}) => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.CheckboxControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Credit Card with Token', 'metaps-for-wc'),
-    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please check it if you want to use the payment method of %s.', 'metaps-for-wc').replace('%s', (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Credit Card with Token', 'metaps-for-wc')),
-    className: "credit_card_token_check",
-    checked: value,
-    onChange: onChange
-  });
-};
-const ConveniencePaymentsCheckControl = ({
-  value,
-  onChange
-}) => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.CheckboxControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Convenience Payments', 'metaps-for-wc'),
-    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please check it if you want to use the payment method of %s.', 'metaps-for-wc').replace('%s', (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Convenience Payments', 'metaps-for-wc')),
-    className: "convenience_payments_check",
-    checked: value,
-    onChange: onChange
-  });
-};
-const PayEasyPaymentCheckControl = ({
-  value,
-  onChange
-}) => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.CheckboxControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Pay-Easy Payment', 'metaps-for-wc'),
-    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please check it if you want to use the payment method of %s.', 'metaps-for-wc').replace('%s', (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Pay-Easy Payment', 'metaps-for-wc')),
-    className: "pay_easy_payment_check",
-    checked: value,
-    onChange: onChange
-  });
-};
-
-
-/***/ }),
-
-/***/ "./src/metaps/admin/components/index.js":
-/*!**********************************************!*\
-  !*** ./src/metaps/admin/components/index.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   SettingsPage: () => (/* reexport safe */ _settings_page__WEBPACK_IMPORTED_MODULE_0__.SettingsPage)
-/* harmony export */ });
-/* harmony import */ var _settings_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./settings-page */ "./src/metaps/admin/components/settings-page.jsx");
-
-
-/***/ }),
-
-/***/ "./src/metaps/admin/components/notices.jsx":
-/*!*************************************************!*\
-  !*** ./src/metaps/admin/components/notices.jsx ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Notices: () => (/* binding */ Notices)
-/* harmony export */ });
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_notices__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/notices */ "@wordpress/notices");
-/* harmony import */ var _wordpress_notices__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_notices__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _woocommerce_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @woocommerce/settings */ "@woocommerce/settings");
+/* harmony import */ var _woocommerce_settings__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_woocommerce_settings__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -124,233 +23,76 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Notices = () => {
-  const {
-    removeNotice
-  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.useDispatch)(_wordpress_notices__WEBPACK_IMPORTED_MODULE_1__.store);
-  const notices = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.useSelect)(select => select(_wordpress_notices__WEBPACK_IMPORTED_MODULE_1__.store).getNotices());
-  if (notices.length === 0) {
-    return null;
+const settings = (0,_woocommerce_settings__WEBPACK_IMPORTED_MODULE_1__.getSetting)('metaps_cc_data', {});
+const NumberOfPaymentsSelectControl = () => {
+  const numberOfPaymentsSelect = [];
+  const numberOfPayments = settings.number_of_payments;
+  for (let i = 0; i < numberOfPayments.length; i++) {
+    numberOfPaymentsSelect.push({
+      label: numberOfPayments[i].value,
+      value: numberOfPayments[i].id
+    });
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.NoticeList, {
-    notices: notices,
-    onRemove: removeNotice
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Number of Payments', 'metaps-for-wc'),
+    className: 'number_of_payments',
+    labelPosition: 'side',
+    id: 'number_of_payments',
+    size: 'compact',
+    options: numberOfPaymentsSelect
   });
 };
 
 
 /***/ }),
 
-/***/ "./src/metaps/admin/components/settings-page.jsx":
-/*!*******************************************************!*\
-  !*** ./src/metaps/admin/components/settings-page.jsx ***!
-  \*******************************************************/
+/***/ "./src/metaps/frontend/payments/creditcard/components/user_id_payment.jsx":
+/*!********************************************************************************!*\
+  !*** ./src/metaps/frontend/payments/creditcard/components/user_id_payment.jsx ***!
+  \********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   SettingsPage: () => (/* binding */ SettingsPage)
+/* harmony export */   UserIdPaymentSelectControl: () => (/* binding */ UserIdPaymentSelectControl)
 /* harmony export */ });
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../hooks */ "./src/metaps/admin/hooks/index.js");
-/* harmony import */ var _notices__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./notices */ "./src/metaps/admin/components/notices.jsx");
-/* harmony import */ var _controls__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./controls */ "./src/metaps/admin/components/controls.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-const SettingsTitle = () => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.__experimentalHeading, {
-    level: 1,
-    children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Metaps Payments settings', 'metaps-for-wc')
-  });
-};
-const SaveButton = ({
-  onClick
-}) => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
-    variant: "primary",
-    onClick: onClick,
-    __next40pxDefaultSize: true,
-    children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Save', 'metaps-for-wc')
-  });
-};
-const SettingsPage = () => {
-  const {
-    prefixorder,
-    setPrefixOrder,
-    creditcardcheck,
-    setCreditCardCheck,
-    creditcardtokencheck,
-    setCreditCardTokenCheck,
-    conveniencepaymentscheck,
-    setConveniencePaymentsCheck,
-    payeasypaymentcheck,
-    setPayEasyPaymentCheck,
-    saveSettings
-  } = (0,_hooks__WEBPACK_IMPORTED_MODULE_2__.useSettings)();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingsTitle, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_notices__WEBPACK_IMPORTED_MODULE_3__.Notices, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Panel, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('metaps Payment Initial Setting', 'metaps-for-wc'),
-        className: 'metaps-panels',
-        initialOpen: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelRow, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_controls__WEBPACK_IMPORTED_MODULE_4__.PrefixOrderTextControl, {
-            value: prefixorder,
-            onChange: value => setPrefixOrder(value)
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelRow, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            children: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Payment completion notification', 'metaps-for-wc'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-              children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please use following url for URL for payment completion notification.', 'metaps-for-wc')
-            })]
-          })
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('metaps Payment Payment Method', 'metaps-for-wc'),
-        className: 'metaps-payment-method',
-        initialOpen: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelRow, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_controls__WEBPACK_IMPORTED_MODULE_4__.CreditCardCheckControl, {
-            value: creditcardcheck,
-            onChange: value => setCreditCardCheck(value)
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelRow, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_controls__WEBPACK_IMPORTED_MODULE_4__.CreditCardTokenCheckControl, {
-            value: creditcardtokencheck,
-            onChange: value => setCreditCardTokenCheck(value)
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelRow, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_controls__WEBPACK_IMPORTED_MODULE_4__.ConveniencePaymentsCheckControl, {
-            value: conveniencepaymentscheck,
-            onChange: value => setConveniencePaymentsCheck(value)
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelRow, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_controls__WEBPACK_IMPORTED_MODULE_4__.PayEasyPaymentCheckControl, {
-            value: payeasypaymentcheck,
-            onChange: value => setPayEasyPaymentCheck(value)
-          })
-        })]
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SaveButton, {
-      onClick: saveSettings
-    })]
-  });
-};
-
-
-/***/ }),
-
-/***/ "./src/metaps/admin/hooks/index.js":
-/*!*****************************************!*\
-  !*** ./src/metaps/admin/hooks/index.js ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   useSettings: () => (/* reexport safe */ _use_settings__WEBPACK_IMPORTED_MODULE_0__["default"])
-/* harmony export */ });
-/* harmony import */ var _use_settings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./use-settings */ "./src/metaps/admin/hooks/use-settings.js");
-
-
-/***/ }),
-
-/***/ "./src/metaps/admin/hooks/use-settings.js":
-/*!************************************************!*\
-  !*** ./src/metaps/admin/hooks/use-settings.js ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_notices__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/notices */ "@wordpress/notices");
-/* harmony import */ var _wordpress_notices__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_notices__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _woocommerce_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @woocommerce/settings */ "@woocommerce/settings");
+/* harmony import */ var _woocommerce_settings__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_woocommerce_settings__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
 
-const useSettings = () => {
-  const [prefixorder, setPrefixOrder] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)();
-  const [creditcardcheck, setCreditCardCheck] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)();
-  const [creditcardtokencheck, setCreditCardTokenCheck] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)();
-  const [conveniencepaymentscheck, setConveniencePaymentsCheck] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)();
-  const [payeasypaymentcheck, setPayEasyPaymentCheck] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)();
-  const {
-    createSuccessNotice
-  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useDispatch)(_wordpress_notices__WEBPACK_IMPORTED_MODULE_2__.store);
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
-    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default()({
-      path: '/wp/v2/settings'
-    }).then(settings => {
-      setPrefixOrder(settings.woocommerce_metaps_settings.prefixorder);
-      setCreditCardCheck(settings.woocommerce_metaps_settings.creditcardcheck);
-      setCreditCardTokenCheck(settings.woocommerce_metaps_settings.creditcardtokencheck);
-      setConveniencePaymentsCheck(settings.woocommerce_metaps_settings.conveniencepaymentscheck);
-      setPayEasyPaymentCheck(settings.woocommerce_metaps_settings.payeasypaymentcheck);
-    });
-  }, []);
-  const saveSettings = () => {
-    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default()({
-      path: '/wp/v2/settings',
-      method: 'POST',
-      data: {
-        woocommerce_metaps_settings: {
-          prefixorder,
-          creditcardcheck,
-          creditcardtokencheck,
-          conveniencepaymentscheck,
-          payeasypaymentcheck
-        }
-      }
-    }).then(() => {
-      createSuccessNotice((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Settings saved.', 'metaps-for-wc'));
-    });
-  };
-  return {
-    prefixorder,
-    setPrefixOrder,
-    creditcardcheck,
-    setCreditCardCheck,
-    creditcardtokencheck,
-    setCreditCardTokenCheck,
-    conveniencepaymentscheck,
-    setConveniencePaymentsCheck,
-    payeasypaymentcheck,
-    setPayEasyPaymentCheck,
-    saveSettings
-  };
+const settings = (0,_woocommerce_settings__WEBPACK_IMPORTED_MODULE_1__.getSetting)('metaps_cc_data', []);
+const user_id_payment_setting = settings.user_id_payment || [];
+const UserIdPaymentSelectControl = () => {
+  const [option, setOption] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)('yes');
+  const user_id_payment_options = [{
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Use Stored Card.', 'metaps-for-wc'),
+    value: 'yes'
+  }, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Use New Card.', 'metaps-for-wc'),
+    value: 'no'
+  }];
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    className: "user_id_payment",
+    children: user_id_payment_setting === 'yes' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RadioControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('User ID Payment', 'metaps-for-wc'),
+      className: 'user_id_payment',
+      id: 'user_id_payment',
+      selected: option,
+      options: user_id_payment_options,
+      onChange: value => setOption(value)
+    })
+  });
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useSettings);
-
-/***/ }),
-
-/***/ "./src/metaps/admin/index.scss":
-/*!*************************************!*\
-  !*** ./src/metaps/admin/index.scss ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
 
 
 /***/ }),
@@ -1723,13 +1465,23 @@ module.exports = window["React"];
 
 /***/ }),
 
-/***/ "@wordpress/api-fetch":
-/*!**********************************!*\
-  !*** external ["wp","apiFetch"] ***!
-  \**********************************/
+/***/ "@woocommerce/blocks-registry":
+/*!******************************************!*\
+  !*** external ["wc","wcBlocksRegistry"] ***!
+  \******************************************/
 /***/ ((module) => {
 
-module.exports = window["wp"]["apiFetch"];
+module.exports = window["wc"]["wcBlocksRegistry"];
+
+/***/ }),
+
+/***/ "@woocommerce/settings":
+/*!************************************!*\
+  !*** external ["wc","wcSettings"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wc"]["wcSettings"];
 
 /***/ }),
 
@@ -1743,26 +1495,6 @@ module.exports = window["wp"]["components"];
 
 /***/ }),
 
-/***/ "@wordpress/data":
-/*!******************************!*\
-  !*** external ["wp","data"] ***!
-  \******************************/
-/***/ ((module) => {
-
-module.exports = window["wp"]["data"];
-
-/***/ }),
-
-/***/ "@wordpress/dom-ready":
-/*!**********************************!*\
-  !*** external ["wp","domReady"] ***!
-  \**********************************/
-/***/ ((module) => {
-
-module.exports = window["wp"]["domReady"];
-
-/***/ }),
-
 /***/ "@wordpress/element":
 /*!*********************************!*\
   !*** external ["wp","element"] ***!
@@ -1773,6 +1505,16 @@ module.exports = window["wp"]["element"];
 
 /***/ }),
 
+/***/ "@wordpress/html-entities":
+/*!**************************************!*\
+  !*** external ["wp","htmlEntities"] ***!
+  \**************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["htmlEntities"];
+
+/***/ }),
+
 /***/ "@wordpress/i18n":
 /*!******************************!*\
   !*** external ["wp","i18n"] ***!
@@ -1780,16 +1522,6 @@ module.exports = window["wp"]["element"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["i18n"];
-
-/***/ }),
-
-/***/ "@wordpress/notices":
-/*!*********************************!*\
-  !*** external ["wp","notices"] ***!
-  \*********************************/
-/***/ ((module) => {
-
-module.exports = window["wp"]["notices"];
 
 /***/ })
 
@@ -1864,28 +1596,110 @@ module.exports = window["wp"]["notices"];
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!***********************************!*\
-  !*** ./src/metaps/admin/index.js ***!
-  \***********************************/
+/*!**********************************************************!*\
+  !*** ./src/metaps/frontend/payments/creditcard/index.js ***!
+  \**********************************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.scss */ "./src/metaps/admin/index.scss");
-/* harmony import */ var _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/dom-ready */ "@wordpress/dom-ready");
-/* harmony import */ var _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components */ "./src/metaps/admin/components/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _woocommerce_blocks_registry__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @woocommerce/blocks-registry */ "@woocommerce/blocks-registry");
+/* harmony import */ var _woocommerce_blocks_registry__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_woocommerce_blocks_registry__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_html_entities__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/html-entities */ "@wordpress/html-entities");
+/* harmony import */ var _wordpress_html_entities__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_html_entities__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _woocommerce_settings__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @woocommerce/settings */ "@woocommerce/settings");
+/* harmony import */ var _woocommerce_settings__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_woocommerce_settings__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_number_of_payments__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/number_of_payments */ "./src/metaps/frontend/payments/creditcard/components/number_of_payments.jsx");
+/* harmony import */ var _components_user_id_payment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/user_id_payment */ "./src/metaps/frontend/payments/creditcard/components/user_id_payment.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
 
-_wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_1___default()(() => {
-  const root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createRoot)(document.getElementById('metaps-settings'));
-  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components__WEBPACK_IMPORTED_MODULE_3__.SettingsPage, {}));
-});
+
+
+
+const settings = (0,_woocommerce_settings__WEBPACK_IMPORTED_MODULE_3__.getSetting)('metaps_cc_data', {});
+const user_id_payment_setting = settings.user_id_payment || [];
+const defaultLabel = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Credit Card', 'metaps-for-wc');
+const label = (0,_wordpress_html_entities__WEBPACK_IMPORTED_MODULE_2__.decodeEntities)(settings.title) || defaultLabel;
+const description = (0,_wordpress_html_entities__WEBPACK_IMPORTED_MODULE_2__.decodeEntities)(settings.description) || '';
+
+/**
+ * Content component
+ *
+ * @param {*} props Props from payment API.
+ */
+const Content = props => {
+  const {
+    eventRegistration
+  } = props;
+  const {
+    onPaymentSetup
+  } = eventRegistration;
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useEffect)(() => onPaymentSetup(() => {
+    async function handlePaymentProcessing() {
+      const number_of_payments = document.getElementById('number_of_payments').value;
+      const customDataIsValid = !!number_of_payments.length;
+      if (customDataIsValid) {
+        return {
+          type: 'success',
+          meta: {
+            paymentMethodData: {
+              number_of_payments
+            }
+          }
+        };
+      }
+      return {
+        type: 'error',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('There seems to be a problem. Please contact the site.', 'metaps-for-wc')
+      };
+    }
+    return handlePaymentProcessing();
+  }), [onPaymentSetup]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+    className: 'metaps_cc',
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.RawHTML, {
+      children: description
+    }), user_id_payment_setting === 'yes' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_user_id_payment__WEBPACK_IMPORTED_MODULE_6__.UserIdPaymentSelectControl, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_number_of_payments__WEBPACK_IMPORTED_MODULE_5__.NumberOfPaymentsSelectControl, {})]
+  });
+};
+
+/**
+ * Label component
+ *
+ * @param {*} props Props from payment API.
+ */
+const Label = props => {
+  const {
+    PaymentMethodLabel
+  } = props.components;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(PaymentMethodLabel, {
+    text: label
+  });
+};
+
+/**
+ * MetapsCC payment method config object.
+ */
+const MetapsCC = {
+  name: "metaps_cc",
+  label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Label, {}),
+  content: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Content, {}),
+  edit: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Content, {}),
+  canMakePayment: () => true,
+  ariaLabel: label,
+  supports: {
+    features: settings.supports,
+    icons: true
+  }
+};
+(0,_woocommerce_blocks_registry__WEBPACK_IMPORTED_MODULE_1__.registerPaymentMethod)(MetapsCC);
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=settings.js.map
+//# sourceMappingURL=creditcard.js.map

@@ -19,7 +19,6 @@ const useSettings = () => {
             setCreditCardTokenCheck( settings.woocommerce_metaps_settings.creditcardtokencheck );
             setConveniencePaymentsCheck( settings.woocommerce_metaps_settings.conveniencepaymentscheck );
             setPayEasyPaymentCheck( settings.woocommerce_metaps_settings.payeasypaymentcheck );
-            console.log( settings );
 		} );
 	}, [] );
 

@@ -12,7 +12,6 @@ const PrefixOrderTextControl = ( { value, onChange } ) => {
 			onChange={ onChange }
             value={ value }
             help={ __( 'Please input Word for prefix of Order Number and Customer ID. Alphabet only.', 'metaps-for-wc' ) }
-            __nextHasNoMarginBottom
         />
     );
 };

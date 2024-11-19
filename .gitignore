@@ -1,6 +1,7 @@
 # Editors
 .idea
 .vscode/*
+*.code-workspace
 
 # Grunt
 node_modules/

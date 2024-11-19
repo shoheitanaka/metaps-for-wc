@@ -29,6 +29,10 @@ module.exports = {
 	...defaultConfig,
 	entry: {
 		'admin/settings': '/src/metaps/admin/index.js',
+		'frontend/payments/creditcardtoken': '/src/metaps/frontend/payments/creditcardtoken/index.js',
+		'frontend/payments/creditcard': '/src/metaps/frontend/payments/creditcard/index.js',
+		'frontend/payments/conveniencestore': '/src/metaps/frontend/payments/conveniencestore/index.js',
+		'frontend/payments/payeasy': '/src/metaps/frontend/payments/payeasy/index.js',
 	},
 	output: {
 		path: path.resolve( __dirname, 'includes/gateways/metaps/asset' ),

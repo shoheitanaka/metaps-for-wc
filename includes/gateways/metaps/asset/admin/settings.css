@@ -1,1 +1,26 @@
-#metaps-settings{max-width:800px}#metaps-settings h1{padding-block:8px}#metaps-settings .components-base-control:has(textarea){flex-basis:400px}#metaps-settings .components-notice,#metaps-settings .components-notice__content{margin:0}#metaps-settings .components-notice-list{display:flex;flex-direction:column;gap:8px;margin-block-end:16px}#metaps-settings .components-panel{margin-block-end:8px}
+/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/@wordpress/scripts/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/metaps/admin/index.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************/
+#metaps-settings {
+  max-width: 800px;
+}
+#metaps-settings h1 {
+  padding-block: 8px;
+}
+#metaps-settings .components-base-control:has(textarea) {
+  flex-basis: 400px;
+}
+#metaps-settings .components-notice, #metaps-settings .components-notice__content {
+  margin: 0;
+}
+#metaps-settings .components-notice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-block-end: 16px;
+}
+#metaps-settings .components-panel {
+  margin-block-end: 8px;
+}
+
+/*# sourceMappingURL=settings.css.map*/
