@@ -14,7 +14,7 @@ const settings = getSetting( 'metaps_cs_data', {} );
 
 const defaultLabel = __(
 	'Convenience store',
-	'metaps-for-wc'
+	'metaps-for-woocommerce'
 );
 
 const label = decodeEntities( settings.title ) || defaultLabel;
@@ -47,7 +47,7 @@ const Content = ( props ) => {
 
 						return {
 							type: 'error',
-							message: __( 'Convenience store is not selected properly.', 'metaps-for-wc' ),
+							message: __( 'Convenience store is not selected properly.', 'metaps-for-woocommerce' ),
 						};
 					}
 				return handlePaymentProcessing();

@@ -1,21 +1,27 @@
 <?php
+/**
+ * WC Gateway Addons Metaps CC
+ *
+ * @package WooCommerce/Classes/Payment
+ * @version 0.9.2
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 /**
- * metaps PAYMENT Gateway.
+ * Metaps PAYMENT Gateway.
  *
  * Provides a metaps PAYMENT Credit Card Payment Gateway for subscriptions..
  *
- * @class       WC_Gateway_Addons_Metaps_CC
+ * @class       WC_Gateway_Addon_Metaps_CC
  * @extends     WC_Gateway_Metaps_CC
- * @version     1.1.24
+ * @version     0.9.2
  * @package     WooCommerce/Classes/Payment
  * @author      Artisan Workshop
  */
-class WC_Gateway_Addons_Metaps_CC extends WC_Gateway_Metaps_CC {
+class WC_Gateway_Addon_Metaps_CC extends WC_Gateway_Metaps_CC {
 
 	/**
 	 * Constructor.
@@ -107,20 +113,20 @@ class WC_Gateway_Addons_Metaps_CC extends WC_Gateway_Metaps_CC {
 		$setting_data['lang']       = '0';// Use Language 0 = Japanese, 1 = English.
 		$setting_data['sid']        = $prefix_order . $order_id;
 		$setting_data['paymode']    = 10;
-		if ( $metaps->paymentaction == 'sale' ) {
+		if ( 'sale' === $metaps->paymentaction ) {
 			$setting_data['kakutei'] = '1';// capture = 1.
 		} else {
 			$setting_data['kakutei'] = '0';// auth = 0.
 		}
 		$connect_url = METAPS_CC_SALES_USER_URL;
 		$response    = $metaps_request->metaps_post_request( $order, $connect_url, $setting_data, $this->emv_tds );
-		if ( isset( $response[0] ) && substr( $response[0], 0, 2 ) == 'OK' ) {
+		if ( isset( $response[0] ) && substr( $response[0], 0, 2 ) === 'OK' ) {
 			// Payment complete.
-			if ( $order->get_status() != 'pending' ) {
+			if ( $order->get_status() !== 'pending' ) {
 				$order->payment_complete();
 			}
 		} else {
-			$order->update_status( 'cancelled', __( 'This order is cancelled, because of Payment error.', 'metaps-for-wc' ) . mb_convert_encoding( $response[2], 'UTF-8', 'sjis' ) );
+			$order->update_status( 'cancelled', __( 'This order is cancelled, because of Payment error.', 'metaps-for-woocommerce' ) . mb_convert_encoding( $response[2], 'UTF-8', 'sjis' ) );
 		}
 		return true;
 	}
@@ -134,7 +140,8 @@ class WC_Gateway_Addons_Metaps_CC extends WC_Gateway_Metaps_CC {
 		$result = $this->process_subscription_payment( $renewal_order, $amount_to_charge );
 
 		if ( is_wp_error( $result ) ) {
-			$renewal_order->update_status( 'failed', sprintf( __( 'metaps Payment Transaction Failed (%s)', 'woocommerce' ), $result->get_error_message() ) );
+			// translators: %s: Error message.
+			$renewal_order->update_status( 'failed', sprintf( __( 'Metaps Payment Transaction Failed (%s)', 'metaps-for-woocommerce' ), $result->get_error_message() ) );
 		}
 	}
 }

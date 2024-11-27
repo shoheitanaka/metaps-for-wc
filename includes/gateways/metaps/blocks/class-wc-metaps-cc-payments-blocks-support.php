@@ -71,7 +71,7 @@ final class WC_Metaps_CC_Payments_Blocks_Support extends AbstractPaymentMethodTy
 		);
 
 		if ( function_exists( 'wp_set_script_translations' ) ) {
-			wp_set_script_translations( 'wc-metaps-cc-payments-blocks', 'metaps-for-wc', METAPS_FOR_WC_DIR . 'i18n/' );
+			wp_set_script_translations( 'wc-metaps-cc-payments-blocks', 'metaps-for-woocommerce', METAPS_FOR_WC_DIR . 'i18n/' );
 		}
 
 		return array( 'wc-metaps-cc-payments-blocks' );

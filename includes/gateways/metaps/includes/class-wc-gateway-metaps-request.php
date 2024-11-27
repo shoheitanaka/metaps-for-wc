@@ -67,7 +67,7 @@ class WC_Gateway_Metaps_Request {
 		$get_source = http_build_query( $post_data );
 		$get_url    = $connect_url . '?' . $get_source;
 
-		$this->metaps_set_log( $connect_url, $order, $post_data, $debug );
+		$this->metaps_set_log( $connect_url, $order, $post_data, 'request', $debug );
 
 		// GET URL.
 		return $get_url;
@@ -476,18 +476,33 @@ class WC_Gateway_Metaps_Request {
 	 * @return void
 	 */
 	public function metaps_set_log( $connect_url, $order, $data, $type, $debug ) {
+		if ( 'yes' !== $debug ) {
+			return;
+		}
 		// Save debug send data.
 		$send_message = 'connect URL : ' . $connect_url . "\n";
 		if ( ! is_null( $order ) ) {
 			// translators: %s is the type of data being sent.
-			$send_message .= sprintf( __( 'This %s send data for order ID:', 'metaps-for-wc' ), $type ) . $order->get_id() . "\n";
+			$send_message .= sprintf( __( 'This %s send data for order ID:', 'metaps-for-woocommerce' ), $type ) . $order->get_id() . "\n";
 		}
 		$request_array = array();
 		foreach ( $data as $key => $value ) {
 			$request_array[ $key ] = mb_convert_encoding( $value, 'UTF-8', 'SJIS' );
 		}
-		// translators: %s is the type of data being sent.
-		$send_message .= sprintf( __( 'The %s post data is shown below.', 'metaps-for-wc' ), $type ) . "\n" . $this->jp4wc_framework->jp4wc_array_to_message( $request_array );
-		$this->jp4wc_framework->jp4wc_debug_log( $send_message, $debug, 'wc-metaps' );
+		wc_get_logger()->debug( $send_message, array( 'post_data' => $request_array ) );
+	}
+
+	/**
+	 * Get post data if set
+	 *
+	 * @param string $name The name of the POST parameter.
+	 * @return string|null The sanitized POST data or null if not set.
+	 */
+	public function get_post( $name ) {
+		$checkout = WC()->checkout();
+		if ( $checkout ) {
+			return $checkout->get_value( $name );
+		}
+		return null;
 	}
 }

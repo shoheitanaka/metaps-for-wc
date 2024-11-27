@@ -56,8 +56,8 @@ class WC_Admin_Screen_Metaps {
 	public function wc_admin_metaps_menu() {
 		add_submenu_page(
 			'woocommerce',
-			__( 'Metaps Setting', 'metaps-for-wc' ),
-			__( 'Metaps Setting', 'metaps-for-wc' ),
+			__( 'Metaps Setting', 'metaps-for-woocommerce' ),
+			__( 'Metaps Setting', 'metaps-for-woocommerce' ),
 			'manage_woocommerce',
 			'settings-metaps',
 			array( $this, 'wc_admin_metaps_settings' )
@@ -70,7 +70,7 @@ class WC_Admin_Screen_Metaps {
 	public function wc_admin_metaps_settings() {
 		printf(
 			'<div class="wrap woocommerce"><div id="metaps-settings">%s</div></div>',
-			esc_html__( 'Loading…', 'metaps-for-wc' )
+			esc_html__( 'Loading…', 'metaps-for-woocommerce' )
 		);
 	}
 
@@ -86,7 +86,7 @@ class WC_Admin_Screen_Metaps {
 				array(
 					'id'        => $this->get_screen_id(),
 					'screen_id' => $this->get_screen_id(),
-					'title'     => __( 'Metaps Setting', 'metaps-for-wc' ),
+					'title'     => __( 'Metaps Setting', 'metaps-for-woocommerce' ),
 				)
 			);
 		}

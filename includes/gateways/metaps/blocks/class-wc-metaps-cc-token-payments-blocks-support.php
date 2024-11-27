@@ -77,7 +77,7 @@ final class WC_Metaps_CC_Token_Payments_Blocks_Support extends AbstractPaymentMe
 		);
 
 		if ( function_exists( 'wp_set_script_translations' ) ) {
-			wp_set_script_translations( 'wc-metaps-cc-token-payments-blocks', 'metaps-for-wc', METAPS_FOR_WC_DIR . 'i18n/' );
+			wp_set_script_translations( 'wc-metaps-cc-token-payments-blocks', 'metaps-for-woocommerce', METAPS_FOR_WC_DIR . 'i18n/' );
 		}
 
 		return array( 'wc-metaps-cc-token-payments-blocks' );
@@ -105,6 +105,7 @@ final class WC_Metaps_CC_Token_Payments_Blocks_Support extends AbstractPaymentMe
 			'title'              => $this->get_setting( 'title' ),
 			'description'        => $this->get_setting( 'description' ),
 			'user_id_payment'    => $this->get_setting( 'user_id_payment' ),
+			'payment_time_text'  => $this->get_setting( 'payment_time_text' ),
 			'number_of_payments' => $set_number_of_payments,
 			'supports'           => array_filter( $this->gateway->supports, array( $this->gateway, 'supports' ) ),
 		);

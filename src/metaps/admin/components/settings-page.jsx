@@ -20,7 +20,7 @@ import {
 const SettingsTitle = () => {
 	return (
 		<Heading level={ 1 }>
-			{ __( 'Metaps Payments settings', 'metaps-for-wc' ) }
+			{ __( 'Metaps Payments settings', 'metaps-for-woocommerce' ) }
 		</Heading>
 	);
 };
@@ -28,7 +28,7 @@ const SettingsTitle = () => {
 const SaveButton = ( { onClick } ) => {
 	return (
 		<Button variant="primary" onClick={ onClick } __next40pxDefaultSize>
-			{ __( 'Save', 'metaps-for-wc' ) }
+			{ __( 'Save', 'metaps-for-woocommerce' ) }
 		</Button>
 	);
 };
@@ -54,7 +54,7 @@ const SettingsPage = () => {
 			<Notices />
             <Panel>
             <PanelBody
-                title={ __( 'metaps Payment Initial Setting', 'metaps-for-wc' ) }
+                title={ __( 'metaps Payment Initial Setting', 'metaps-for-woocommerce' ) }
                 className={ 'metaps-panels' }
                 initialOpen={ true }
             >
@@ -66,13 +66,13 @@ const SettingsPage = () => {
                 </PanelRow>
                 <PanelRow>
                     <div>
-                        { __( 'Payment completion notification', 'metaps-for-wc' ) }<br/>
-                        <span>{ __( 'Please use following url for URL for payment completion notification.', 'metaps-for-wc' ) }</span>
+                        { __( 'Payment completion notification', 'metaps-for-woocommerce' ) }<br/>
+                        <span>{ __( 'Please use following url for URL for payment completion notification.', 'metaps-for-woocommerce' ) }</span>
                     </div>
                 </PanelRow>
             </PanelBody>
             <PanelBody
-                title={ __( 'metaps Payment Payment Method', 'metaps-for-wc' ) }
+                title={ __( 'metaps Payment Payment Method', 'metaps-for-woocommerce' ) }
                 className={ 'metaps-payment-method' }
                 initialOpen={ true }
             >

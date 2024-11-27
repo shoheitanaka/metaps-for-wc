@@ -1,21 +1,21 @@
 <?php
 /**
- * Plugin Name: Metaps for WooCommerce
- * Plugin URI: https://www.wordpress.org/plugins/metaps-for-wc/
+ * Plugin Name: Metaps Payments for WooCommerce
+ * Plugin URI: https://www.wordpress.org/plugins/metaps-for-woocommerce/
  * Description: Metaps for WooCommerce is a WooCommerce payment extention plugin.
- * Version: 0.9.0
+ * Version: 0.9.1
  * Author: Shohei Tanaka
  * Author URI: https://wc.artws.info/
- * Text Domain: metaps-for-wc
+ * Text Domain: metaps-for-woocommerce
  * Domain Path: /i18n
  *
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
  * WC requires at least: 8.0.0
- * WC tested up to: 8.0.0
- * Requires at least: 6.0
- * Tested up to: 6.5.2
+ * WC tested up to: 9.4.2
+ * Requires at least: 6.5.0
+ * Tested up to: 6.7.1
  *
  * @package Metaps_for_WooCommerce
  */
@@ -39,7 +39,7 @@ if ( ! class_exists( 'WC_Metaps_Payments' ) ) :
 		 *
 		 * @var string
 		 */
-		public $version = '0.9.0';
+		public $version = '0.9.1';
 
 		/**
 		 * Metaps PAYMENT for WooCommerce Framework version.
@@ -67,6 +67,7 @@ if ( ! class_exists( 'WC_Metaps_Payments' ) ) :
 			add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ), 1 );
 			// handle HPOS compatibility.
 			add_action( 'before_woocommerce_init', array( $this, 'metaps_handle_hpos_compatibility' ) );
+			add_action( 'init', array( $this, 'register_user_meta_metaps_user_id' ) );
 		}
 
 		/**
@@ -163,7 +164,7 @@ if ( ! class_exists( 'WC_Metaps_Payments' ) ) :
 		 * Load Localisation files.
 		 */
 		protected function load_plugin_textdomain() {
-			load_plugin_textdomain( 'metaps-for-wc', false, basename( __DIR__ ) . '/i18n' );
+			load_plugin_textdomain( 'metaps-for-woocommerce', false, basename( __DIR__ ) . '/i18n' );
 		}
 
 		/**
@@ -192,13 +193,13 @@ if ( ! class_exists( 'WC_Metaps_Payments' ) ) :
 				include_once METAPS_FOR_WC_INCLUDES_PATH . 'gateways/metaps/class-wc-gateway-metaps-cc.php'; // Credit Card.
 				// Credit Card Subscription.
 				include_once METAPS_FOR_WC_INCLUDES_PATH . 'gateways/metaps/class-wc-gateway-addon-metaps-cc.php';
-				add_filter( 'woocommerce_payment_gateways', array( $this, 'add_wc_metaps_cc_token_gateway' ) );
+				add_filter( 'woocommerce_payment_gateways', array( $this, 'add_wc_metaps_cc_gateway' ) );
 			}
 			if ( isset( $metaps_settings['creditcardtokencheck'] ) && $metaps_settings['creditcardtokencheck'] ) {
 				include_once METAPS_FOR_WC_INCLUDES_PATH . 'gateways/metaps/class-wc-gateway-metaps-cc-token.php'; // Credit Card with Token.
 				// Credit Card Token Subscription.
 				// include_once METAPS_FOR_WC_INCLUDES_PATH . 'gateways/metaps/class-wc-gateway-addon-metaps-cc-token.php'; // Credit Card with Token Subscription.
-				add_filter( 'woocommerce_payment_gateways', array( $this, 'add_wc_metaps_cc_gateway' ) );
+				add_filter( 'woocommerce_payment_gateways', array( $this, 'add_wc_metaps_cc_token_gateway' ) );
 			}
 			if ( isset( $metaps_settings['conveniencepaymentscheck'] ) && $metaps_settings['conveniencepaymentscheck'] ) {
 				include_once METAPS_FOR_WC_INCLUDES_PATH . 'gateways/metaps/class-wc-gateway-metaps-cs.php'; // Convenience store.
@@ -222,7 +223,7 @@ if ( ! class_exists( 'WC_Metaps_Payments' ) ) :
 				$subscription_support_enabled = true;
 			}
 			if ( $subscription_support_enabled ) {
-				$methods[] = 'WC_Addons_Gateway_METAPS_CC_TOKEN';
+				$methods[] = 'WC_Addon_Gateway_METAPS_CC_TOKEN';
 			} else {
 				$methods[] = 'WC_Gateway_METAPS_CC_TOKEN';
 			}
@@ -284,7 +285,7 @@ if ( ! class_exists( 'WC_Metaps_Payments' ) ) :
 			if ( isset( $current_screen->id ) && $current_screen->id === $metaps_for_wc_pages ) {
 				if ( ! get_option( 'metaps_for_wc_footer_text_rated' ) ) {
 					// translators: %1$s and %2$s are placeholders for the opening and closing anchor tags respectively.
-					$footer_text = sprintf( __( 'If you like <strong>metaps PAYMENT for WooCommerce.</strong> please leave us a %1$s&#9733;&#9733;&#9733;&#9733;&#9733;%2$s rating. A huge thanks in advance!', 'metaps-for-wc' ), '<a href="https://wordpress.org/support/plugin/woocommerce-for-japan/reviews/#postform" target="_blank" class="wc4jp-rating-link" data-rated="' . esc_attr__( 'Thanks :)', 'woocommerce-for-japan' ) . '">', '</a>' );
+					$footer_text = sprintf( __( 'If you like <strong>metaps PAYMENT for WooCommerce.</strong> please leave us a %1$s&#9733;&#9733;&#9733;&#9733;&#9733;%2$s rating. A huge thanks in advance!', 'metaps-for-woocommerce' ), '<a href="https://wordpress.org/support/plugin/woocommerce-for-japan/reviews/#postform" target="_blank" class="wc4jp-rating-link" data-rated="' . esc_attr__( 'Thanks :)', 'woocommerce-for-japan' ) . '">', '</a>' );
 					wc_enqueue_js(
 						"
 						jQuery( 'a.wc4jp-rating-link' ).click( function() {
@@ -294,7 +295,7 @@ if ( ! class_exists( 'WC_Metaps_Payments' ) ) :
 					"
 					);
 				} else {
-					$footer_text = __( 'Thank you for selling with WooCommerce for metaps PAYMENT.', 'metaps-for-wc' );
+					$footer_text = __( 'Thank you for selling with WooCommerce for metaps PAYMENT.', 'metaps-for-woocommerce' );
 				}
 			}
 			return $footer_text;
@@ -412,6 +413,25 @@ if ( ! class_exists( 'WC_Metaps_Payments' ) ) :
 				}
 			}
 			return in_array( 'woocommerce/woocommerce.php', $active_plugins, true ) || array_key_exists( 'woocommerce/woocommerce.php', $active_plugins );
+		}
+
+		/**
+		 * Register user meta fields.
+		 */
+		public function register_user_meta_metaps_user_id() {
+			register_meta(
+				'user',
+				'_metaps_user_id',
+				array(
+					'type'          => 'string',
+					'description'   => 'metaps User ID',
+					'single'        => true,
+					'show_in_rest'  => true, // This will be available via the REST API.
+					'auth_callback' => function () {
+						return is_user_logged_in();
+					},
+				)
+			);
 		}
 	}
 
