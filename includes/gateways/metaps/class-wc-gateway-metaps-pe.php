@@ -103,14 +103,14 @@ class WC_Gateway_Metaps_PE extends WC_Payment_Gateway {
 	public function __construct() {
 		$this->id           = 'metaps_pe';
 		$this->has_fields   = false;
-		$this->method_title = __( 'metaps PAYMENT Pay Easy', 'metaps-for-wc' );
+		$this->method_title = __( 'metaps PAYMENT Pay Easy', 'metaps-for-woocommerce' );
 
 		// Create plugin fields and settings.
 		$this->init_form_fields();
 		$this->init_settings();
-		$this->method_description = __( 'Allows payments by metaps PAYMENT Pay Easy in Japan.', 'metaps-for-wc' );
+		$this->method_description = __( 'Allows payments by metaps PAYMENT Pay Easy in Japan.', 'metaps-for-woocommerce' );
 		if ( is_null( $this->title ) ) {
-			$this->title = __( 'Please set this payment at Control Panel! ', 'metaps-for-wc' ) . $this->method_title;
+			$this->title = __( 'Please set this payment at Control Panel! ', 'metaps-for-woocommerce' ) . $this->method_title;
 		}
 
 		include_once 'includes/class-wc-gateway-metaps-request.php';
@@ -139,88 +139,88 @@ class WC_Gateway_Metaps_PE extends WC_Payment_Gateway {
 	public function init_form_fields() {
 		$this->form_fields = array(
 			'enabled'                   => array(
-				'title'       => __( 'Enable/Disable', 'metaps-for-wc' ),
-				'label'       => __( 'Enable metaps PAYMENT Pay Easy Payment', 'metaps-for-wc' ),
+				'title'       => __( 'Enable/Disable', 'metaps-for-woocommerce' ),
+				'label'       => __( 'Enable metaps PAYMENT Pay Easy Payment', 'metaps-for-woocommerce' ),
 				'type'        => 'checkbox',
 				'description' => '',
 				'default'     => 'no',
 			),
 			'title'                     => array(
-				'title'       => __( 'Title', 'metaps-for-wc' ),
+				'title'       => __( 'Title', 'metaps-for-woocommerce' ),
 				'type'        => 'text',
-				'description' => __( 'This controls the title which the user sees during checkout.', 'metaps-for-wc' ),
-				'default'     => __( 'Pay Easy Payment (metaps)', 'metaps-for-wc' ),
+				'description' => __( 'This controls the title which the user sees during checkout.', 'metaps-for-woocommerce' ),
+				'default'     => __( 'Pay Easy Payment (metaps)', 'metaps-for-woocommerce' ),
 			),
 			'description'               => array(
-				'title'       => __( 'Description', 'metaps-for-wc' ),
+				'title'       => __( 'Description', 'metaps-for-woocommerce' ),
 				'type'        => 'textarea',
-				'description' => __( 'This controls the description which the user sees during checkout.', 'metaps-for-wc' ),
-				'default'     => __( 'Pay with your Pay Easy via metaps PAYMENT.', 'metaps-for-wc' ),
+				'description' => __( 'This controls the description which the user sees during checkout.', 'metaps-for-woocommerce' ),
+				'default'     => __( 'Pay with your Pay Easy via metaps PAYMENT.', 'metaps-for-woocommerce' ),
 			),
 			'order_button_text'         => array(
-				'title'       => __( 'Order Button Text', 'metaps-for-wc' ),
+				'title'       => __( 'Order Button Text', 'metaps-for-woocommerce' ),
 				'type'        => 'textarea',
-				'description' => __( 'This controls the description which the user sees during checkout.', 'metaps-for-wc' ),
-				'default'     => __( 'Proceed to metaps PAYMENT Pay Easy', 'metaps-for-wc' ),
+				'description' => __( 'This controls the description which the user sees during checkout.', 'metaps-for-woocommerce' ),
+				'default'     => __( 'Proceed to metaps PAYMENT Pay Easy', 'metaps-for-woocommerce' ),
 			),
 			'ip_code'                   => array(
-				'title'       => __( 'IP Code', 'metaps-for-wc' ),
+				'title'       => __( 'IP Code', 'metaps-for-woocommerce' ),
 				'type'        => 'text',
-				'description' => __( 'Enter IP Code here.', 'metaps-for-wc' ),
+				'description' => __( 'Enter IP Code here.', 'metaps-for-woocommerce' ),
 			),
 			'pass_code'                 => array(
-				'title'       => __( 'IP Password', 'metaps-for-wc' ),
+				'title'       => __( 'IP Password', 'metaps-for-woocommerce' ),
 				'type'        => 'text',
-				'description' => __( 'Enter IP Password here', 'metaps-for-wc' ),
+				'description' => __( 'Enter IP Password here', 'metaps-for-woocommerce' ),
 			),
 			'payment_deadline'          => array(
-				'title'       => __( 'Due date for payment', 'metaps-for-wc' ),
+				'title'       => __( 'Due date for payment', 'metaps-for-woocommerce' ),
 				'type'        => 'select',
-				'description' => __( 'Select the days term of due date for payment', 'metaps-for-wc' ),
+				'description' => __( 'Select the days term of due date for payment', 'metaps-for-woocommerce' ),
 				'options'     => array(
-					'5'  => '5' . __( 'days', 'metaps-for-wc' ),
-					'7'  => '7' . __( 'days', 'metaps-for-wc' ),
-					'10' => '10' . __( 'days', 'metaps-for-wc' ),
-					'15' => '15' . __( 'days', 'metaps-for-wc' ),
-					'30' => '30' . __( 'days', 'metaps-for-wc' ),
-					'60' => '60' . __( 'days', 'metaps-for-wc' ),
+					'5'  => '5' . __( 'days', 'metaps-for-woocommerce' ),
+					'7'  => '7' . __( 'days', 'metaps-for-woocommerce' ),
+					'10' => '10' . __( 'days', 'metaps-for-woocommerce' ),
+					'15' => '15' . __( 'days', 'metaps-for-woocommerce' ),
+					'30' => '30' . __( 'days', 'metaps-for-woocommerce' ),
+					'60' => '60' . __( 'days', 'metaps-for-woocommerce' ),
 				),
 			),
 			'payeasy_email_desc'        => array(
-				'title'       => __( 'Explain the Pay-Easy method in Email', 'metaps-for-wc' ),
+				'title'       => __( 'Explain the Pay-Easy method in Email', 'metaps-for-woocommerce' ),
 				'type'        => 'textarea',
-				'description' => __( 'This explains the Pay-Easy method of payment in Email, how to use.', 'metaps-for-wc' ),
+				'description' => __( 'This explains the Pay-Easy method of payment in Email, how to use.', 'metaps-for-woocommerce' ),
 			),
 			'processing_email_subject'  => array(
-				'title'       => __( 'Email Subject when complete payment check', 'metaps-for-wc' ),
+				'title'       => __( 'Email Subject when complete payment check', 'metaps-for-woocommerce' ),
 				'type'        => 'text',
-				'description' => __( 'send e-mail subject when check metaps PAYMENT after customer paid.', 'metaps-for-wc' ),
-				'default'     => __( 'Payment Complete by Pay-easy', 'metaps-for-wc' ),
+				'description' => __( 'send e-mail subject when check metaps PAYMENT after customer paid.', 'metaps-for-woocommerce' ),
+				'default'     => __( 'Payment Complete by Pay-easy', 'metaps-for-woocommerce' ),
 			),
 			'processing_email_heading'  => array(
-				'title'       => __( 'Email Heading when complete payment check', 'metaps-for-wc' ),
+				'title'       => __( 'Email Heading when complete payment check', 'metaps-for-woocommerce' ),
 				'type'        => 'text',
-				'description' => __( 'send e-mail heading when check metaps PAYMENT after customer paid.', 'metaps-for-wc' ),
-				'default'     => __( 'Thank you for your payment', 'metaps-for-wc' ),
+				'description' => __( 'send e-mail heading when check metaps PAYMENT after customer paid.', 'metaps-for-woocommerce' ),
+				'default'     => __( 'Thank you for your payment', 'metaps-for-woocommerce' ),
 			),
 			'processing_email_body'     => array(
-				'title'       => __( 'Email body when complete payment check', 'metaps-for-wc' ),
+				'title'       => __( 'Email body when complete payment check', 'metaps-for-woocommerce' ),
 				'type'        => 'textarea',
-				'description' => __( 'send e-mail Body when check metaps PAYMENT after customer paid.', 'metaps-for-wc' ),
-				'default'     => __( 'I checked your payment. Thank you. I will ship your order as soon as possible.', 'metaps-for-wc' ),
+				'description' => __( 'send e-mail Body when check metaps PAYMENT after customer paid.', 'metaps-for-woocommerce' ),
+				'default'     => __( 'I checked your payment. Thank you. I will ship your order as soon as possible.', 'metaps-for-woocommerce' ),
 			),
 			'payment_limit_description' => array(
-				'title'       => __( 'Explain Payment limit date', 'metaps-for-wc' ),
+				'title'       => __( 'Explain Payment limit date', 'metaps-for-woocommerce' ),
 				'type'        => 'text',
-				'description' => __( 'Explain Payment limite date in New order E-mail.', 'metaps-for-wc' ),
-				'default'     => __( 'The payment deadline is 10 days from completed the order.', 'metaps-for-wc' ),
+				'description' => __( 'Explain Payment limite date in New order E-mail.', 'metaps-for-woocommerce' ),
+				'default'     => __( 'The payment deadline is 10 days from completed the order.', 'metaps-for-woocommerce' ),
 			),
 			'debug'                     => array(
-				'title'       => __( 'Debug Mode', 'metaps-for-wc' ),
+				'title'       => __( 'Debug Mode', 'metaps-for-woocommerce' ),
 				'type'        => 'checkbox',
-				'label'       => __( 'Enable Debug Mode', 'metaps-for-wc' ),
+				'label'       => __( 'Enable Debug Mode', 'metaps-for-woocommerce' ),
 				'default'     => 'no',
-				'description' => __( 'Save debug data using WooCommerce logging.', 'metaps-for-wc' ),
+				'description' => __( 'Save debug data using WooCommerce logging.', 'metaps-for-woocommerce' ),
 			),
 		);
 	}
@@ -230,7 +230,7 @@ class WC_Gateway_Metaps_PE extends WC_Payment_Gateway {
 	 */
 	public function admin_options() {
 		?>
-		<h3><?php esc_html_e( 'metaps PAYMENT Pay Easy Payment', 'metaps-for-wc' ); ?></h3>
+		<h3><?php esc_html_e( 'metaps PAYMENT Pay Easy Payment', 'metaps-for-woocommerce' ); ?></h3>
 		<table class="form-table">
 		<?php $this->generate_settings_html(); ?>
 		</table>
@@ -253,6 +253,7 @@ class WC_Gateway_Metaps_PE extends WC_Payment_Gateway {
 	 *
 	 * @param int $order_id The order ID.
 	 * @return array
+	 * @throws Exception If there is a payment error.
 	 */
 	public function process_payment( $order_id ) {
 		$metaps_settings = get_option( 'woocommerce_metaps_settings' );
@@ -283,14 +284,14 @@ class WC_Gateway_Metaps_PE extends WC_Payment_Gateway {
 				$order->add_meta_data( '_metaps_payment_url', wc_clean( $response[6] ), true );
 				$order->save_meta_data();
 				$order->add_order_note(
-					__( 'Housing agency code : ', 'metaps-for-wc' ) . substr( $response[3], 0, 5 ) .
-					', ' . __( 'Customer Number : ', 'metaps-for-wc' ) . substr( $response[3], 6, 20 ) .
-					', ' . __( 'Authorization number : ', 'metaps-for-wc' ) . substr( $response[3], 27, 6 ) .
-					', ' . __( 'Confirmation URL : ', 'metaps-for-wc' ) . $response[6]
+					__( 'Housing agency code : ', 'metaps-for-woocommerce' ) . substr( $response[3], 0, 5 ) .
+					', ' . __( 'Customer Number : ', 'metaps-for-woocommerce' ) . substr( $response[3], 6, 20 ) .
+					', ' . __( 'Authorization number : ', 'metaps-for-woocommerce' ) . substr( $response[3], 27, 6 ) .
+					', ' . __( 'Confirmation URL : ', 'metaps-for-woocommerce' ) . $response[6]
 				);
 			}
 
-			$order->update_status( 'on-hold', __( 'This order is complete for pay.', 'metaps-for-wc' ) );
+			$order->update_status( 'on-hold', __( 'This order is complete for pay.', 'metaps-for-woocommerce' ) );
 			// Reduce stock levels.
 			$order->reduce_order_stock();
 
@@ -302,11 +303,15 @@ class WC_Gateway_Metaps_PE extends WC_Payment_Gateway {
 				'redirect' => $this->get_return_url( $order ),
 			);
 		} else {
-			$order->update_status( 'cancelled', __( 'This order is cancelled, because of Payment error.', 'metaps-for-wc' ) . ' ' . mb_convert_encoding( $response[2], 'UTF-8', 'auto' ) );
-			if ( is_checkout() ) {
-				wc_add_notice( __( 'Payment error:', 'metaps-for-wc' ) . mb_convert_encoding( $response[2], 'UTF-8', 'auto' ), 'error' );
+			$error_message = __( 'This order is cancelled, because of Payment error.', 'metaps-for-woocommerce' );
+			if ( isset( $response[2] ) ) {
+				$error_message = $error_message . ' ' . mb_convert_encoding( $response[2], 'UTF-8', 'sjis' );
 			}
-			return;
+			$order->update_status( 'cancelled', $error_message );
+
+			$front_error_message  = __( 'PayEasy payment failed.', 'metaps-for-woocommerce' );
+			$front_error_message .= __( 'Please try again.', 'metaps-for-woocommerce' );
+			throw new Exception( esc_html( $front_error_message ) );
 		}
 	}
 
@@ -325,11 +330,11 @@ class WC_Gateway_Metaps_PE extends WC_Payment_Gateway {
 		$flag = true;
 
 		foreach ( $zenkaku_array as $key => $value ) {
-			if ( $this->get_post( $key ) ) {
-				$key = $this->get_post( $key );
+			if ( $this->metaps_request->get_post( $key ) ) {
+				$key = $this->metaps_request->get_post( $key );
 				if ( $this->is_zenkaku( $key, false ) === false ) {
 					// translators: %s: Field name that must be in Zenkaku.
-					wc_add_notice( sprintf( __( 'ERROR : %s must be Zenkaku when you use Payeasy Payment.', 'metaps-for-wc' ), $value ), 'error' );
+					wc_add_notice( sprintf( __( 'ERROR : %s must be Zenkaku when you use Payeasy Payment.', 'metaps-for-woocommerce' ), $value ), 'error' );
 					$flag = false;
 				}
 			}
@@ -389,7 +394,7 @@ class WC_Gateway_Metaps_PE extends WC_Payment_Gateway {
 		$order       = wc_get_order( $order_id );
 		$payment_url = $order->get_meta( '_metaps_payment_url', true );
 
-		echo esc_html__( 'Payment Information URL : ', 'metaps-for-wc' ) . esc_url( $payment_url ) . '<br />' . PHP_EOL;
+		echo esc_html__( 'Payment Information URL : ', 'metaps-for-woocommerce' ) . esc_url( $payment_url ) . '<br />' . PHP_EOL;
 		if ( isset( $this->payeasy_email_desc ) ) {
 			echo esc_html( $this->payeasy_email_desc );
 		}
@@ -423,17 +428,17 @@ class WC_Gateway_Metaps_PE extends WC_Payment_Gateway {
 			$transaction_id            = $order->get_transaction_id();
 
 			if ( $order->get_payment_method() === 'metaps_pe' ) {
-				echo '<header class="title"><h3>' . esc_html__( 'Payment Detail', 'metaps-for-wc' ) . '</h3></header>';
+				echo '<header class="title"><h3>' . esc_html__( 'Payment Detail', 'metaps-for-woocommerce' ) . '</h3></header>';
 				echo '<table class="shop_table order_details">';
-				echo '<tr><th>' . esc_html__( 'Payment Detail', 'metaps-for-wc' ) . '</th>
-		<td>' . esc_html__( 'Housing agency code : ', 'metaps-for-wc' ) . esc_html( substr( $transaction_id, 0, 5 ) ) . '<br />'
-				. esc_html__( 'Customer Number : ', 'metaps-for-wc' ) . esc_html( substr( $transaction_id, 6, 20 ) ) . '<br />'
-				. esc_html__( 'Authorization number : ', 'metaps-for-wc' ) . esc_html( substr( $transaction_id, 27, 6 ) ) . '<br /></td></tr>'
+				echo '<tr><th>' . esc_html__( 'Payment Detail', 'metaps-for-woocommerce' ) . '</th>
+		<td>' . esc_html__( 'Housing agency code : ', 'metaps-for-woocommerce' ) . esc_html( substr( $transaction_id, 0, 5 ) ) . '<br />'
+				. esc_html__( 'Customer Number : ', 'metaps-for-woocommerce' ) . esc_html( substr( $transaction_id, 6, 20 ) ) . '<br />'
+				. esc_html__( 'Authorization number : ', 'metaps-for-woocommerce' ) . esc_html( substr( $transaction_id, 27, 6 ) ) . '<br /></td></tr>'
 				. PHP_EOL;
-				echo '<tr><th>' . esc_html__( 'Payment URL', 'metaps-for-wc' ) . '</th>
-		<td><a href="' . esc_url( $payment_url ) . '" target="_blank">' . esc_html__( 'Pay from here.', 'metaps-for-wc' ) . '</a></td></tr>' . PHP_EOL;
+				echo '<tr><th>' . esc_html__( 'Payment URL', 'metaps-for-woocommerce' ) . '</th>
+		<td><a href="' . esc_url( $payment_url ) . '" target="_blank">' . esc_html__( 'Pay from here.', 'metaps-for-woocommerce' ) . '</a></td></tr>' . PHP_EOL;
 				if ( isset( $payment_limit_description ) ) {
-					echo '<tr><th>' . esc_html__( 'Payment limit term', 'metaps-for-wc' ) . '</th><td>' . esc_html( $payment_limit_description ) . '</td></tr>' . PHP_EOL;
+					echo '<tr><th>' . esc_html__( 'Payment limit term', 'metaps-for-woocommerce' ) . '</th><td>' . esc_html( $payment_limit_description ) . '</td></tr>' . PHP_EOL;
 				}
 				echo '</table>';
 			}
@@ -488,18 +493,5 @@ class WC_Gateway_Metaps_PE extends WC_Payment_Gateway {
 			$payment_setting = get_option( 'woocommerce_metaps_pe_settings' );
 			echo esc_html( $payment_setting['processing_email_body'] );
 		}
-	}
-
-	/**
-	 * Get post data if set
-	 *
-	 * @param string $name Name of the post data.
-	 * @return string|null
-	 */
-	private function get_post( $name ) {
-		if ( isset( $_POST[ $name ] ) && isset( $_POST['_wpnonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), 'woocommerce-process_checkout' ) ) {
-			return sanitize_text_field( wp_unslash( $_POST[ $name ] ) );
-		}
-		return null;
 	}
 }

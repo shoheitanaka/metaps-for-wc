@@ -37,7 +37,7 @@ const useSettings = () => {
 			},
 		} ).then( () => {
 			createSuccessNotice(
-				__( 'Settings saved.', 'metaps-for-wc' )
+				__( 'Settings saved.', 'metaps-for-woocommerce' )
 			);
 		} );
 	};

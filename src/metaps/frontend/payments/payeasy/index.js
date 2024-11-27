@@ -8,7 +8,7 @@ const settings = getSetting( 'metaps_pe_data', {} );
 
 const defaultLabel = __(
 	'Pay-easy',
-	'metaps-for-wc'
+	'metaps-for-woocommerce'
 );
 
 const label = decodeEntities( settings.title ) || defaultLabel;

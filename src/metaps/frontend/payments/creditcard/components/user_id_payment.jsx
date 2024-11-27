@@ -9,21 +9,20 @@ const user_id_payment_setting = settings.user_id_payment || [];
 const UserIdPaymentSelectControl = () => {
 	const [ option, setOption ] = useState( 'yes' );
 	const user_id_payment_options = [
-		{ label: __( 'Use Stored Card.', 'metaps-for-wc' ), value: 'yes' },
-		{ label: __( 'Use New Card.', 'metaps-for-wc' ), value: 'no' },
+		{ label: __( 'Use Stored Card.', 'metaps-for-woocommerce' ), value: 'yes' },
+		{ label: __( 'Use New Card.', 'metaps-for-woocommerce' ), value: 'no' },
 	];
-	
+
 	return (
 		<div className='user_id_payment'>
 			{ user_id_payment_setting === 'yes' && 
 			<RadioControl
-				label={ __( 'User ID Payment', 'metaps-for-wc' ) }
+				label={ __( 'User ID Payment', 'metaps-for-woocommerce' ) }
 				className={ 'user_id_payment' }
 				id={ 'user_id_payment' }
 				selected={ option }
 				options={ user_id_payment_options }
-				onChange={ ( value ) => setOption( value )
-				}
+				onChange={ ( value ) => { setOption( value ); } }
 			/>
 			}
 		</div>

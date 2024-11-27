@@ -2,10 +2,11 @@ import { sprintf, __ } from '@wordpress/i18n';
 import { registerPaymentMethod } from '@woocommerce/blocks-registry';
 import { decodeEntities } from '@wordpress/html-entities';
 import { getSetting } from '@woocommerce/settings';
-import { useEffect, RawHTML } from '@wordpress/element';
+import { useEffect, RawHTML, useState } from '@wordpress/element';
 import { NumberOfPaymentsSelectControl } from './components/number_of_payments';
 import { UserIdPaymentSelectControl } from './components/user_id_payment';
 import { CreditCardInputControl } from './components/credit_card_form';
+import { getUserId } from '../hooks';
 
 /**
  * Internal dependencies
@@ -13,11 +14,11 @@ import { CreditCardInputControl } from './components/credit_card_form';
 import './index.scss';
 
 const settings = getSetting( 'metaps_cc_token_data', {} );
-const user_id_payment_setting = settings.user_id_payment || [];
+let user_id_payment_setting = settings.user_id_payment || [];
 
 const defaultLabel = __(
 	'Credit Card',
-	'metaps-for-wc'
+	'metaps-for-woocommerce'
 );
 
 const label = decodeEntities( settings.title ) || defaultLabel;
@@ -31,24 +32,66 @@ const description = decodeEntities( settings.description ) || '';
 const Content = ( props ) => {
 	const { eventRegistration } = props;
 	const { onPaymentSetup } = eventRegistration;
+	const { userSavedID, isLoggedIn } = getUserId();
+
 	useEffect(
 		() => 
 			onPaymentSetup( () => {
 				async function handlePaymentProcessing() {
-					const num = document.getElementById( 'number_of_payments' );
-					const number_of_payments = '';
-					let customDataIsValid = '';
-					if( num ) {
-						const number_of_payments = num.value;
-						customDataIsValid = !! number_of_payments.length;
+					let number_of_payments;
+					if ( settings.number_of_payments ){
+						const num = document.getElementById( 'number_of_payments' );
+						if( num ) {
+							number_of_payments = num.value;
+						}
 					}
-					const metaps_cc_token_id = document.getElementById( 'metaps_cc_token_id' ).value;
-					const metapsCCTokenIsValid = !! metaps_cc_token_id.length;
-					const metaps_cc_token_crno = document.getElementById( 'metaps_cc_token_crno' ).value;
-					const metaps_cc_token_exp_y = document.getElementById( 'metaps_cc_token_exp_y' ).value;
-					const metaps_cc_token_exp_m = document.getElementById( 'metaps_cc_token_exp_m' ).value;
 
-					if ( customDataIsValid !== undefined && metapsCCTokenIsValid ) {
+					if( userSavedID !== '' ){
+						user_id_payment_setting = 'yes';
+					} else {
+						user_id_payment_setting = 'no';
+					}
+
+					const selectedUserIdPaymentData = document.querySelector('input[name="user_id_payment"]:checked');
+					let user_id_payment;
+					if( selectedUserIdPaymentData ){
+						user_id_payment = selectedUserIdPaymentData.value;
+					}
+				
+					const metaps_cc_token_id_data = document.getElementById( 'metaps_cc_token_id' );
+					let metapsCCTokenIsValid;
+					let metaps_cc_token_id;
+					if( metaps_cc_token_id_data ){
+						metapsCCTokenIsValid = !! metaps_cc_token_id_data.value.length;
+						metaps_cc_token_id = metaps_cc_token_id_data.value;
+					}
+					const metaps_cc_token_crno_data = document.getElementById( 'metaps_cc_token_crno' );
+					const metaps_cc_token_exp_y_data = document.getElementById( 'metaps_cc_token_exp_y' );
+					const metaps_cc_token_exp_m_data = document.getElementById( 'metaps_cc_token_exp_m' );
+					let metaps_cc_token_crno;
+					if( metaps_cc_token_crno_data ){
+						metaps_cc_token_crno = metaps_cc_token_crno_data.value;
+					}
+					let metaps_cc_token_exp_y;
+					if( metaps_cc_token_exp_y_data ){
+						metaps_cc_token_exp_y = metaps_cc_token_exp_y_data.value;
+					}
+					let metaps_cc_token_exp_m;
+					if( metaps_cc_token_exp_m_data ){
+						metaps_cc_token_exp_m = metaps_cc_token_exp_m_data.value;
+					}
+
+					if( user_id_payment === 'yes' ){
+						return {
+							type: 'success',
+							meta: {
+								paymentMethodData: {
+									number_of_payments,
+									user_id_payment,
+								},
+							},
+						};
+					} else if ( metapsCCTokenIsValid === true ) {
 						return {
 							type: 'success',
 							meta: {
@@ -65,7 +108,7 @@ const Content = ( props ) => {
 
 					return {
 						type: 'error',
-						message: __( 'Your credit card information has not been entered correctly. Please check the number of digits, etc.', 'metaps-for-wc' ),
+						message: __( 'Your credit card information has not been entered correctly. Please check the number of digits, etc.', 'metaps-for-woocommerce' ),
 					};
 				}
 				return handlePaymentProcessing();
@@ -73,15 +116,16 @@ const Content = ( props ) => {
 		),
 	[
 		onPaymentSetup,
+		userSavedID
 	] );
 
 	return (
 		<div className={ 'metaps_cc_token' }>
 			<RawHTML>{ description }</RawHTML>
-			{ user_id_payment_setting === 'yes' && 
+			{ user_id_payment_setting === 'yes' && isLoggedIn && 
 				<UserIdPaymentSelectControl />
 			}
-			{ user_id_payment_setting !== 'yes' &&
+			{ user_id_payment_setting !== 'yes' || isLoggedIn === false &&
 				<CreditCardInputControl />
 			}
 			<NumberOfPaymentsSelectControl />

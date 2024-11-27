@@ -92,7 +92,7 @@ const CreditCardInputControl = ( prof ) => {
 		// Validation of the month
 		const monthNum = parseInt(month, 10);
 		if (monthNum < 1 || monthNum > 12) {
-		  alert( __( 'Please enter a month between 01 and 12.', 'metaps-for-wc' ) );
+		  alert( __( 'Please enter a month between 01 and 12.', 'metaps-for-woocommerce' ) );
 		  setExpiryDate('');
 		  inputRef.current.focus();
 		  return;
@@ -123,7 +123,7 @@ const CreditCardInputControl = ( prof ) => {
 		const today = new Date(currentDate.getFullYear(), currentDate.getMonth());
 	
 		if (expiry < today) {
-		  alert( __( 'The expiration date must be the current year or later.', 'metaps-for-wc' ) );
+		  alert( __( 'The expiration date must be the current year or later.', 'metaps-for-woocommerce' ) );
 		  setExpiryDate('');
 		  inputRef.current.focus();
 		  return;

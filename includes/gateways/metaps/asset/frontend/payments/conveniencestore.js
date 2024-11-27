@@ -28,41 +28,41 @@ const CVStoreSelectControl = props => {
   const cvstoreSelect = [];
   if (settings.setting_cs_sv === 'yes') {
     cvstoreSelect.push({
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Seven-Eleven', 'metaps-for-wc'),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Seven-Eleven', 'metaps-for-woocommerce'),
       value: '2'
     });
   }
   if (settings.setting_cs_lp === 'yes') {
     cvstoreSelect.push({
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Lawson, MINISTOP', 'metaps-for-wc'),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Lawson, MINISTOP', 'metaps-for-woocommerce'),
       value: '5'
     });
   }
   if (settings.setting_cs_fm === 'yes') {
     cvstoreSelect.push({
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('family mart', 'metaps-for-wc'),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('family mart', 'metaps-for-woocommerce'),
       value: '3'
     });
   }
   if (settings.setting_cs_ol === 'yes') {
     cvstoreSelect.push({
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Daily Yamazaki', 'metaps-for-wc'),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Daily Yamazaki', 'metaps-for-woocommerce'),
       value: '73'
     });
   }
   if (settings.setting_cs_sm === 'yes') {
     cvstoreSelect.push({
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Seicomart', 'metaps-for-wc'),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Seicomart', 'metaps-for-woocommerce'),
       value: '6'
     });
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Convenience Store', 'metaps-for-wc'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Convenience Store', 'metaps-for-woocommerce'),
     className: 'convenience',
     id: 'convenience',
     size: 'compact',
     options: cvstoreSelect,
-    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please select the payment method of %s.', 'metaps-for-wc').replace('%s', (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Convenience Store', 'metaps-for-wc'))
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please select the payment method of %s.', 'metaps-for-woocommerce').replace('%s', (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Convenience Store', 'metaps-for-woocommerce'))
   });
 };
 
@@ -1610,7 +1610,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const settings = (0,_woocommerce_settings__WEBPACK_IMPORTED_MODULE_3__.getSetting)('metaps_cs_data', {});
-const defaultLabel = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Convenience store', 'metaps-for-wc');
+const defaultLabel = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Convenience store', 'metaps-for-woocommerce');
 const label = (0,_wordpress_html_entities__WEBPACK_IMPORTED_MODULE_2__.decodeEntities)(settings.title) || defaultLabel;
 const description = (0,_wordpress_html_entities__WEBPACK_IMPORTED_MODULE_2__.decodeEntities)(settings.description) || '';
 
@@ -1640,7 +1640,7 @@ const Content = props => {
       }
       return {
         type: 'error',
-        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Convenience store is not selected properly.', 'metaps-for-wc')
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Convenience store is not selected properly.', 'metaps-for-woocommerce')
       };
     }
     return handlePaymentProcessing();

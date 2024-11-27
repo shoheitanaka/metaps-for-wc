@@ -34,26 +34,26 @@ if ( ! class_exists( 'WC_JP4WC_Checkout_Add_Fields' ) ) {
 			woocommerce_register_additional_checkout_field(
 				array(
 					'id'            => 'jp4wc/yomigana-last-name',
-					'label'         => __( 'Last Name Yomigana', 'metaps-for-wc' ),
-					'optionalLabel' => __( 'Last Name Yomigana (optional)', 'metaps-for-wc' ),
+					'label'         => __( 'Last Name Yomigana', 'metaps-for-woocommerce' ),
+					'optionalLabel' => __( 'Last Name Yomigana (optional)', 'metaps-for-woocommerce' ),
 					'location'      => 'address',
 					'required'      => false,
 					'attributes'    => array(
-						'aria-label' => __( 'Last Name Yomigana', 'metaps-for-wc' ),
-						'title'      => __( 'Last Name Yomigana', 'metaps-for-wc' ),
+						'aria-label' => __( 'Last Name Yomigana', 'metaps-for-woocommerce' ),
+						'title'      => __( 'Last Name Yomigana', 'metaps-for-woocommerce' ),
 					),
 				),
 			);
 			woocommerce_register_additional_checkout_field(
 				array(
 					'id'            => 'jp4wc/yomigana-first-name',
-					'label'         => __( 'First Name Yomigana', 'metaps-for-wc' ),
-					'optionalLabel' => __( 'First Name Yomigana (optional)', 'metaps-for-wc' ),
+					'label'         => __( 'First Name Yomigana', 'metaps-for-woocommerce' ),
+					'optionalLabel' => __( 'First Name Yomigana (optional)', 'metaps-for-woocommerce' ),
 					'location'      => 'address',
 					'required'      => true,
 					'attributes'    => array(
-						'aria-label' => __( 'First Name Yomigana', 'metaps-for-wc' ),
-						'title'      => __( 'First Name Yomigana', 'metaps-for-wc' ),
+						'aria-label' => __( 'First Name Yomigana', 'metaps-for-woocommerce' ),
+						'title'      => __( 'First Name Yomigana', 'metaps-for-woocommerce' ),
 					),
 				),
 			);
@@ -67,16 +67,16 @@ if ( ! class_exists( 'WC_JP4WC_Checkout_Add_Fields' ) ) {
 		 */
 		public function address_add_yomigana_fields( $fields ) {
 			$fields['JP']['jp4wc/yomigana-last-name']  = array(
-				'label'       => __( 'Last Name Yomigana', 'metaps-for-wc' ),
-				'placeholder' => _x( 'Last Name Yomigana', 'placeholder', 'metaps-for-wc' ),
+				'label'       => __( 'Last Name Yomigana', 'metaps-for-woocommerce' ),
+				'placeholder' => _x( 'Last Name Yomigana', 'placeholder', 'metaps-for-woocommerce' ),
 				'required'    => false,
 				'class'       => array( 'form-row-first' ),
 				'clear'       => true,
 				'priority'    => 25,
 			);
 			$fields['JP']['jp4wc/yomigana-first-name'] = array(
-				'label'       => __( 'First Name Yomigana', 'metaps-for-wc' ),
-				'placeholder' => _x( 'First Name Yomigana', 'placeholder', 'metaps-for-wc' ),
+				'label'       => __( 'First Name Yomigana', 'metaps-for-woocommerce' ),
+				'placeholder' => _x( 'First Name Yomigana', 'placeholder', 'metaps-for-woocommerce' ),
 				'required'    => false,
 				'class'       => array( 'form-row-last' ),
 				'clear'       => true,

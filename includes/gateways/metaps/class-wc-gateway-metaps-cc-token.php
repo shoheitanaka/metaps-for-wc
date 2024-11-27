@@ -106,12 +106,12 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 	public function __construct() {
 		$this->id           = 'metaps_cc_token';
 		$this->has_fields   = true;
-		$this->method_title = esc_html__( 'Metaps Credit Card Token', 'metaps-for-wc' );
+		$this->method_title = esc_html__( 'Metaps Credit Card Token', 'metaps-for-woocommerce' );
 
 		// Create plugin fields and settings.
 		$this->init_form_fields();
 		$this->init_settings();
-		$this->method_description = esc_html__( 'Metaps Credit Card Token Payment Gateway.', 'metaps-for-wc' );
+		$this->method_description = esc_html__( 'Metaps Credit Card Token Payment Gateway.', 'metaps-for-woocommerce' );
 		$this->supports           = array(
 			'subscriptions',
 			'products',
@@ -133,7 +133,7 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 
 		// When no save setting error at chackout page.
 		if ( is_null( $this->title ) ) {
-			$this->title = esc_html__( 'Please set this payment at Control Panel! ', 'metaps-for-wc' ) . esc_html( $this->method_title );
+			$this->title = esc_html__( 'Please set this payment at Control Panel! ', 'metaps-for-woocommerce' ) . esc_html( $this->method_title );
 		}
 
 		// Get setting values.
@@ -153,80 +153,80 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 	public function init_form_fields() {
 		$this->form_fields = array(
 			'enabled'            => array(
-				'title'       => __( 'Enable/Disable', 'metaps-for-wc' ),
-				'label'       => __( 'Enable metaps PAYMENT Credit Card Token Payment', 'metaps-for-wc' ),
+				'title'       => __( 'Enable/Disable', 'metaps-for-woocommerce' ),
+				'label'       => __( 'Enable metaps PAYMENT Credit Card Token Payment', 'metaps-for-woocommerce' ),
 				'type'        => 'checkbox',
 				'description' => '',
 				'default'     => 'no',
 			),
 			'title'              => array(
-				'title'       => __( 'Title', 'metaps-for-wc' ),
+				'title'       => __( 'Title', 'metaps-for-woocommerce' ),
 				'type'        => 'text',
-				'description' => __( 'This controls the title which the user sees during checkout.', 'metaps-for-wc' ),
-				'default'     => __( 'Credit Card', 'metaps-for-wc' ),
+				'description' => __( 'This controls the title which the user sees during checkout.', 'metaps-for-woocommerce' ),
+				'default'     => __( 'Credit Card', 'metaps-for-woocommerce' ),
 			),
 			'description'        => array(
-				'title'       => __( 'Description', 'metaps-for-wc' ),
+				'title'       => __( 'Description', 'metaps-for-woocommerce' ),
 				'type'        => 'textarea',
-				'description' => __( 'This controls the description which the user sees during checkout.', 'metaps-for-wc' ),
-				'default'     => __( 'Pay with your credit card via metaps PAYMENT.', 'metaps-for-wc' ),
+				'description' => __( 'This controls the description which the user sees during checkout.', 'metaps-for-woocommerce' ),
+				'default'     => __( 'Pay with your credit card via metaps PAYMENT.', 'metaps-for-woocommerce' ),
 			),
 			'order_button_text'  => array(
-				'title'       => __( 'Order Button Text', 'metaps-for-wc' ),
+				'title'       => __( 'Order Button Text', 'metaps-for-woocommerce' ),
 				'type'        => 'text',
-				'description' => __( 'This controls the description which the user sees during checkout.', 'metaps-for-wc' ),
-				'default'     => __( 'Proceed to metaps PAYMENT Credit Card', 'metaps-for-wc' ),
+				'description' => __( 'This controls the description which the user sees during checkout.', 'metaps-for-woocommerce' ),
+				'default'     => __( 'Proceed to metaps PAYMENT Credit Card', 'metaps-for-woocommerce' ),
 			),
 			'ip_code'            => array(
-				'title'       => __( 'IP Code', 'metaps-for-wc' ),
+				'title'       => __( 'IP Code', 'metaps-for-woocommerce' ),
 				'type'        => 'text',
-				'description' => __( 'Enter IP Code here.', 'metaps-for-wc' ),
+				'description' => __( 'Enter IP Code here.', 'metaps-for-woocommerce' ),
 			),
 			'pass_code'          => array(
-				'title'       => __( 'IP Password', 'metaps-for-wc' ),
+				'title'       => __( 'IP Password', 'metaps-for-woocommerce' ),
 				'type'        => 'text',
-				'description' => __( 'Enter IP Password here', 'metaps-for-wc' ),
+				'description' => __( 'Enter IP Password here', 'metaps-for-woocommerce' ),
 			),
 			'paymentaction'      => array(
 				'title'       => __( 'Payment Action', 'woocommerce' ),
 				'type'        => 'select',
 				'class'       => 'wc-enhanced-select',
-				'description' => __( 'Choose whether you wish to capture funds immediately or authorize payment only.', 'metaps-for-wc' ),
+				'description' => __( 'Choose whether you wish to capture funds immediately or authorize payment only.', 'metaps-for-woocommerce' ),
 				'default'     => 'sale',
 				'desc_tip'    => true,
 				'options'     => array(
-					'sale'          => __( 'Capture', 'metaps-for-wc' ),
-					'authorization' => __( 'Authorize', 'metaps-for-wc' ),
+					'sale'          => __( 'Capture', 'metaps-for-woocommerce' ),
+					'authorization' => __( 'Authorize', 'metaps-for-woocommerce' ),
 				),
 			),
 			'user_id_payment'    => array(
-				'title'       => __( 'User ID Payment', 'metaps-for-wc' ),
+				'title'       => __( 'User ID Payment', 'metaps-for-woocommerce' ),
 				'id'          => 'wc-userid-payment',
 				'type'        => 'checkbox',
-				'label'       => __( 'User ID Payment', 'metaps-for-wc' ),
+				'label'       => __( 'User ID Payment', 'metaps-for-woocommerce' ),
 				'default'     => 'yes',
-				'description' => __( 'Use the payment method of User ID payment.', 'metaps-for-wc' ),
+				'description' => __( 'Use the payment method of User ID payment.', 'metaps-for-woocommerce' ),
 			),
 			'payment_time_text'  => array(
-				'title'       => __( 'Payment Time Text', 'metaps-for-wc' ),
+				'title'       => __( 'Payment Time Text', 'metaps-for-woocommerce' ),
 				'type'        => 'text',
-				'description' => __( 'This controls the description which the user sees during checkout.', 'metaps-for-wc' ),
-				'default'     => __( 'Payment Times : ', 'metaps-for-wc' ),
+				'description' => __( 'This controls the description which the user sees during checkout.', 'metaps-for-woocommerce' ),
+				'default'     => __( 'Payment Times : ', 'metaps-for-woocommerce' ),
 			),
 			'number_of_payments' => array(
-				'title'       => __( 'Number of payments', 'metaps-for-wc' ),
+				'title'       => __( 'Number of payments', 'metaps-for-woocommerce' ),
 				'type'        => 'multiselect',
 				'class'       => 'wc-number-select',
-				'description' => __( 'Choose whether you wish to capture funds immediately or authorize payment only.', 'metaps-for-wc' ),
+				'description' => __( 'Choose whether you wish to capture funds immediately or authorize payment only.', 'metaps-for-woocommerce' ),
 				'desc_tip'    => true,
 				'options'     => $this->array_number_of_payments,
 			),
 			'debug'              => array(
-				'title'       => __( 'Debug Mode', 'metaps-for-wc' ),
+				'title'       => __( 'Debug Mode', 'metaps-for-woocommerce' ),
 				'type'        => 'checkbox',
-				'label'       => __( 'Enable Debug Mode', 'metaps-for-wc' ),
+				'label'       => __( 'Enable Debug Mode', 'metaps-for-woocommerce' ),
 				'default'     => 'no',
-				'description' => __( 'Save debug data using WooCommerce logging.', 'metaps-for-wc' ),
+				'description' => __( 'Save debug data using WooCommerce logging.', 'metaps-for-woocommerce' ),
 			),
 		);
 	}
@@ -244,22 +244,9 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 		$metaps_user_id       = get_user_meta( $user->ID, '_metaps_user_id', true );
 		if ( 'yes' === $this->user_id_payment && '' !== $metaps_user_id && is_user_logged_in() ) {
 			?>
-			<input type="radio" name="select_card" value="old" checked="checked" onclick="document.getElementById('metaps-new-info').style.display='none'"><span style="padding-left:15px;"><?php echo esc_html__( 'Use Stored Card.', 'metaps-for-wc' ); ?></span><br />
-				<?php
-				$metaps_setting = get_option( 'woocommerce_metaps_cc_token_settings' );
-				if ( isset( $metaps_setting['payment_time_text'] ) ) {
-					echo '<label>' . esc_html( $metaps_setting['payment_time_text'] ) . '</label>';
-				}
-				if ( ! empty( $this->number_of_payments ) ) {
-					echo '<select name="number_of_payments">';
-					foreach ( $this->number_of_payments as $key => $value ) {
-						echo '<option value="' . esc_attr( $value ) . '">' . esc_html( $number_payment_array[ $value ] ) . '</option>';
-					}
-					echo '</select>';
-				}
-				?>
+			<input type="radio" name="user_id_payment" value="yes" checked="checked" onclick="document.getElementById('metaps-new-info').style.display='none'"><span style="padding-left:15px;"><?php echo esc_html__( 'Use Stored Card.', 'metaps-for-woocommerce' ); ?></span><br />
 			<br />
-			<input type="radio" name="select_card" value="new" onclick="document.getElementById('metaps-new-info').style.display='block'"><span style="padding-left:15px;"><?php echo esc_html__( 'Use New Card.', 'metaps-for-wc' ); ?></span><br />
+			<input type="radio" name="user_id_payment" value="no" onclick="document.getElementById('metaps-new-info').style.display='block'"><span style="padding-left:15px;"><?php echo esc_html__( 'Use New Card.', 'metaps-for-woocommerce' ); ?></span><br />
 				<?php
 		}
 		if ( 'yes' === $this->user_id_payment && '' !== $metaps_user_id && is_user_logged_in() ) {
@@ -273,18 +260,19 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 		$cc_form->id       = $this->id;
 		$cc_form->supports = $this->supports;
 		$cc_form->form();
+		echo '</div>';
+		// Show the number of payments.
 		$metaps_setting = get_option( 'woocommerce_metaps_cc_token_settings' );
 		if ( isset( $metaps_setting['payment_time_text'] ) ) {
 			echo '<label>' . esc_html( $metaps_setting['payment_time_text'] ) . '</label>';
 		}
 		if ( ! empty( $this->number_of_payments ) ) {
-			echo '<select name="number_of_payments_token">';
+			echo '<select name="number_of_payments">';
 			foreach ( $this->number_of_payments as $key => $value ) {
 				echo '<option value="' . esc_attr( $value ) . '">' . esc_html( $number_payment_array[ $value ] ) . '</option>';
 			}
 			echo '</select>';
 		}
-		echo '</div>';
 		echo wp_kses_post( $this::mataps_javascript_code() );
 	}
 
@@ -299,7 +287,7 @@ document.getElementById("metaps_cc_token-card-number").addEventListener("input",
 document.getElementById("metaps_cc_token-card-expiry").addEventListener("input", metapspaymentToken);
 var metapspaymentToken = function () {
 	if(jQuery(":radio[name=payment_method]:checked").val() != 'metaps_cc_token'){return;}
-	if(jQuery(":radio[name='select_card']:checked").val() == "old"){return;}
+	if(jQuery(":radio[name='user_id_payment']:checked").val() == "yes"){return;}
 	var cr = document.getElementById('metaps_cc_token-card-number').value ;
 	cr = cr.replace(/ /g, '');
 	var cs = document.getElementById('metaps_cc_token-card-cvc').value ;
@@ -320,7 +308,7 @@ var metapspaymentToken = function () {
 var metapspaymentResponseHandler = function(status, response) {
 	var token_id = jQuery("#metaps_cc_token_id");
 	if (response.error) {
-	var select_card = jQuery("input[name='select_card']:checked").val();
+	var user_id_payment = jQuery("input[name='user_id_payment']:checked").val();
 	} else {
 	token_id.val(response.id);
 	document.getElementById('metaps_cc_token_crno').value = response.crno ;
@@ -351,14 +339,14 @@ jQuery(function($){
 		$('#metaps_cc_token-card-cvc').val('');
 		$('#metaps_cc_token_id').val('');
 		if (id == "payment_method_metaps_cc_token"){
-			if(select_card = $("input[name='select_card']:checked").val() == "new") {
+			if(user_id_payment = $("input[name='user_id_payment']:checked").val() == "no") {
 				$('#place_order').prop("disabled", true);
 			}
 		} else {
 			$('#place_order').prop("disabled", false);
 		}
 	});
-	$(":radio[name='select_card']").on('change', function(){
+	$(":radio[name='user_id_payment']").on('change', function(){
 		$('#metaps_cc_token-card-number').val('');
 		$('#metaps_cc_token-card-expiry').val('');
 		$('#metaps_cc_token-card-cvc').val('');
@@ -371,8 +359,8 @@ jQuery(function($){
 	});
 	$( document.body ).on( 'checkout_error', function() {
 		if ( $(':radio[name=payment_method]:checked').val() == "metaps_cc_token"){
-			selectcard = $(":radio[name='select_card']:checked").val()
-			if ( selectcard == null || selectcard == "new"){
+			selectcard = $(":radio[name='user_id_payment']:checked").val()
+			if ( selectcard == null || selectcard == "no"){
 				$('#metaps_cc_token_id').val('');
 				$('#metaps_cc_token-card-number').val('');
 				$('#metaps_cc_token-card-expiry').val('');
@@ -425,7 +413,7 @@ EOF;
 		$setting_data['pass'] = $this->pass_code;
 		// User ID payment check.
 		$setting_data['store'] = '51';
-		if ( 'yes' === $this->user_id_payment && 'old' === $this->get_post( 'select_card' ) && is_user_logged_in() ) {
+		if ( 'yes' === $this->user_id_payment && 'yes' === $this->get_post( 'user_id_payment' ) && is_user_logged_in() ) {
 			$setting_data['store'] = null;
 		}
 
@@ -439,11 +427,7 @@ EOF;
 		$setting_data['sid']  = $prefix_order . $order_id;
 
 		// Number of Payment check.
-		if ( '51' === $setting_data['store'] ) {
-			$number_of_payments = $this->get_post( 'number_of_payments_token' );
-		} else {
-			$number_of_payments = $this->get_post( 'number_of_payments' );
-		}
+		$number_of_payments = $this->get_post( 'number_of_payments' );
 		if ( isset( $number_of_payments ) ) {
 			if ( 21 === $number_of_payments || 80 === $number_of_payments ) {
 				$setting_data['paymode'] = $number_of_payments;
@@ -458,9 +442,9 @@ EOF;
 		$setting_data['token'] = $this->get_post( 'metaps_cc_token_id' );
 		if ( isset( $setting_data['store'] ) ) {// When not use user id payment.
 			$connect_url = METAPS_CS_SALES_URL;
-			$order->add_order_note( __( 'Finished to send payment data to metaps PAYMENT.', 'metaps-for-wc' ) );
+			$order->add_order_note( __( 'Finished to send payment data to metaps PAYMENT.', 'metaps-for-woocommerce' ) );
 
-			$response = $this->metaps_request->metaps_post_request( $order, $connect_url, $setting_data, $this->debug );
+			$response = $this->metaps_request->metaps_post_request( $order, $connect_url, $setting_data, $this->debug, 'yes' );
 
 			if ( isset( $response[0] ) && substr( $response[0], 0, 2 ) === 'OK' ) {
 				if ( isset( $response[1] ) ) {
@@ -474,7 +458,7 @@ EOF;
 				}
 
 				// Mark as processing.
-				$order->update_status( 'processing', __( 'Payment received, awaiting fulfilment', 'metaps-for-wc' ) );
+				$order->update_status( 'processing', __( 'Payment received, awaiting fulfilment', 'metaps-for-woocommerce' ) );
 				// Reduce stock levels.
 				wc_reduce_stock_levels( $order_id );
 				// Remove cart.
@@ -486,16 +470,19 @@ EOF;
 				);
 			} else {
 				$error_message = 'This order is cancelled, because of Payment error.' . mb_convert_encoding( $response[2], 'UTF-8', 'sjis' );
-				$order->update_status( 'cancelled', __( 'This order is cancelled, because of Payment error: ', 'metaps-for-wc' ) . $error_message );
-				$front_error_message = __( 'Credit card payment failed. Please try again.' );
+				$order->update_status( 'cancelled', __( 'This order is cancelled, because of Payment error: ', 'metaps-for-woocommerce' ) . $error_message );
+
+				$front_error_message  = __( 'Credit card payment failed.', 'metaps-for-woocommerce' );
+				$front_error_message .= __( 'Please try again.', 'metaps-for-woocommerce' );
 				throw new Exception( esc_html( $front_error_message ) );
 			}
 		} else { // When use user id payment.
-			$connect_url = METAPS_CC_SALES_USER_URL;
-			$response    = $this->metaps_request->metaps_post_request( $order, $connect_url, $setting_data, $this->debug );
+			$setting_data['IP_USER_ID'] = get_user_meta( $user->ID, '_metaps_user_id', true );
+			$connect_url                = METAPS_CC_SALES_USER_URL;
+			$response                   = $this->metaps_request->metaps_post_request( $order, $connect_url, $setting_data, $this->debug, 'yes' );
 			if ( isset( $response[0] ) && substr( $response[0], 0, 2 ) === 'OK' ) {
 				update_user_meta( $user->ID, '_metaps_user_id', $customer_id );
-				$order->add_order_note( __( 'Finished to send payment data to metaps PAYMENT.', 'metaps-for-wc' ) );
+				$order->add_order_note( __( 'Finished to send payment data to metaps PAYMENT.', 'metaps-for-woocommerce' ) );
 				// Reduce stock levels.
 				wc_reduce_stock_levels( $order_id );
 				return array(
@@ -503,25 +490,35 @@ EOF;
 					'redirect' => $this->get_return_url( $order ),
 				);
 			} else {
-				if ( is_checkout() ) {
-					wc_add_notice( __( 'Payment error:', 'metaps-for-wc' ) . mb_convert_encoding( $response[2], 'UTF-8', 'sjis' ), 'error' );
-				}
-				$error_message = 'This order is cancelled, because of Payment error: ' . mb_convert_encoding( $response[2], 'UTF-8', 'sjis' );
-				$order->update_status( 'cancelled', __( 'This order is cancelled, because of Payment error: ', 'metaps-for-wc' ) . $error_message );
-				$front_error_message = __( 'Credit card payment failed. Please try again.' );
+				$error_message = __( 'This order is cancelled, because of Payment error: ', 'metaps-for-woocommerce' ) . mb_convert_encoding( $response[2], 'UTF-8', 'sjis' );
+				$order->update_status( 'cancelled', __( 'This order is cancelled, because of Payment error: ', 'metaps-for-woocommerce' ) . $error_message );
+				$front_error_message = __( 'Credit card payment failed. Please try again.', 'metaps-for-woocommerce' );
 				throw new Exception( esc_html( $front_error_message ) );
 			}
 		}
 	}
+
 	/**
 	 * Validate input fields
 	 *
 	 * @return bool
 	 */
 	public function validate_fields() {
-		$token = $this->get_post( 'metaps_cc_token_id' );
-		if ( is_null( $this->get_post( 'select_card' ) ) && empty( $token ) ) {
-			wc_add_notice( __( 'Payment error:', 'metaps-for-wc' ) . __( 'Enter your card details', 'metaps-for-wc' ), 'error' );
+		$token           = $this->get_post( 'metaps_cc_token_id' );
+		$user_id_payment = $this->get_post( 'user_id_payment' );
+		if ( isset( $user_id_payment ) && empty( $token ) && 'yes' !== $user_id_payment ) {
+			wc_add_notice( __( 'Payment error:', 'metaps-for-woocommerce' ) . __( 'Enter your card details', 'metaps-for-woocommerce' ), 'error' );
+			return false;
+		}
+
+		// Get the WC_Checkout object.
+		$checkout = WC()->checkout();
+
+		$billing_phone = $checkout->get_value( 'billing_phone' );
+		$billing_email = $checkout->get_value( 'billing_email' );
+
+		if ( empty( $billing_phone ) && empty( $billing_email ) ) {
+			wc_add_notice( __( 'A phone number or email address is required for credit card payments.', 'metaps-for-woocommerce' ), 'error' );
 			return false;
 		}
 		return true;
@@ -541,8 +538,8 @@ EOF;
 		if ( ! $order ) {
 			return false;
 		} elseif ( $amount !== $order->order_total ) {
-			$order->add_order_note( __( 'Auto refund must total only. ', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
-			return new WP_Error( 'metaps_refund_error', __( 'Auto refund must total only. ', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+			$order->add_order_note( __( 'Auto refund must total only. ', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
+			return new WP_Error( 'metaps_refund_error', __( 'Auto refund must total only. ', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 		}
 		$metaps_settings = get_option( 'woocommerce_metaps_settings' );
 		$prefix_order    = $metaps_settings['prefixorder'];
@@ -557,23 +554,23 @@ EOF;
 		if ( 'completed' === $status ) {
 			$response = $this->metaps_request->metaps_request( $data, $cansel_connect_url, $order, $this->debug );
 			if ( isset( $response ) && substr( $response, 0, 10 ) === 'C-CHECK:OK' ) {
-				$order->add_order_note( __( 'This order is refunded now at metaps PAYMENT.', 'metaps-for-wc' ) );
+				$order->add_order_note( __( 'This order is refunded now at metaps PAYMENT.', 'metaps-for-woocommerce' ) );
 				return true;
 			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C-CHECK:NG' ) {
 				if ( substr( $response, -3, 1 ) === '2' ) {
-					$order->add_order_note( __( 'This order has already auth canselled.', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+					$order->add_order_note( __( 'This order has already auth canselled.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 				} elseif ( substr( $response, -3, 1 ) === '3' ) {
-					$order->add_order_note( __( 'This order has completed.', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+					$order->add_order_note( __( 'This order has completed.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 				} elseif ( substr( $response, -3, 1 ) === '4' ) {
-					$order->add_order_note( __( 'This order has already canselled.', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+					$order->add_order_note( __( 'This order has already canselled.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 				}
-				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C-CHECK:TO' ) {
-				$order->add_order_note( __( 'Expired. Status not changed.', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
-				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+				$order->add_order_note( __( 'Expired. Status not changed.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
+				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C-CHECK:ER' ) {
-				$order->add_order_note( __( 'Error has happend. Status not changed.', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
-				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+				$order->add_order_note( __( 'Error has happend. Status not changed.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
+				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 			}
 		} else {
 			if ( 'sale' === $this->paymentaction ) {
@@ -582,25 +579,25 @@ EOF;
 				$response = $this->metaps_request->metaps_request( $data, $refund_connect_url, $order, $this->debug );
 			}
 			if ( isset( $response ) && substr( $response, 0, 10 ) === 'C-CHECK:OK' ) {
-				$order->add_order_note( __( 'This order is refunded now at metaps PAYMENT.', 'metaps-for-wc' ) );
+				$order->add_order_note( __( 'This order is refunded now at metaps PAYMENT.', 'metaps-for-woocommerce' ) );
 				return true;
 			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C-CHECK:NG' ) {
 				if ( substr( $response, -3, 1 ) === '1' ) {
-					$order->add_order_note( __( 'This order is authorized now.', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+					$order->add_order_note( __( 'This order is authorized now.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 				} elseif ( substr( $response, -3, 1 ) === '2' ) {
-					$order->add_order_note( __( 'This order has already auth canselled.', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+					$order->add_order_note( __( 'This order has already auth canselled.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 				} elseif ( substr( $response, -3, 1 ) === '3' ) {
-					$order->add_order_note( __( 'This order has completed.', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+					$order->add_order_note( __( 'This order has completed.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 				} elseif ( substr( $response, -3, 1 ) === '4' ) {
-					$order->add_order_note( __( 'This order has already canselled.', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+					$order->add_order_note( __( 'This order has already canselled.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 				}
-				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C-CHECK:TO' ) {
-				$order->add_order_note( __( 'Expired. Status not changed.', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
-				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+				$order->add_order_note( __( 'Expired. Status not changed.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
+				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C-CHECK:ER' ) {
-				$order->add_order_note( __( 'Error has happend. Status not changed.', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
-				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+				$order->add_order_note( __( 'Error has happend. Status not changed.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
+				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 			}
 		}
 	}
@@ -612,12 +609,9 @@ EOF;
 	 * @return string
 	 */
 	private function get_post( $name ) {
-		if ( isset( $_POST['woocommerce-process-checkout-nonce'] )
-		&& wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['woocommerce-process-checkout-nonce'] ) ), 'woocommerce-process_checkout' )
-		&& isset( $_POST[ $name ] ) ) {
-			return sanitize_text_field( wp_unslash( $_POST[ $name ] ) );
-		} else {
-			return sanitize_text_field( wp_unslash( $_POST[ $name ] ) );
+		$checkout = WC()->checkout();
+		if ( $checkout ) {
+			return $checkout->get_value( $name );
 		}
 		return null;
 	}
@@ -631,7 +625,7 @@ EOF;
 				'metaps_token_script',
 				'//www.paydesign.jp/settle/token/metapsToken-min.js',
 				array(),
-				'1.0.0',
+				METAPS_FOR_WC_VERSION,
 				false
 			);
 		}
@@ -669,13 +663,13 @@ EOF;
 							// Payment complete.
 							$order->payment_complete();
 						} elseif ( 'completed' === $order->get_status() && 'sale' === $payment_setting->paymentaction ) {
-							$order->add_order_note( __( 'This order has already completed.', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+							$order->add_order_note( __( 'This order has already completed.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 						}
 						return true;
 					} elseif ( substr( $response, -3, 1 ) === '2' ) {
-						$order->add_order_note( __( 'This order has already auth canselled.', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+						$order->add_order_note( __( 'This order has already auth canselled.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 					} elseif ( substr( $response, -3, 1 ) === '4' ) {
-						$order->add_order_note( __( 'This order has already canselled.', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+						$order->add_order_note( __( 'This order has already canselled.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 					}
 					add_filter(
 						'woocommerce_email_actions',
@@ -691,7 +685,7 @@ EOF;
 					);
 					wp_update_post( $update_post_data );
 				} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C-CHECK:ER' ) {
-					$order->add_order_note( __( 'Error has happend. Status not changed.', 'metaps-for-wc' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-wc' ) );
+					$order->add_order_note( __( 'Error has happend. Status not changed.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
 				}
 				return false;
 			} else {

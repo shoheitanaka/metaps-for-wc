@@ -29,11 +29,11 @@ const PrefixOrderTextControl = ({
   onChange
 }) => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Prefix Order', 'metaps-for-wc'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Prefix Order', 'metaps-for-woocommerce'),
     className: "prefix_order_text",
     onChange: onChange,
     value: value,
-    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please input Word for prefix of Order Number and Customer ID. Alphabet only.', 'metaps-for-wc')
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please input Word for prefix of Order Number and Customer ID. Alphabet only.', 'metaps-for-woocommerce')
   });
 };
 const CreditCardCheckControl = ({
@@ -41,8 +41,8 @@ const CreditCardCheckControl = ({
   onChange
 }) => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.CheckboxControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Credit Card', 'metaps-for-wc'),
-    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please check it if you want to use the payment method of %s.', 'metaps-for-wc').replace('%s', (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Credit Card', 'metaps-for-wc')),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Credit Card', 'metaps-for-woocommerce'),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please check it if you want to use the payment method of %s.', 'metaps-for-woocommerce').replace('%s', (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Credit Card', 'metaps-for-woocommerce')),
     className: "credit_card_check",
     checked: value,
     onChange: onChange
@@ -53,8 +53,8 @@ const CreditCardTokenCheckControl = ({
   onChange
 }) => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.CheckboxControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Credit Card with Token', 'metaps-for-wc'),
-    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please check it if you want to use the payment method of %s.', 'metaps-for-wc').replace('%s', (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Credit Card with Token', 'metaps-for-wc')),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Credit Card with Token', 'metaps-for-woocommerce'),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please check it if you want to use the payment method of %s.', 'metaps-for-woocommerce').replace('%s', (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Credit Card with Token', 'metaps-for-woocommerce')),
     className: "credit_card_token_check",
     checked: value,
     onChange: onChange
@@ -65,8 +65,8 @@ const ConveniencePaymentsCheckControl = ({
   onChange
 }) => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.CheckboxControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Convenience Payments', 'metaps-for-wc'),
-    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please check it if you want to use the payment method of %s.', 'metaps-for-wc').replace('%s', (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Convenience Payments', 'metaps-for-wc')),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Convenience Payments', 'metaps-for-woocommerce'),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please check it if you want to use the payment method of %s.', 'metaps-for-woocommerce').replace('%s', (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Convenience Payments', 'metaps-for-woocommerce')),
     className: "convenience_payments_check",
     checked: value,
     onChange: onChange
@@ -77,8 +77,8 @@ const PayEasyPaymentCheckControl = ({
   onChange
 }) => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.CheckboxControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Pay-Easy Payment', 'metaps-for-wc'),
-    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please check it if you want to use the payment method of %s.', 'metaps-for-wc').replace('%s', (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Pay-Easy Payment', 'metaps-for-wc')),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Pay-Easy Payment', 'metaps-for-woocommerce'),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please check it if you want to use the payment method of %s.', 'metaps-for-woocommerce').replace('%s', (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Pay-Easy Payment', 'metaps-for-woocommerce')),
     className: "pay_easy_payment_check",
     checked: value,
     onChange: onChange
@@ -168,7 +168,7 @@ __webpack_require__.r(__webpack_exports__);
 const SettingsTitle = () => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.__experimentalHeading, {
     level: 1,
-    children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Metaps Payments settings', 'metaps-for-wc')
+    children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Metaps Payments settings', 'metaps-for-woocommerce')
   });
 };
 const SaveButton = ({
@@ -178,7 +178,7 @@ const SaveButton = ({
     variant: "primary",
     onClick: onClick,
     __next40pxDefaultSize: true,
-    children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Save', 'metaps-for-wc')
+    children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Save', 'metaps-for-woocommerce')
   });
 };
 const SettingsPage = () => {
@@ -198,7 +198,7 @@ const SettingsPage = () => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingsTitle, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_notices__WEBPACK_IMPORTED_MODULE_3__.Notices, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Panel, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('metaps Payment Initial Setting', 'metaps-for-wc'),
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('metaps Payment Initial Setting', 'metaps-for-woocommerce'),
         className: 'metaps-panels',
         initialOpen: true,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelRow, {
@@ -208,13 +208,13 @@ const SettingsPage = () => {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelRow, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            children: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Payment completion notification', 'metaps-for-wc'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-              children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please use following url for URL for payment completion notification.', 'metaps-for-wc')
+            children: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Payment completion notification', 'metaps-for-woocommerce'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please use following url for URL for payment completion notification.', 'metaps-for-woocommerce')
             })]
           })
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('metaps Payment Payment Method', 'metaps-for-wc'),
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('metaps Payment Payment Method', 'metaps-for-woocommerce'),
         className: 'metaps-payment-method',
         initialOpen: true,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelRow, {
@@ -322,7 +322,7 @@ const useSettings = () => {
         }
       }
     }).then(() => {
-      createSuccessNotice((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Settings saved.', 'metaps-for-wc'));
+      createSuccessNotice((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Settings saved.', 'metaps-for-woocommerce'));
     });
   };
   return {

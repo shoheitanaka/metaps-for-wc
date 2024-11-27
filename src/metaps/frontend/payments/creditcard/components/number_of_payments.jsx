@@ -12,7 +12,7 @@ const NumberOfPaymentsSelectControl = () => {
 	}
 	return (
 		<SelectControl
-			label={ __( 'Number of Payments', 'metaps-for-wc' ) }
+			label={ __( 'Number of Payments', 'metaps-for-woocommerce' ) }
 			className={ 'number_of_payments' }
 			labelPosition={ 'side' }
 			id={ 'number_of_payments' }
