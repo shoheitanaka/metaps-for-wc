@@ -6,7 +6,7 @@
  * @package  Metaps_For_WC
  * @author   Shohei Tanaka
  * @license  GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.html
- * @version  0.9.0
+ * @version  0.9.2
  * @link     https://github.com/artisanworkshop/metaps-for-wc
  * @php      8.2.0
  */
@@ -140,11 +140,10 @@ class WC_Admin_Screen_Metaps {
 	/**
 	 * Enqueue style and script.
 	 *
-	 * @param string $admin_page Admin page.
 	 * @since 1.0.0
 	 * @return void
 	 */
-	public function wc_admin_metaps_settings_page_enqueue_style_script( $admin_page ) {
+	public function wc_admin_metaps_settings_page_enqueue_style_script() {
 		$screen = get_current_screen();
 		if ( $this->get_screen_id() === $screen->id ) {
 			$asset_file = METAPS_FOR_WC_DIR . 'includes/gateways/metaps/asset/admin/settings.asset.php';
@@ -176,6 +175,13 @@ class WC_Admin_Screen_Metaps {
 					'in_footer' => true,
 				)
 			);
+			// Set translations.
+			wp_set_script_translations(
+				'metaps-for-wc-admin-script',
+				'metaps-for-woocommerce',
+				METAPS_FOR_WC_DIR . 'i18n'
+			);
+
 		}
 	}
 }

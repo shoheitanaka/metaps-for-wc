@@ -16,6 +16,7 @@ import {
     ConveniencePaymentsCheckControl,
     PayEasyPaymentCheckControl,
 } from './controls';
+import { useSelect } from '@wordpress/data';
 
 const SettingsTitle = () => {
 	return (
@@ -47,6 +48,9 @@ const SettingsPage = () => {
         setPayEasyPaymentCheck,
 		saveSettings,
 	} = useSettings();
+    const siteUrl = useSelect((select) =>
+        select('core').getSite()
+    )?.url;
 
     return (
 		<>
@@ -67,7 +71,8 @@ const SettingsPage = () => {
                 <PanelRow>
                     <div>
                         { __( 'Payment completion notification', 'metaps-for-woocommerce' ) }<br/>
-                        <span>{ __( 'Please use following url for URL for payment completion notification.', 'metaps-for-woocommerce' ) }</span>
+                        <span>{ __( 'Please use following url for URL for payment completion notification.', 'metaps-for-woocommerce' ) }</span><br />
+						{ siteUrl }/wp-json/metaps/v1/check_payment/ <br/>
                     </div>
                 </PanelRow>
             </PanelBody>

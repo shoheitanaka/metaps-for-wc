@@ -10,7 +10,7 @@ use Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodTyp
 /**
  * Metaps Credit Card Payments Blocks integration.
  *
- * @since 1.0.3
+ * @since 0.9.2
  */
 final class WC_Metaps_CC_Payments_Blocks_Support extends AbstractPaymentMethodType {
 
@@ -34,7 +34,9 @@ final class WC_Metaps_CC_Payments_Blocks_Support extends AbstractPaymentMethodTy
 	public function initialize() {
 		$this->settings = get_option( 'woocommerce_metaps_cc_settings', array() );
 		$gateways       = WC()->payment_gateways->payment_gateways();
-		$this->gateway  = $gateways[ $this->name ];
+		if ( isset( $gateways[ $this->name ] ) ) {
+			$this->gateway = $gateways[ $this->name ];
+		}
 	}
 
 	/**

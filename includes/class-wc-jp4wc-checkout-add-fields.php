@@ -31,6 +31,9 @@ if ( ! class_exists( 'WC_JP4WC_Checkout_Add_Fields' ) ) {
 		 * Add checkout
 		 */
 		public function checkout_add_yomigana_fields() {
+			if ( ! function_exists( 'woocommerce_register_additional_checkout_field' ) ) {
+				return;
+			}
 			woocommerce_register_additional_checkout_field(
 				array(
 					'id'            => 'jp4wc/yomigana-last-name',
