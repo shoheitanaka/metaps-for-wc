@@ -8,8 +8,14 @@ import { NumberOfPaymentsSelectControl } from './components/number_of_payments';
 import { UserIdPaymentSelectControl } from './components/user_id_payment';
 import { getUserId } from '../hooks';
 
+/**
+ * Internal dependencies
+ */
+import './index.scss';
+
 const settings = getSetting( 'metaps_cc_data', {} );
 const user_id_payment_setting = settings.user_id_payment || [];
+const numberOfPayments = settings.number_of_payments;
 
 const defaultLabel = __(
 	'Credit Card',
@@ -98,7 +104,7 @@ const Content = ( props ) => {
 			{ user_id_payment_setting === 'yes' && isLoggedIn && 
 				<UserIdPaymentSelectControl />
 			}
-			<NumberOfPaymentsSelectControl />
+			{ numberOfPayments && <NumberOfPaymentsSelectControl /> }
 		</div>
 	);
 };

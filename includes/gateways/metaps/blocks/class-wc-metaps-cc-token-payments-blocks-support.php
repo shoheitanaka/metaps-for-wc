@@ -69,12 +69,14 @@ final class WC_Metaps_CC_Token_Payments_Blocks_Support extends AbstractPaymentMe
 			$script_asset['version'],
 			true
 		);
-		wp_enqueue_style(
-			'wc-metaps-cc-token-payments-blocks',
-			METAPS_FOR_WC_URL . 'includes/gateways/metaps/asset/frontend/payments/creditcardtoken.css',
-			array(),
-			$script_asset['version']
-		);
+		if ( is_checkout() ) {
+			wp_enqueue_style(
+				'wc-metaps-cc-token-payments-blocks',
+				METAPS_FOR_WC_URL . 'includes/gateways/metaps/asset/frontend/payments/creditcardtoken.css',
+				array(),
+				$script_asset['version']
+			);
+		}
 
 		if ( function_exists( 'wp_set_script_translations' ) ) {
 			wp_set_script_translations( 'wc-metaps-cc-token-payments-blocks', 'metaps-for-woocommerce', METAPS_FOR_WC_DIR . 'i18n/' );

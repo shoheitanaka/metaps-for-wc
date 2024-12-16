@@ -1,10 +1,10 @@
 === Metaps Payments for WooCommerce ===
-Contributors: artisan-workshop-1, shohei.tanaka
+Contributors: metapspayment, artisan-workshop-1, shohei.tanaka
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=info@artws.info&item_name=Donation+for+Artisan&currency_code=JPY
 Tags: woocommerce, ecommerce, e-commerce, Japanese
 Requires at least: 6.5.0
 Tested up to: 6.7.1
-Stable tag: 0.9.2
+Stable tag: 0.9.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -21,6 +21,10 @@ Checkout Blocks compatible.
 2. Credit Card Payment with TOKEN.
 3. Convenience Store Payment.
 4. Payeasy Payment.
+
+== External services ==
+This plugin connects to external services to use services such as obtaining tokens from metaps payments to make payments.
+In addition, you will need to complete a contract with metaps payments to use the payments.
 
 == Installation ==
 

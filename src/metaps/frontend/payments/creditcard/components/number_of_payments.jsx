@@ -10,15 +10,19 @@ const NumberOfPaymentsSelectControl = () => {
 	for (let i = 0; i < numberOfPayments.length; i++) {
 		numberOfPaymentsSelect.push( { label: numberOfPayments[i].value, value: numberOfPayments[i].id } );
 	}
+	const NumberOfPaymentsSelectControl = <SelectControl
+		label={ __( 'Number of Payments', 'metaps-for-woocommerce' ) }
+		className={ 'number_of_payments' }
+		labelPosition={ 'side' }
+		id={ 'number_of_payments' }
+		size={ 'compact' }
+		options={ numberOfPaymentsSelect }
+		/>;
+
 	return (
-		<SelectControl
-			label={ __( 'Number of Payments', 'metaps-for-woocommerce' ) }
-			className={ 'number_of_payments' }
-			labelPosition={ 'side' }
-			id={ 'number_of_payments' }
-			size={ 'compact' }
-			options={ numberOfPaymentsSelect }
-		/>
+		<div className='number_of_payments'>
+			{ numberOfPayments && NumberOfPaymentsSelectControl }
+		</div>
 	);
 };
 

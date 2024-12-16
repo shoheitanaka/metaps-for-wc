@@ -3,7 +3,7 @@
  * Plugin Name: Metaps Payments for WooCommerce
  * Plugin URI: https://www.wordpress.org/plugins/metaps-for-woocommerce/
  * Description: Metaps for WooCommerce is a WooCommerce payment extention plugin.
- * Version: 0.9.2
+ * Version: 0.9.3
  * Author: Shohei Tanaka
  * Author URI: https://wc.artws.info/
  * Text Domain: metaps-for-woocommerce
@@ -285,7 +285,7 @@ if ( ! class_exists( 'WC_Metaps_Payments' ) ) :
 			if ( isset( $current_screen->id ) && $current_screen->id === $metaps_for_wc_pages ) {
 				if ( ! get_option( 'metaps_for_wc_footer_text_rated' ) ) {
 					// translators: %1$s and %2$s are placeholders for the opening and closing anchor tags respectively.
-					$footer_text = sprintf( __( 'If you like <strong>metaps PAYMENT for WooCommerce.</strong> please leave us a %1$s&#9733;&#9733;&#9733;&#9733;&#9733;%2$s rating. A huge thanks in advance!', 'metaps-for-woocommerce' ), '<a href="https://wordpress.org/support/plugin/woocommerce-for-japan/reviews/#postform" target="_blank" class="wc4jp-rating-link" data-rated="' . esc_attr__( 'Thanks :)', 'woocommerce-for-japan' ) . '">', '</a>' );
+					$footer_text = sprintf( __( 'If you like <strong>metaps PAYMENT for WooCommerce.</strong> please leave us a %1$s&#9733;&#9733;&#9733;&#9733;&#9733;%2$s rating. A huge thanks in advance!', 'metaps-for-woocommerce' ), '<a href="https://wordpress.org/support/plugin/metaps-for-woocommerce/reviews/#postform" target="_blank" class="wc4jp-rating-link" data-rated="' . esc_attr__( 'Thanks :)', 'metaps-for-woocommerce' ) . '">', '</a>' );
 					wc_enqueue_js(
 						"
 						jQuery( 'a.wc4jp-rating-link' ).click( function() {
@@ -395,7 +395,7 @@ if ( ! class_exists( 'WC_Metaps_Payments' ) ) :
 			?>
 			<div class="error">
 				<ul>
-					<li><?php esc_html_e( 'metaps PAYMENT for WooCommerce is enabled but not effective. It requires WooCommerce in order to work.', 'woocommerce-for-japan' ); ?></li>
+					<li><?php esc_html_e( 'metaps PAYMENT for WooCommerce is enabled but not effective. It requires WooCommerce in order to work.', 'metaps-for-woocommerce' ); ?></li>
 				</ul>
 			</div>
 			<?php

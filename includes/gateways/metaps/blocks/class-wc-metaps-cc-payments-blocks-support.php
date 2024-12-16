@@ -10,7 +10,7 @@ use Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodTyp
 /**
  * Metaps Credit Card Payments Blocks integration.
  *
- * @since 0.9.2
+ * @since 0.9.3
  */
 final class WC_Metaps_CC_Payments_Blocks_Support extends AbstractPaymentMethodType {
 
@@ -71,6 +71,14 @@ final class WC_Metaps_CC_Payments_Blocks_Support extends AbstractPaymentMethodTy
 			$script_asset['version'],
 			true
 		);
+		if ( is_checkout() ) {
+			wp_enqueue_style(
+				'wc-metaps-cc-payments-blocks',
+				METAPS_FOR_WC_URL . 'includes/gateways/metaps/asset/frontend/payments/creditcard.css',
+				array(),
+				$script_asset['version']
+			);
+		}
 
 		if ( function_exists( 'wp_set_script_translations' ) ) {
 			wp_set_script_translations( 'wc-metaps-cc-payments-blocks', 'metaps-for-woocommerce', METAPS_FOR_WC_DIR . 'i18n/' );

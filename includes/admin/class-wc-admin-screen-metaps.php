@@ -6,7 +6,7 @@
  * @package  Metaps_For_WC
  * @author   Shohei Tanaka
  * @license  GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.html
- * @version  0.9.2
+ * @version  0.9.3
  * @link     https://github.com/artisanworkshop/metaps-for-wc
  * @php      8.2.0
  */
@@ -128,13 +128,26 @@ class WC_Admin_Screen_Metaps {
 			'options',
 			'woocommerce_metaps_settings',
 			array(
-				'type'         => 'object',
-				'default'      => $default,
-				'show_in_rest' => array(
+				'type'              => 'object',
+				'default'           => $default,
+				'sanitize_callback' => array( $this, 'metaps_for_wc_sanitize_settings' ),
+				'show_in_rest'      => array(
 					'schema' => $schema,
 				),
 			)
 		);
+	}
+
+	/**
+	 * Sanitize Metaps settings.
+	 *
+	 * @param mixed $input The input to sanitize.
+	 * @return string Sanitized input.
+	 */
+	public function metaps_for_wc_sanitize_settings( $input ) {
+		$input = (object) $input;
+		$input = array_map( 'sanitize_text_field', (array) $input );
+		return $input;
 	}
 
 	/**

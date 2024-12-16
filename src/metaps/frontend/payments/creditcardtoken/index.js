@@ -4,8 +4,8 @@ import { decodeEntities } from '@wordpress/html-entities';
 import { getSetting } from '@woocommerce/settings';
 import { useEffect, RawHTML, useState } from '@wordpress/element';
 import { NumberOfPaymentsSelectControl } from './components/number_of_payments';
-import { UserIdPaymentSelectControl } from './components/user_id_payment';
 import { CreditCardInputControl } from './components/credit_card_form';
+import { UserIdPaymentSelectControl } from './components/user_id_payment';
 import { getUserId } from '../hooks';
 
 /**
@@ -15,6 +15,7 @@ import './index.scss';
 
 const settings = getSetting( 'metaps_cc_token_data', {} );
 let user_id_payment_setting = settings.user_id_payment || [];
+const numberOfPayments = settings.number_of_payments;
 
 const defaultLabel = __(
 	'Credit Card',
@@ -128,7 +129,9 @@ const Content = ( props ) => {
 			{ user_id_payment_setting !== 'yes' || isLoggedIn === false &&
 				<CreditCardInputControl />
 			}
-			<NumberOfPaymentsSelectControl />
+			{ numberOfPayments &&
+				<NumberOfPaymentsSelectControl />
+			}
 		</div>
 	);
 };

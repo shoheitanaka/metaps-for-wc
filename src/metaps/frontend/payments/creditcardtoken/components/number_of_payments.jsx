@@ -1,4 +1,4 @@
-import { sprintf, __ } from '@wordpress/i18n';
+import { __ } from '@wordpress/i18n';
 import { getSetting } from '@woocommerce/settings';
 import { SelectControl } from '@wordpress/components';
 
