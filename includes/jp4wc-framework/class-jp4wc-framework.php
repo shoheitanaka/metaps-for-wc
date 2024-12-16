@@ -637,8 +637,22 @@ if ( ! class_exists( '\\ArtisanWorkshop\\PluginFramework\\v2_0_12\\JP4WC_Framewo
 		 * @return int The ID of an order, or 0 if the order could not be found
 		 */
 		public function get_order_id_by_transaction_id( $transaction_id ) {
-			global $wpdb;
-			return $wpdb->get_var( $wpdb->prepare( "SELECT post_id FROM {$wpdb->prefix}postmeta WHERE meta_key = '_transaction_id' AND meta_value = %s", $transaction_id ) );
+			$order_query = new WC_Order_Query(
+				array(
+					'limit'       => 1,
+					'return'      => 'ids',
+					'meta_key'    => '_transaction_id',
+					'meta_value'  => $transaction_id,
+					'post_status' => array_keys( wc_get_order_statuses() ),
+				)
+			);
+
+			$orders = $order_query->get_orders();
+			if ( ! empty( $orders ) ) {
+				return $orders[0];
+			} else {
+				return false;
+			}
 		}
 
 		/**

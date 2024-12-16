@@ -33,13 +33,17 @@ const NumberOfPaymentsSelectControl = () => {
       value: numberOfPayments[i].id
     });
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+  const NumberOfPaymentsSelectControl = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Number of Payments', 'metaps-for-woocommerce'),
     className: 'number_of_payments',
     labelPosition: 'side',
     id: 'number_of_payments',
     size: 'compact',
     options: numberOfPaymentsSelect
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    className: "number_of_payments",
+    children: numberOfPayments && NumberOfPaymentsSelectControl
   });
 };
 
@@ -156,6 +160,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getUserId: () => (/* reexport safe */ _get_user_id__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _get_user_id__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./get_user_id */ "./src/metaps/frontend/payments/hooks/get_user_id.jsx");
+
+
+/***/ }),
+
+/***/ "./src/metaps/frontend/payments/creditcard/index.scss":
+/*!************************************************************!*\
+  !*** ./src/metaps/frontend/payments/creditcard/index.scss ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
 
 
 /***/ }),
@@ -1686,7 +1702,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_number_of_payments__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/number_of_payments */ "./src/metaps/frontend/payments/creditcard/components/number_of_payments.jsx");
 /* harmony import */ var _components_user_id_payment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/user_id_payment */ "./src/metaps/frontend/payments/creditcard/components/user_id_payment.jsx");
 /* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../hooks */ "./src/metaps/frontend/payments/hooks/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./index.scss */ "./src/metaps/frontend/payments/creditcard/index.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -1694,10 +1711,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+/**
+ * Internal dependencies
+ */
 
 
 const settings = (0,_woocommerce_settings__WEBPACK_IMPORTED_MODULE_3__.getSetting)('metaps_cc_data', {});
 const user_id_payment_setting = settings.user_id_payment || [];
+const numberOfPayments = settings.number_of_payments;
 const defaultLabel = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Credit Card', 'metaps-for-woocommerce');
 const label = (0,_wordpress_html_entities__WEBPACK_IMPORTED_MODULE_2__.decodeEntities)(settings.title) || defaultLabel;
 const description = (0,_wordpress_html_entities__WEBPACK_IMPORTED_MODULE_2__.decodeEntities)(settings.description) || '';
@@ -1766,11 +1789,11 @@ const Content = props => {
     }
     return handlePaymentProcessing();
   }), [onPaymentSetup, userSavedID]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
     className: 'metaps_cc',
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.RawHTML, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.RawHTML, {
       children: description
-    }), user_id_payment_setting === 'yes' && isLoggedIn && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_user_id_payment__WEBPACK_IMPORTED_MODULE_6__.UserIdPaymentSelectControl, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_number_of_payments__WEBPACK_IMPORTED_MODULE_5__.NumberOfPaymentsSelectControl, {})]
+    }), user_id_payment_setting === 'yes' && isLoggedIn && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_user_id_payment__WEBPACK_IMPORTED_MODULE_6__.UserIdPaymentSelectControl, {}), numberOfPayments && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_number_of_payments__WEBPACK_IMPORTED_MODULE_5__.NumberOfPaymentsSelectControl, {})]
   });
 };
 
@@ -1783,7 +1806,7 @@ const Label = props => {
   const {
     PaymentMethodLabel
   } = props.components;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(PaymentMethodLabel, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(PaymentMethodLabel, {
     text: label
   });
 };
@@ -1793,9 +1816,9 @@ const Label = props => {
  */
 const MetapsCC = {
   name: "metaps_cc",
-  label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(Label, {}),
-  content: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(Content, {}),
-  edit: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(Content, {}),
+  label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(Label, {}),
+  content: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(Content, {}),
+  edit: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(Content, {}),
   canMakePayment: () => true,
   ariaLabel: label,
   supports: {

@@ -188,7 +188,7 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 				'description' => __( 'Enter IP Password here', 'metaps-for-woocommerce' ),
 			),
 			'paymentaction'      => array(
-				'title'       => __( 'Payment Action', 'woocommerce' ),
+				'title'       => __( 'Payment Action', 'metaps-for-woocommerce' ),
 				'type'        => 'select',
 				'class'       => 'wc-enhanced-select',
 				'description' => __( 'Choose whether you wish to capture funds immediately or authorize payment only.', 'metaps-for-woocommerce' ),
@@ -280,25 +280,25 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 	 * Outputs the JavaScript code for handling Metaps payment tokenization.
 	 */
 	private function mataps_javascript_code() {
-		$message = <<<EOF
+		$message = '
 <script language="javascript">
 document.getElementById("metaps_cc_token-card-cvc").addEventListener("input", metapspaymentToken);
 document.getElementById("metaps_cc_token-card-number").addEventListener("input", metapspaymentToken);
 document.getElementById("metaps_cc_token-card-expiry").addEventListener("input", metapspaymentToken);
 var metapspaymentToken = function () {
-	if(jQuery(":radio[name=payment_method]:checked").val() != 'metaps_cc_token'){return;}
-	if(jQuery(":radio[name='user_id_payment']:checked").val() == "yes"){return;}
-	var cr = document.getElementById('metaps_cc_token-card-number').value ;
-	cr = cr.replace(/ /g, '');
-	var cs = document.getElementById('metaps_cc_token-card-cvc').value ;
-	var exp_my = document.getElementById('metaps_cc_token-card-expiry').value ;
-	exp_my = exp_my.replace(/ /g, '');
-	exp_my = exp_my.replace('/', '');
+	if(jQuery(":radio[name=payment_method]:checked").val() != "metaps_cc_token"){return;}
+	if(jQuery(":radio[name="user_id_payment"]:checked").val() == "yes"){return;}
+	var cr = document.getElementById("metaps_cc_token-card-number").value ;
+	cr = cr.replace(/ /g, "");
+	var cs = document.getElementById("metaps_cc_token-card-cvc").value ;
+	var exp_my = document.getElementById("metaps_cc_token-card-expiry").value ;
+	exp_my = exp_my.replace(/ /g, "");
+	exp_my = exp_my.replace("/", "");
 	var exp_m = exp_my.substr(0,2);
 	var exp_y = exp_my.substr(2).substr(-2);
-	jQuery('#place_order').prop("disabled", true);
+	jQuery("#place_order").prop("disabled", true);
 	if(metapspayment.validateCardNumber(cr) && metapspayment.validateExpiry(exp_m,exp_y) && metapspayment.validateCSC(cs)){
-		jQuery("#metaps_cc_token_id").val('');
+		jQuery("#metaps_cc_token_id").val("");
 		metapspayment.setTimeout(20000);
 		metapspayment.setLang("ja");
 		metapspayment.createToken({number:cr,csc:cs,exp_m:exp_m,exp_y:exp_y},metapspaymentResponseHandler);
@@ -308,66 +308,66 @@ var metapspaymentToken = function () {
 var metapspaymentResponseHandler = function(status, response) {
 	var token_id = jQuery("#metaps_cc_token_id");
 	if (response.error) {
-	var user_id_payment = jQuery("input[name='user_id_payment']:checked").val();
+	var user_id_payment = jQuery("input[name="user_id_payment"]:checked").val();
 	} else {
 	token_id.val(response.id);
-	document.getElementById('metaps_cc_token_crno').value = response.crno ;
-	document.getElementById('metaps_cc_token_r_exp_y').value = response.exp_y ;
-	document.getElementById('metaps_cc_token_r_exp_m').value = response.exp_m ;
+	document.getElementById("metaps_cc_token_crno").value = response.crno ;
+	document.getElementById("metaps_cc_token_r_exp_y").value = response.exp_y ;
+	document.getElementById("metaps_cc_token_r_exp_m").value = response.exp_m ;
 	}
-	if(token_id.val() != ''){
-	jQuery('#place_order').prop("disabled", false);
+	if(token_id.val() != ""){
+	jQuery("#place_order").prop("disabled", false);
 	}
 }
 
 jQuery(function($){
-	$('#place_order').focus(function (){
-		$('#metaps_cc_token-card-number').prop("disabled", true);
-		$('#metaps_cc_token-card-expiry').prop("disabled", true);
-		$('#metaps_cc_token-card-cvc').prop("disabled", true);
+	$("#place_order").focus(function (){
+		$("#metaps_cc_token-card-number").prop("disabled", true);
+		$("#metaps_cc_token-card-expiry").prop("disabled", true);
+		$("#metaps_cc_token-card-cvc").prop("disabled", true);
 	});
-	$('#place_order').blur(function (){
-		$('#metaps_cc_token-card-number').prop("disabled", false);
-		$('#metaps_cc_token-card-expiry').prop("disabled", false);
-		$('#metaps_cc_token-card-cvc').prop("disabled", false);
+	$("#place_order").blur(function (){
+		$("#metaps_cc_token-card-number").prop("disabled", false);
+		$("#metaps_cc_token-card-expiry").prop("disabled", false);
+		$("#metaps_cc_token-card-cvc").prop("disabled", false);
 	});
-	$(":radio[name=payment_method]").on('change', function(){
-		var checked = $(this).prop('checked');
+	$(":radio[name=payment_method]").on("change", function(){
+		var checked = $(this).prop("checked");
 		var id = this.id;
-		$('#metaps_cc_token-card-number').val('');
-		$('#metaps_cc_token-card-expiry').val('');
-		$('#metaps_cc_token-card-cvc').val('');
-		$('#metaps_cc_token_id').val('');
+		$("#metaps_cc_token-card-number").val("");
+		$("#metaps_cc_token-card-expiry").val("");
+		$("#metaps_cc_token-card-cvc").val("");
+		$("#metaps_cc_token_id").val("");
 		if (id == "payment_method_metaps_cc_token"){
-			if(user_id_payment = $("input[name='user_id_payment']:checked").val() == "no") {
-				$('#place_order').prop("disabled", true);
+			if(user_id_payment = $("input[name="user_id_payment"]:checked").val() == "no") {
+				$("#place_order").prop("disabled", true);
 			}
 		} else {
-			$('#place_order').prop("disabled", false);
+			$("#place_order").prop("disabled", false);
 		}
 	});
-	$(":radio[name='user_id_payment']").on('change', function(){
-		$('#metaps_cc_token-card-number').val('');
-		$('#metaps_cc_token-card-expiry').val('');
-		$('#metaps_cc_token-card-cvc').val('');
-		$('#metaps_cc_token_id').val('');
+	$(":radio[name="user_id_payment"]").on("change", function(){
+		$("#metaps_cc_token-card-number").val("");
+		$("#metaps_cc_token-card-expiry").val("");
+		$("#metaps_cc_token-card-cvc").val("");
+		$("#metaps_cc_token_id").val("");
 		if ($(this).val() == "new") {
-			$('#place_order').prop("disabled", true);
+			$("#place_order").prop("disabled", true);
 		} else {
-			$('#place_order').prop("disabled", false);
+			$("#place_order").prop("disabled", false);
 		}
 	});
-	$( document.body ).on( 'checkout_error', function() {
-		if ( $(':radio[name=payment_method]:checked').val() == "metaps_cc_token"){
-			selectcard = $(":radio[name='user_id_payment']:checked").val()
+	$( document.body ).on( "checkout_error", function() {
+		if ( $(":radio[name=payment_method]:checked").val() == "metaps_cc_token"){
+			selectcard = $(":radio[name="user_id_payment"]:checked").val()
 			if ( selectcard == null || selectcard == "no"){
-				$('#metaps_cc_token_id').val('');
-				$('#metaps_cc_token-card-number').val('');
-				$('#metaps_cc_token-card-expiry').val('');
-				$('#metaps_cc_token-card-cvc').val('');
-				$('#metaps_cc_token-card-number').prop("disabled", false);
-				$('#metaps_cc_token-card-expiry').prop("disabled", false);
-				$('#metaps_cc_token-card-cvc').prop("disabled", false);
+				$("#metaps_cc_token_id").val("");
+				$("#metaps_cc_token-card-number").val("");
+				$("#metaps_cc_token-card-expiry").val("");
+				$("#metaps_cc_token-card-cvc").val("");
+				$("#metaps_cc_token-card-number").prop("disabled", false);
+				$("#metaps_cc_token-card-expiry").prop("disabled", false);
+				$("#metaps_cc_token-card-cvc").prop("disabled", false);
 			}
 		}
 	});
@@ -377,8 +377,8 @@ jQuery(function($){
 <input type="hidden" name="metaps_cc_token_crno" id="metaps_cc_token_crno"/>
 <input type="hidden" name="metaps_cc_token_r_exp_y" id="metaps_cc_token_r_exp_y"/>
 <input type="hidden" name="metaps_cc_token_r_exp_m" id="metaps_cc_token_r_exp_m"/>
-<input type="hidden" name="metaps_cc_token_id" id="metaps_cc_token_id"/>';
-EOF;
+<input type="hidden" name="metaps_cc_token_id" id="metaps_cc_token_id"/>";
+		';
 		echo esc_js( $message );
 	}
 
@@ -402,7 +402,7 @@ EOF;
 		if ( isset( $user->ID ) && 0 !== $user->ID ) {
 			$customer_id = $prefix_order . $user->ID;
 		} else {
-			$customer_id = $prefix_order . $order_id . '-user';
+			$customer_id = $prefix_order . $order_id . ' - user';
 		}
 
 		// Set User id.
@@ -442,7 +442,7 @@ EOF;
 		$setting_data['token'] = $this->get_post( 'metaps_cc_token_id' );
 		if ( isset( $setting_data['store'] ) ) {// When not use user id payment.
 			$connect_url = METAPS_CS_SALES_URL;
-			$order->add_order_note( __( 'Finished to send payment data to metaps PAYMENT.', 'metaps-for-woocommerce' ) );
+			$order->add_order_note( __( 'Finished to send payment data to metaps PAYMENT . ', 'metaps-for-woocommerce' ) );
 
 			$response = $this->metaps_request->metaps_post_request( $order, $connect_url, $setting_data, $this->debug, 'yes' );
 
@@ -469,11 +469,11 @@ EOF;
 					'redirect' => $this->get_return_url( $order ),
 				);
 			} else {
-				$error_message = 'This order is cancelled, because of Payment error.' . mb_convert_encoding( $response[2], 'UTF-8', 'sjis' );
+				$error_message = 'This order is cancelled, because of Payment error . ' . mb_convert_encoding( $response[2], 'UTF - 8', 'sjis' );
 				$order->update_status( 'cancelled', __( 'This order is cancelled, because of Payment error: ', 'metaps-for-woocommerce' ) . $error_message );
 
-				$front_error_message  = __( 'Credit card payment failed.', 'metaps-for-woocommerce' );
-				$front_error_message .= __( 'Please try again.', 'metaps-for-woocommerce' );
+				$front_error_message  = __( 'Credit card payment failed . ', 'metaps-for-woocommerce' );
+				$front_error_message .= __( 'Please try again . ', 'metaps-for-woocommerce' );
 				throw new Exception( esc_html( $front_error_message ) );
 			}
 		} else { // When use user id payment.
@@ -482,7 +482,7 @@ EOF;
 			$response                   = $this->metaps_request->metaps_post_request( $order, $connect_url, $setting_data, $this->debug, 'yes' );
 			if ( isset( $response[0] ) && substr( $response[0], 0, 2 ) === 'OK' ) {
 				update_user_meta( $user->ID, '_metaps_user_id', $customer_id );
-				$order->add_order_note( __( 'Finished to send payment data to metaps PAYMENT.', 'metaps-for-woocommerce' ) );
+				$order->add_order_note( __( 'Finished to send payment data to metaps PAYMENT . ', 'metaps-for-woocommerce' ) );
 				// Reduce stock levels.
 				wc_reduce_stock_levels( $order_id );
 				return array(
@@ -490,9 +490,9 @@ EOF;
 					'redirect' => $this->get_return_url( $order ),
 				);
 			} else {
-				$error_message = __( 'This order is cancelled, because of Payment error: ', 'metaps-for-woocommerce' ) . mb_convert_encoding( $response[2], 'UTF-8', 'sjis' );
+				$error_message = __( 'This order is cancelled, because of Payment error: ', 'metaps-for-woocommerce' ) . mb_convert_encoding( $response[2], 'UTF - 8', 'sjis' );
 				$order->update_status( 'cancelled', __( 'This order is cancelled, because of Payment error: ', 'metaps-for-woocommerce' ) . $error_message );
-				$front_error_message = __( 'Credit card payment failed. Please try again.', 'metaps-for-woocommerce' );
+				$front_error_message = __( 'Credit card payment failed . Please try again . ', 'metaps-for-woocommerce' );
 				throw new Exception( esc_html( $front_error_message ) );
 			}
 		}
@@ -518,7 +518,7 @@ EOF;
 		$billing_email = $checkout->get_value( 'billing_email' );
 
 		if ( empty( $billing_phone ) && empty( $billing_email ) ) {
-			wc_add_notice( __( 'A phone number or email address is required for credit card payments.', 'metaps-for-woocommerce' ), 'error' );
+			wc_add_notice( __( 'A phone number or email address is required for credit card payments . ', 'metaps-for-woocommerce' ), 'error' );
 			return false;
 		}
 		return true;
@@ -538,8 +538,8 @@ EOF;
 		if ( ! $order ) {
 			return false;
 		} elseif ( $amount !== $order->order_total ) {
-			$order->add_order_note( __( 'Auto refund must total only. ', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
-			return new WP_Error( 'metaps_refund_error', __( 'Auto refund must total only. ', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
+			$order->add_order_note( __( 'Auto refund must total only . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
+			return new WP_Error( 'metaps_refund_error', __( 'Auto refund must total only . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
 		}
 		$metaps_settings = get_option( 'woocommerce_metaps_settings' );
 		$prefix_order    = $metaps_settings['prefixorder'];
@@ -553,24 +553,24 @@ EOF;
 		$data['SID']  = $prefix_order . $order_id;
 		if ( 'completed' === $status ) {
 			$response = $this->metaps_request->metaps_request( $data, $cansel_connect_url, $order, $this->debug );
-			if ( isset( $response ) && substr( $response, 0, 10 ) === 'C-CHECK:OK' ) {
-				$order->add_order_note( __( 'This order is refunded now at metaps PAYMENT.', 'metaps-for-woocommerce' ) );
+			if ( isset( $response ) && substr( $response, 0, 10 ) === 'C - CHECK:OK' ) {
+				$order->add_order_note( __( 'This order is refunded now at metaps PAYMENT . ', 'metaps-for-woocommerce' ) );
 				return true;
-			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C-CHECK:NG' ) {
+			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C - CHECK:NG' ) {
 				if ( substr( $response, -3, 1 ) === '2' ) {
-					$order->add_order_note( __( 'This order has already auth canselled.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
+					$order->add_order_note( __( 'This order has already auth canselled . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
 				} elseif ( substr( $response, -3, 1 ) === '3' ) {
-					$order->add_order_note( __( 'This order has completed.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
+					$order->add_order_note( __( 'This order has completed . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
 				} elseif ( substr( $response, -3, 1 ) === '4' ) {
-					$order->add_order_note( __( 'This order has already canselled.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
+					$order->add_order_note( __( 'This order has already canselled . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
 				}
-				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
-			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C-CHECK:TO' ) {
-				$order->add_order_note( __( 'Expired. Status not changed.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
-				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
-			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C-CHECK:ER' ) {
-				$order->add_order_note( __( 'Error has happend. Status not changed.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
-				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
+				return new WP_Error( 'metaps_refund_error', __( 'Error has happened . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
+			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C - CHECK:TO' ) {
+				$order->add_order_note( __( 'Expired . Status not changed . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
+				return new WP_Error( 'metaps_refund_error', __( 'Error has happened . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
+			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C - CHECK:ER' ) {
+				$order->add_order_note( __( 'Error has happend . Status not changed . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
+				return new WP_Error( 'metaps_refund_error', __( 'Error has happened . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
 			}
 		} else {
 			if ( 'sale' === $this->paymentaction ) {
@@ -578,26 +578,26 @@ EOF;
 			} else {
 				$response = $this->metaps_request->metaps_request( $data, $refund_connect_url, $order, $this->debug );
 			}
-			if ( isset( $response ) && substr( $response, 0, 10 ) === 'C-CHECK:OK' ) {
-				$order->add_order_note( __( 'This order is refunded now at metaps PAYMENT.', 'metaps-for-woocommerce' ) );
+			if ( isset( $response ) && substr( $response, 0, 10 ) === 'C - CHECK:OK' ) {
+				$order->add_order_note( __( 'This order is refunded now at metaps PAYMENT . ', 'metaps-for-woocommerce' ) );
 				return true;
-			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C-CHECK:NG' ) {
+			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C - CHECK:NG' ) {
 				if ( substr( $response, -3, 1 ) === '1' ) {
-					$order->add_order_note( __( 'This order is authorized now.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
+					$order->add_order_note( __( 'This order is authorized now . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
 				} elseif ( substr( $response, -3, 1 ) === '2' ) {
-					$order->add_order_note( __( 'This order has already auth canselled.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
+					$order->add_order_note( __( 'This order has already auth canselled . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
 				} elseif ( substr( $response, -3, 1 ) === '3' ) {
-					$order->add_order_note( __( 'This order has completed.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
+					$order->add_order_note( __( 'This order has completed . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
 				} elseif ( substr( $response, -3, 1 ) === '4' ) {
-					$order->add_order_note( __( 'This order has already canselled.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
+					$order->add_order_note( __( 'This order has already canselled . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
 				}
-				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
-			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C-CHECK:TO' ) {
-				$order->add_order_note( __( 'Expired. Status not changed.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
-				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
-			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C-CHECK:ER' ) {
-				$order->add_order_note( __( 'Error has happend. Status not changed.', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
-				return new WP_Error( 'metaps_refund_error', __( 'Error has happened. ', 'metaps-for-woocommerce' ) . __( 'If you need, please contact to metaps PAYMENT Support.', 'metaps-for-woocommerce' ) );
+				return new WP_Error( 'metaps_refund_error', __( 'Error has happened . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
+			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C - CHECK:TO' ) {
+				$order->add_order_note( __( 'Expired . Status not changed . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
+				return new WP_Error( 'metaps_refund_error', __( 'Error has happened . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
+			} elseif ( isset( $response ) && substr( $response, 0, 10 ) === 'C - CHECK:ER' ) {
+				$order->add_order_note( __( 'Error has happend . Status not changed . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
+				return new WP_Error( 'metaps_refund_error', __( 'Error has happened . ', 'metaps-for-woocommerce' ) . __( 'if you need, please contact to metaps PAYMENT Support . ', 'metaps-for-woocommerce' ) );
 			}
 		}
 	}
@@ -623,7 +623,7 @@ EOF;
 		if ( is_checkout() ) {
 			wp_enqueue_script(
 				'metaps_token_script',
-				'//www.paydesign.jp/settle/token/metapsToken-min.js',
+				'// www.paydesign.jp/settle/token/metapsToken-min.js',
 				array(),
 				METAPS_FOR_WC_VERSION,
 				false

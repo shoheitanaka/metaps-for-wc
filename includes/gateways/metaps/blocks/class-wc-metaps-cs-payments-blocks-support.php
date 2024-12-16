@@ -10,7 +10,7 @@ use Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodTyp
 /**
  * Metaps Convenience Store Payments Blocks integration.
  *
- * @since 1.0.3
+ * @since 0.9.3
  */
 final class WC_Metaps_CS_Payments_Blocks_Support extends AbstractPaymentMethodType {
 
@@ -69,12 +69,14 @@ final class WC_Metaps_CS_Payments_Blocks_Support extends AbstractPaymentMethodTy
 			$script_asset['version'],
 			true
 		);
-		wp_enqueue_style(
-			'wc-metaps-cs-payments-blocks',
-			METAPS_FOR_WC_URL . 'includes/gateways/metaps/asset/frontend/payments/conveniencestore.css',
-			array(),
-			'1.0.0'
-		);
+		if ( is_checkout() ) {
+			wp_enqueue_style(
+				'wc-metaps-cs-payments-blocks',
+				METAPS_FOR_WC_URL . 'includes/gateways/metaps/asset/frontend/payments/conveniencestore.css',
+				array(),
+				$script_asset['version'],
+			);
+		}
 
 		if ( function_exists( 'wp_set_script_translations' ) ) {
 			wp_set_script_translations( 'wc-metaps-cs-payments-blocks', 'metaps-for-woocommerce', METAPS_FOR_WC_DIR . 'i18n/' );

@@ -418,7 +418,7 @@ class WC_Gateway_Metaps_CS extends WC_Payment_Gateway {
 		} else {
 			$error_message = __( 'This order is cancelled, because of Payment error.', 'metaps-for-woocommerce' );
 			if ( isset( $response[2] ) ) {
-				$error_message = $error_message . ' ' . mb_convert_encoding( $response[2], 'UTF-8', 'sjis' );
+				$error_message .= ' ' . mb_convert_encoding( $response[2], 'UTF-8', 'sjis' );
 			}
 			$order->update_status( 'cancelled', $error_message );
 

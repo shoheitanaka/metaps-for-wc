@@ -200,33 +200,33 @@ msgstr "クレジットカードのお支払いへ進む"
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:243
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:167
 msgid "IP Code"
-msgstr "IPコード"
+msgstr "IP コード"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:183
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:209
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:245
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:169
 msgid "Enter IP Code here."
-msgstr "IPコードを入力してください。"
+msgstr "IP コードを入力してください。"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:186
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:212
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:248
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:172
 msgid "IP Password"
-msgstr "IPパスワード"
+msgstr "IP パスワード"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:188
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:214
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:250
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:174
 msgid "Enter IP Password here"
-msgstr "IPパスワードをここに入力"
+msgstr "IP パスワードをここに入力"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:191
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:217
 msgid "Payment Action"
-msgstr "支払アクション"
+msgstr "注文時決済状態"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:194
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:220
@@ -267,16 +267,16 @@ msgstr "ユーザー ID 決済をご利用ください。"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:211
 msgid "Payment Time Text"
-msgstr "支払時期テキスト"
+msgstr "支払回数ラベル"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:214
 msgid "Payment Times : "
-msgstr "支払時間: "
+msgstr "支払い回数 : "
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:217
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:246
 msgid "Number of payments"
-msgstr "お支払い回数"
+msgstr "支払回数"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:225
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:266
@@ -297,7 +297,7 @@ msgstr "デバッグモードを有効にする"
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:325
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:223
 msgid "Save debug data using WooCommerce logging."
-msgstr "WooCommerce ロギングを使用してデバッグ データを保存します。"
+msgstr "WooCommerce ロギングを使用してデバッグデータを保存します。"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:247
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:296
@@ -567,7 +567,7 @@ msgid ""
 "In order to increase your chances of passing the 3DS, it is better to always "
 "verify your address so that you are more likely to pass the screening."
 msgstr ""
-"3DS の審査に通過する可能性を高めるためには、必ず住所確認をしたほうがいい。"
+"3DS の審査に通過する可能性を高めるためには、必ず住所確認をしたほうがいいです。"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:369
 msgid "Awaiting payment confirmation from metaps PAYMENT."
@@ -576,7 +576,7 @@ msgstr "メタップスからの入金確認待ち。"
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:582
 msgid ""
 "This order is cancelled, because of the return from metaps PAYMENT site."
-msgstr "metaps PAYMENTサイトからの返品のため、この注文はキャンセルされます。"
+msgstr "metaps PAYMENT サイトからの返品のため、この注文はキャンセルされます。"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:153
 msgid "metaps PAYMENT Convenience Store"
@@ -822,21 +822,21 @@ msgstr "オンライン決済番号"
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:431
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:433
 msgid "Payment Detail"
-msgstr "お支払いの詳細"
+msgstr "支払詳細"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:548
 msgid "CVS Payment"
-msgstr "コンビニ支払い"
+msgstr "コンビニ決済"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:550
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:438
 msgid "Payment URL"
-msgstr "決済 URL"
+msgstr "お支払方法"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:550
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:439
 msgid "Pay from here."
-msgstr "ここからお支払いください。"
+msgstr "お支払方法はこちらからご確認ください。"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:552
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:441
@@ -849,46 +849,46 @@ msgstr "Pay Easy"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:111
 msgid "Allows payments by metaps PAYMENT Pay Easy in Japan."
-msgstr "Pay Easyでの支払いが可能。"
+msgstr "ペイジーでの支払いが可能。"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:143
 msgid "Enable metaps PAYMENT Pay Easy Payment"
-msgstr "Pay Easy を有効にする"
+msgstr "ペイジーを有効にする"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:152
 msgid "Pay Easy Payment (metaps)"
-msgstr "Pay Easy ペイメント (metaps)"
+msgstr "ペイジーペイメント (metaps)"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:158
 msgid "Pay with your Pay Easy via metaps PAYMENT."
-msgstr "Pay Easyでお支払いください。"
+msgstr "ペイジーでお支払いください。"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:164
 msgid "Proceed to metaps PAYMENT Pay Easy"
-msgstr "Pay Easy で支払う"
+msgstr "ペイジーで支払う"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:190
 msgid "Explain the Pay-Easy method in Email"
-msgstr "メール上でのPay-Easyの支払い説明"
+msgstr "メール上でのペイジーの支払い説明"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:192
 msgid "This explains the Pay-Easy method of payment in Email, how to use."
 msgstr ""
-"ここではメール上でPay-easyの支払い方法の説明などを補助的に付け加えることが出"
+"ここではメール上でペイジーの支払い方法の説明などを補助的に付け加えることが出"
 "来ます。"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:198
 msgid "Payment Complete by Pay-easy"
-msgstr "Pay-easy による支払い完了"
+msgstr "ペイジーによる支払い完了"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:233
 msgid "metaps PAYMENT Pay Easy Payment"
-msgstr "Pay-Easy 決済"
+msgstr "ペイジー決済"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:287
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:434
 msgid "Housing agency code : "
-msgstr "住宅会社コード : "
+msgstr "収納機関コード : "
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:288
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:435
@@ -898,7 +898,7 @@ msgstr "お客様番号 : "
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:289
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:436
 msgid "Authorization number : "
-msgstr "認証番号 : "
+msgstr "確認番号 : "
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:312
 msgid "PayEasy payment failed."
@@ -927,7 +927,7 @@ msgstr "市区町村 (City)"
 #. translators: %s: Field name that must be in Zenkaku.
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:337
 msgid "ERROR : %s must be Zenkaku when you use Payeasy Payment."
-msgstr "エラー : Payeasy をご利用の場合、%sは全角でなければなりません。"
+msgstr "エラー : ペイジーをご利用の場合、%sは全角でなければなりません。"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:397
 msgid "Payment Information URL : "
@@ -1198,7 +1198,7 @@ msgstr "クレジットカードトークン"
 #: includes/gateways/metaps/asset/admin/settings.js:58
 #: includes/gateways/metaps/asset/admin/settings.js:59
 msgid "Pay-Easy Payment"
-msgstr "Pay Easy 決済"
+msgstr "ペイジー決済"
 
 #: includes/gateways/metaps/asset/admin/settings.js:171
 #: src/metaps/admin/components/settings-page.jsx:23

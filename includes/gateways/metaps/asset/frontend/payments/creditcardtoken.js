@@ -23,7 +23,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const CreditCardInputControl = prof => {
+const CreditCardInputControl = () => {
   const [cardNumber, setCardNumber] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
   const [expiryDate, setExpiryDate] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
   const [securityCode, setSecurityCode] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
@@ -37,6 +37,9 @@ const CreditCardInputControl = prof => {
     const script = document.createElement('script');
     script.src = "//www.paydesign.jp/settle/token/metapsToken-min.js?ver=1.0.0";
     script.id = "metaps_token_script-js";
+    script.onload = () => {
+      metapspaymentToken();
+    };
     document.body.appendChild(script);
     return () => {
       document.body.removeChild(script);
@@ -45,6 +48,9 @@ const CreditCardInputControl = prof => {
 
   // Event handler function
   const metapspaymentToken = () => {
+    if (!window.metapspayment || typeof window.metapspayment.validateCardNumber !== 'function' || typeof window.metapspayment.validateExpiry !== 'function' || typeof window.metapspayment.validateCSC !== 'function') {
+      return;
+    }
     let cr = cardNumber.replace(/ /g, '');
     let cs = securityCode;
     let exp_my = expiryDate.replace(/ /g, '').replace('/', '');
@@ -117,7 +123,6 @@ const CreditCardInputControl = prof => {
     // Validation of the year
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear() % 100; // Last two digits of current year
-    const currentMonth = currentDate.getMonth() + 1; // Month starts from 0 so +1
 
     const inputYear = parseInt(year, 10);
     const inputMonth = parseInt(month, 10);
@@ -1908,8 +1913,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _components_number_of_payments__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/number_of_payments */ "./src/metaps/frontend/payments/creditcardtoken/components/number_of_payments.jsx");
-/* harmony import */ var _components_user_id_payment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/user_id_payment */ "./src/metaps/frontend/payments/creditcardtoken/components/user_id_payment.jsx");
-/* harmony import */ var _components_credit_card_form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/credit_card_form */ "./src/metaps/frontend/payments/creditcardtoken/components/credit_card_form.jsx");
+/* harmony import */ var _components_credit_card_form__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/credit_card_form */ "./src/metaps/frontend/payments/creditcardtoken/components/credit_card_form.jsx");
+/* harmony import */ var _components_user_id_payment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/user_id_payment */ "./src/metaps/frontend/payments/creditcardtoken/components/user_id_payment.jsx");
 /* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../hooks */ "./src/metaps/frontend/payments/hooks/index.js");
 /* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./index.scss */ "./src/metaps/frontend/payments/creditcardtoken/index.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -1930,6 +1935,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const settings = (0,_woocommerce_settings__WEBPACK_IMPORTED_MODULE_3__.getSetting)('metaps_cc_token_data', {});
 let user_id_payment_setting = settings.user_id_payment || [];
+const numberOfPayments = settings.number_of_payments;
 const defaultLabel = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Credit Card', 'metaps-for-woocommerce');
 const label = (0,_wordpress_html_entities__WEBPACK_IMPORTED_MODULE_2__.decodeEntities)(settings.title) || defaultLabel;
 const description = (0,_wordpress_html_entities__WEBPACK_IMPORTED_MODULE_2__.decodeEntities)(settings.description) || '';
@@ -2026,7 +2032,7 @@ const Content = props => {
     className: 'metaps_cc_token',
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.RawHTML, {
       children: description
-    }), user_id_payment_setting === 'yes' && isLoggedIn && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_user_id_payment__WEBPACK_IMPORTED_MODULE_6__.UserIdPaymentSelectControl, {}), user_id_payment_setting !== 'yes' || isLoggedIn === false && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_credit_card_form__WEBPACK_IMPORTED_MODULE_7__.CreditCardInputControl, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_number_of_payments__WEBPACK_IMPORTED_MODULE_5__.NumberOfPaymentsSelectControl, {})]
+    }), user_id_payment_setting === 'yes' && isLoggedIn && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_user_id_payment__WEBPACK_IMPORTED_MODULE_7__.UserIdPaymentSelectControl, {}), user_id_payment_setting !== 'yes' || isLoggedIn === false && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_credit_card_form__WEBPACK_IMPORTED_MODULE_6__.CreditCardInputControl, {}), numberOfPayments && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_number_of_payments__WEBPACK_IMPORTED_MODULE_5__.NumberOfPaymentsSelectControl, {})]
   });
 };
 

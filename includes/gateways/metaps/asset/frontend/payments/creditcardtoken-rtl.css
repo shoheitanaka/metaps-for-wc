@@ -39,3 +39,10 @@
   padding: 0;
   width: 90%;
 }
+
+.number_of_payments {
+  margin-top: 15px;
+}
+.number_of_payments label.components-text {
+  margin: auto;
+}

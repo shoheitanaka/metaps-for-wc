@@ -32,9 +32,22 @@ class WC_Gateway_Metaps_Endpoint {
 			array(
 				'methods'             => 'GET',
 				'callback'            => array( $this, 'metaps_check_webhook' ),
-				'permission_callback' => '__return_true',
+				'permission_callback' => array( $this, 'metaps_permission_callback' ),
 			)
 		);
+	}
+
+	/**
+	 * Check if the request is permitted.
+	 *
+	 * @param WP_REST_Request $request Request object.
+	 * @return bool True if the request is permitted, false otherwise.
+	 */
+	public function metaps_permission_callback( $request ) {
+		// $is_permitted = 'https://blog.zaty.jp' === $request->get_header( 'origin' );.
+		$is_permitted = true;
+
+		return $is_permitted;
 	}
 
 	/**

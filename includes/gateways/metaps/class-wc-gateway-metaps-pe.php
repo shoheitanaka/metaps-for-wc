@@ -320,11 +320,11 @@ class WC_Gateway_Metaps_PE extends WC_Payment_Gateway {
 	 */
 	public function validate_fields() {
 		$zenkaku_array = array(
-			'billing_last_name'           => __( 'Last name', 'woocommerce' ),
-			'billing_first_name'          => __( 'First name', 'woocommerce' ),
-			'billing_yomigana_last_name'  => __( 'Last Name (Yomigana)', 'woocommerce-for-japan' ),
-			'billing_yomigana_first_name' => __( 'First Name (Yomigana)', 'woocommerce-for-japan' ),
-			'billing_city'                => __( 'Town / City', 'woocommerce-for-japan' ),
+			'billing_last_name'           => __( 'Last name', 'metaps-for-woocommerce' ),
+			'billing_first_name'          => __( 'First name', 'metaps-for-woocommerce' ),
+			'billing_yomigana_last_name'  => __( 'Last Name (Yomigana)', 'metaps-for-woocommerce' ),
+			'billing_yomigana_first_name' => __( 'First Name (Yomigana)', 'metaps-for-woocommerce' ),
+			'billing_city'                => __( 'Town / City', 'metaps-for-woocommerce' ),
 		);
 
 		$flag = true;

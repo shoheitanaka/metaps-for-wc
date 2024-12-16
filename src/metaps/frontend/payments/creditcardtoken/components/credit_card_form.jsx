@@ -2,7 +2,7 @@ import { __ } from '@wordpress/i18n';
 import { TextControl } from '@wordpress/components';
 import { useEffect,useState, useRef } from '@wordpress/element';
 
-const CreditCardInputControl = ( prof ) => {
+const CreditCardInputControl = () => {
 	const [cardNumber, setCardNumber] = useState('');
 	const [expiryDate, setExpiryDate] = useState('');
 	const [securityCode, setSecurityCode] = useState('');
@@ -17,6 +17,9 @@ const CreditCardInputControl = ( prof ) => {
 		const script = document.createElement('script');
 		script.src = "//www.paydesign.jp/settle/token/metapsToken-min.js?ver=1.0.0";
 		script.id = "metaps_token_script-js";
+		script.onload = () => {
+			metapspaymentToken();
+		};
 		document.body.appendChild(script);
 
 		return () => {
@@ -26,12 +29,17 @@ const CreditCardInputControl = ( prof ) => {
 	
     // Event handler function
 	const metapspaymentToken = () => {
+		if (!window.metapspayment || 
+			typeof window.metapspayment.validateCardNumber !== 'function' ||
+			typeof window.metapspayment.validateExpiry !== 'function' ||
+			typeof window.metapspayment.validateCSC !== 'function') {
+			return;
+		}
 		let cr = cardNumber.replace(/ /g, '');
 		let cs = securityCode;
 		let exp_my = expiryDate.replace(/ /g, '').replace('/', '');
 		let exp_m = exp_my.slice(0, 2);
 		let exp_y = exp_my.slice(2).slice(-2);
-
 		if (window.metapspayment.validateCardNumber(cr) && 
 			window.metapspayment.validateExpiry(exp_m, exp_y) && 
 			window.metapspayment.validateCSC(cs)) {
@@ -101,7 +109,6 @@ const CreditCardInputControl = ( prof ) => {
 		// Validation of the year
 		const currentDate = new Date();
 		const currentYear = currentDate.getFullYear() % 100; // Last two digits of current year
-		const currentMonth = currentDate.getMonth() + 1; // Month starts from 0 so +1
 	
 		const inputYear = parseInt(year, 10);
 		const inputMonth = parseInt(month, 10);

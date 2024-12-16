@@ -214,15 +214,15 @@ class WC_Gateway_Metaps_CC extends WC_Payment_Gateway {
 				'description' => __( 'Enter IP Password here', 'metaps-for-woocommerce' ),
 			),
 			'paymentaction'      => array(
-				'title'       => __( 'Payment Action', 'woocommerce' ),
+				'title'       => __( 'Payment Action', 'metaps-for-woocommerce' ),
 				'type'        => 'select',
 				'class'       => 'wc-enhanced-select',
-				'description' => __( 'Choose whether you wish to capture funds immediately or authorize payment only.', 'woocommerce' ),
+				'description' => __( 'Choose whether you wish to capture funds immediately or authorize payment only.', 'metaps-for-woocommerce' ),
 				'default'     => 'sale',
 				'desc_tip'    => true,
 				'options'     => array(
-					'sale'          => __( 'Capture', 'woocommerce' ),
-					'authorization' => __( 'Authorize', 'woocommerce' ),
+					'sale'          => __( 'Capture', 'metaps-for-woocommerce' ),
+					'authorization' => __( 'Authorize', 'metaps-for-woocommerce' ),
 				),
 			),
 			'user_id_payment'    => array(

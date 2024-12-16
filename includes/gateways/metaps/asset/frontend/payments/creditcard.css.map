@@ -1,0 +1,1 @@
+{"version":3,"file":"frontend/payments/creditcard.css","mappings":";;;AAAA;EACC;AACD;AAAC;EACC;AAEF,C","sources":["webpack://metaps-for-woocommerce/./src/metaps/frontend/payments/creditcard/index.scss"],"sourcesContent":[".number_of_payments {\n\tmargin-top: 15px;\n\tlabel.components-text{\n\t\tmargin: auto;\n\t}\n}"],"names":[],"sourceRoot":""}
