@@ -39,7 +39,7 @@ if ( ! class_exists( 'WC_Metaps_Payments' ) ) :
 		 *
 		 * @var string
 		 */
-		public $version = '0.9.2';
+		public $version = '0.9.3';
 
 		/**
 		 * Metaps PAYMENT for WooCommerce Framework version.

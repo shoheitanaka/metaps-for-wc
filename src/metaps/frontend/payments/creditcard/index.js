@@ -41,28 +41,18 @@ const Content = ( props ) => {
 			onPaymentSetup( () => {
 				async function handlePaymentProcessing() {
 					let number_of_payments;
-					let numberOfPaymentsValid;
 					if ( settings.number_of_payments ){
 						const num = document.getElementById( 'number_of_payments' );
 						if( num ) {
 							number_of_payments = num.value;
-							numberOfPaymentsValid = !! number_of_payments.length;
 						}
 					}
-					if( userSavedID !== '' ){
-						user_id_payment_setting = 'yes';
-					} else {
-						user_id_payment_setting = 'no';
-					}
-
 					const selectedUserIdPaymentData = document.querySelector('input[name="user_id_payment"]:checked');
-
 					let user_id_payment;
 					if( selectedUserIdPaymentData ){
 						user_id_payment = selectedUserIdPaymentData.value;
 					}
 				
-
 					if ( user_id_payment === 'yes' ) {
 						return {
 							type: 'success',
@@ -73,7 +63,7 @@ const Content = ( props ) => {
 								},
 							},
 						};
-					} else if ( numberOfPaymentsValid ) {
+					}else{
 						return {
 							type: 'success',
 							meta: {

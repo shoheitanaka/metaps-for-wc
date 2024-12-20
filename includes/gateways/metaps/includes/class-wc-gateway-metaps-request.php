@@ -59,8 +59,8 @@ class WC_Gateway_Metaps_Request {
 		$post_data['OKURL'] = $thanks_url;
 		$post_data['RT']    = $woocommerce->cart->get_cart_url() . '?pd=return&sid=' . $setting['sid'];
 		// Customer parameter.
-		$post_data = $this->metaps_address( $post_data, $order, $states );
 		$post_data = $this->metaps_setting( $post_data, $order, $setting );
+		$post_data = $this->metaps_address( $post_data, $order, $states );
 		if ( 'yes' === $emv_tds ) {
 			$post_data = $this->emv_tds_parameter( $post_data, $order );
 		}
@@ -82,6 +82,10 @@ class WC_Gateway_Metaps_Request {
 	 * @return array post data
 	 */
 	public function metaps_address( $post_data, $order, $states ) {
+		if ( ! isset( $post_data['STORE'] ) ) {
+			return $post_data;
+		}
+		// Set User Information.
 		$post_data['MAIL']          = $order->get_billing_email();
 		$post_data['NAME1']         = mb_convert_encoding( $order->get_billing_last_name(), 'SJIS' );
 		$post_data['NAME2']         = mb_convert_encoding( $order->get_billing_first_name(), 'SJIS' );
@@ -483,7 +487,7 @@ class WC_Gateway_Metaps_Request {
 		$send_message = 'connect URL : ' . $connect_url . "\n";
 		if ( ! is_null( $order ) ) {
 			// translators: %s is the type of data being sent.
-			$send_message .= sprintf( __( 'This %s send data for order ID:', 'metaps-for-woocommerce' ), $type ) . $order->get_id() . "\n";
+			$send_message .= sprintf( __( 'This %s data for order ID:', 'metaps-for-woocommerce' ), $type ) . $order->get_id() . "\n";
 		}
 		$request_array = array();
 		foreach ( $data as $key => $value ) {

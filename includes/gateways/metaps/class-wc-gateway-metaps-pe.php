@@ -279,14 +279,15 @@ class WC_Gateway_Metaps_PE extends WC_Payment_Gateway {
 		if ( isset( $response[0] ) && substr( $response[0], 0, 2 ) === 'OK' ) {
 			if ( isset( $response[3] ) ) {
 				$order->set_transaction_id( $response[3] );
+				$response_array = explode( '-', (string) substr( $response[3], -2 ) );
 			}
 			if ( isset( $response[6] ) ) {
 				$order->add_meta_data( '_metaps_payment_url', wc_clean( $response[6] ), true );
 				$order->save_meta_data();
 				$order->add_order_note(
-					__( 'Housing agency code : ', 'metaps-for-woocommerce' ) . substr( $response[3], 0, 5 ) .
-					', ' . __( 'Customer Number : ', 'metaps-for-woocommerce' ) . substr( $response[3], 6, 20 ) .
-					', ' . __( 'Authorization number : ', 'metaps-for-woocommerce' ) . substr( $response[3], 27, 6 ) .
+					__( 'Housing agency code : ', 'metaps-for-woocommerce' ) . $response_array[0] .
+					', ' . __( 'Customer Number : ', 'metaps-for-woocommerce' ) . $response_array[1] .
+					', ' . __( 'Authorization number : ', 'metaps-for-woocommerce' ) . $response_array[2] .
 					', ' . __( 'Confirmation URL : ', 'metaps-for-woocommerce' ) . $response[6]
 				);
 			}
@@ -426,14 +427,15 @@ class WC_Gateway_Metaps_PE extends WC_Payment_Gateway {
 			$payment_limit_description = $payment_setting['payment_limit_description'];
 			$payment_url               = $order->get_meta( '_metaps_payment_url', true );
 			$transaction_id            = $order->get_transaction_id();
+			$response_array            = explode( '-', (string) $transaction_id );
 
 			if ( $order->get_payment_method() === 'metaps_pe' ) {
 				echo '<header class="title"><h3>' . esc_html__( 'Payment Detail', 'metaps-for-woocommerce' ) . '</h3></header>';
 				echo '<table class="shop_table order_details">';
 				echo '<tr><th>' . esc_html__( 'Payment Detail', 'metaps-for-woocommerce' ) . '</th>
-		<td>' . esc_html__( 'Housing agency code : ', 'metaps-for-woocommerce' ) . esc_html( substr( $transaction_id, 0, 5 ) ) . '<br />'
-				. esc_html__( 'Customer Number : ', 'metaps-for-woocommerce' ) . esc_html( substr( $transaction_id, 6, 20 ) ) . '<br />'
-				. esc_html__( 'Authorization number : ', 'metaps-for-woocommerce' ) . esc_html( substr( $transaction_id, 27, 6 ) ) . '<br /></td></tr>'
+		<td>' . esc_html__( 'Housing agency code : ', 'metaps-for-woocommerce' ) . esc_html( $response_array[0] ) . '<br />'
+				. esc_html__( 'Customer Number : ', 'metaps-for-woocommerce' ) . esc_html( $response_array[1] ) . '<br />'
+				. esc_html__( 'Authorization number : ', 'metaps-for-woocommerce' ) . esc_html( $response_array[2] ) . '<br /></td></tr>'
 				. PHP_EOL;
 				echo '<tr><th>' . esc_html__( 'Payment URL', 'metaps-for-woocommerce' ) . '</th>
 		<td><a href="' . esc_url( $payment_url ) . '" target="_blank">' . esc_html__( 'Pay from here.', 'metaps-for-woocommerce' ) . '</a></td></tr>' . PHP_EOL;

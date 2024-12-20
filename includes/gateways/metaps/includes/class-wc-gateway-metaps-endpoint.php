@@ -44,8 +44,15 @@ class WC_Gateway_Metaps_Endpoint {
 	 * @return bool True if the request is permitted, false otherwise.
 	 */
 	public function metaps_permission_callback( $request ) {
-		// $is_permitted = 'https://blog.zaty.jp' === $request->get_header( 'origin' );.
-		$is_permitted = true;
+		$is_permitted_ips = array(
+			'27.110.52.4', // Add Metaps IP address.
+		);
+		$remote_ip        = $request->get_header( 'x_real_ip' );
+		$is_permitted     = false;
+
+		if ( in_array( $remote_ip, $is_permitted_ips, true ) ) {
+			$is_permitted = true;
+		}
 
 		return $is_permitted;
 	}
@@ -91,22 +98,25 @@ class WC_Gateway_Metaps_Endpoint {
 
 			// Check the payment method.
 			if ( 'metaps_pe' === $order_payment_method ) {// Payeasey received from metaps.
-				if ( isset( $get_data['TIME'] ) && isset( $get_data['SEQ'] ) && isset( $order_status ) && 'processing' !== $order_status ) {
+				if ( isset( $get_data['TIME'] ) && isset( $get_data['SEQ'] ) && isset( $order_status ) ) {
 					/**
 					 * Payment completion (deposit) notification
 					 * The received parameters are:
 					 * SEQ, DATE, TIME, IP, SID, KINGAKU, CVS, SCODE, FUKA
 					 */
 
-					// Mark as processing (payment complete).
-					$order->update_status(
-						'processing',
-						// translators: %s: Payment method name.
-						sprintf( __( 'Payment of %s was complete.', 'metaps-for-woocommerce' ), __( 'Payeasey Payment (metaps)', 'metaps-for-woocommerce' ) ) .
-						__( 'The site has received a payment completion (deposit) notification from Metaps.', 'metaps-for-woocommerce' )
-					);
-					$this->metaps_get_logger( $order_payment_method, __( ': payment complete', 'metaps-for-woocommerce' ), $get_data );
-					return $response;
+					if ( 'processing' !== $order_status ) {
+						// Mark as processing (payment complete).
+						$order->update_status(
+							'processing',
+							// translators: %s: Payment method name.
+							sprintf( __( 'Payment of %s was complete.', 'metaps-for-woocommerce' ), __( 'Payeasey Payment (metaps)', 'metaps-for-woocommerce' ) ) .
+							__( 'The site has received a payment completion (deposit) notification from Metaps.', 'metaps-for-woocommerce' )
+						);
+						$this->metaps_get_logger( $order_payment_method, __( ': payment complete', 'metaps-for-woocommerce' ), $get_data );
+					} else {
+						$this->metaps_get_logger( $order_payment_method, __( ': payment complete', 'metaps-for-woocommerce' ), $get_data, 'error' );
+					}
 				} elseif ( isset( $get_data['TIME'] ) && isset( $order_status ) && 'on-hold' !== $order_status ) {
 					/**
 					 * Payment apply notification
@@ -122,8 +132,10 @@ class WC_Gateway_Metaps_Endpoint {
 						__( 'The site has received a payment completion (deposit) notification from Metaps.', 'metaps-for-woocommerce' )
 					);
 					$this->metaps_get_logger( $order_payment_method, __( ': payment apply', 'metaps-for-woocommerce' ), $get_data );
-					return $response;
+				} else {
+					$this->metaps_get_logger( $order_payment_method, __( ': something notices', 'metaps-for-woocommerce' ), $get_data, 'error' );
 				}
+				return $response;
 			} elseif ( 'metaps_cc' === $order_payment_method || 'metaps_cc_token' === $order_payment_method ) {// Credit Card received from metaps.
 				if ( isset( $get_data['TIME'] ) && isset( $get_data['SEQ'] ) && isset( $order_status ) && 'processing' !== $order_status ) {
 					/**
@@ -232,13 +244,19 @@ class WC_Gateway_Metaps_Endpoint {
 	 * @param string $peyment_method The payment method.
 	 * @param string $add_message    The log message.
 	 * @param array  $get_data       The data received from the webhook.
+	 * @param string $status         The log status.
 	 */
-	private static function metaps_get_logger( $peyment_method, $add_message, $get_data ) {
+	private static function metaps_get_logger( $peyment_method, $add_message, $get_data, $status = 'debug' ) {
 		$peyment_method_settings = get_option( 'woocommerce_' . $peyment_method . '_settings' );
+
+		$message  = __( 'Metaps Webhook Received.', 'metaps-for-woocommerce' ) . "\n";
+		$message .= __( 'Payment Method: ', 'metaps-for-woocommerce' ) . $peyment_method . $add_message . "\n";
+		if ( 'error' === $status ) {
+			wc_get_logger()->error( $message, array( 'get_data' => $get_data ) );
+			return;
+		}
 		if ( isset( $peyment_method_settings['debug'] ) && 'yes' === $peyment_method_settings['debug'] ) {
-			$message  = __( 'Metaps Webhook Received.', 'metaps-for-woocommerce' ) . "\n";
-			$message .= __( 'Payment Method: ', 'metaps-for-woocommerce' ) . $peyment_method . $add_message . "\n";
-			wc_get_logger()->debug( $message, array( 'get_data' => $get_data ) );
+				wc_get_logger()->debug( $message, array( 'get_data' => $get_data ) );
 		}
 	}
 }
