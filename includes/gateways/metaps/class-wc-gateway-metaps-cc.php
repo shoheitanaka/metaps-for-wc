@@ -573,10 +573,10 @@ class WC_Gateway_Metaps_CC extends WC_Payment_Gateway {
 	 * Recieved Credit Payment complete from metaps
 	 */
 	public function metaps_cc_return() {
-		if ( isset( $_GET['pd'] ) && 'return' === $_GET['pd'] && isset( $_GET['sid'] ) ) {
+		if ( isset( $_GET['pd'] ) && 'return' === $_GET['pd'] && isset( $_GET['sid'] ) ) {// phpcs:ignore
 			$metaps_settings      = get_option( 'woocommerce_metaps_settings' );
 			$prefix_order         = $metaps_settings['prefixorder'];
-			$order_id             = str_replace( $prefix_order, '', sanitize_text_field( wp_unslash( $_GET['sid'] ) ) );
+			$order_id             = str_replace( $prefix_order, '', sanitize_text_field( wp_unslash( $_GET['sid'] ) ) );// phpcs:ignore
 			$order                = wc_get_order( $order_id );
 			$order_payment_method = $order->get_payment_method();
 			if ( 'metaps_cc' === $order_payment_method ) {

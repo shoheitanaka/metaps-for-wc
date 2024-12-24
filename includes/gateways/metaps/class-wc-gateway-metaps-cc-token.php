@@ -54,6 +54,13 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 	public $user_id_payment;
 
 	/**
+	 * EMV 3D Secure.
+	 *
+	 * @var string
+	 */
+	public $emv_tds;
+
+	/**
 	 * Number of payments.
 	 *
 	 * @var array
@@ -212,6 +219,15 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 				'type'        => 'text',
 				'description' => __( 'This controls the description which the user sees during checkout.', 'metaps-for-woocommerce' ),
 				'default'     => __( 'Payment Times : ', 'metaps-for-woocommerce' ),
+			),
+			'emv_tds'            => array(
+				'title'       => __( 'EMV 3D Secure', 'metaps-for-woocommerce' ),
+				'id'          => 'wc-emv-tds',
+				'type'        => 'checkbox',
+				'label'       => __( 'Enable EMV 3D Secure', 'metaps-for-woocommerce' ),
+				'default'     => 'no',
+				'description' => __( 'Use EMV 3D Secure for Credit Card.', 'metaps-for-woocommerce' )
+								. __( 'In order to increase your chances of passing the 3DS, it is better to always verify your address so that you are more likely to pass the screening.', 'metaps-for-woocommerce' ),
 			),
 			'number_of_payments' => array(
 				'title'       => __( 'Number of payments', 'metaps-for-woocommerce' ),
@@ -444,7 +460,7 @@ jQuery(function($){
 			$connect_url = METAPS_CS_SALES_URL;
 			$order->add_order_note( __( 'Finished to send payment data to metaps PAYMENT . ', 'metaps-for-woocommerce' ) );
 
-			$response = $this->metaps_request->metaps_post_request( $order, $connect_url, $setting_data, $this->debug, 'yes' );
+			$response = $this->metaps_request->metaps_post_request( $order, $connect_url, $setting_data, $this->debug, $this->emv_tds );
 
 			if ( isset( $response[0] ) && substr( $response[0], 0, 2 ) === 'OK' ) {
 				if ( isset( $response[1] ) ) {
