@@ -293,7 +293,7 @@ class WC_Gateway_Metaps_CC extends WC_Payment_Gateway {
 		$number_payment_array = $this->get_number_payments();
 		$metaps_user_id       = get_user_meta( $user->ID, '_metaps_user_id', true );
 		if ( 'yes' === $this->user_id_payment && '' !== $metaps_user_id && is_user_logged_in() ) {
-			echo '<input type="radio" name="select_card" value="old" checked="checked"><span style="padding-left:15px;">' . esc_html__( 'Use Stored Card.', 'metaps-for-woocommerce' ) . '</span><br />' . PHP_EOL;
+			echo '<input type="radio" name="user_id_payment" value="yes" checked="checked"><span style="padding-left:15px;">' . esc_html__( 'Use Stored Card.', 'metaps-for-woocommerce' ) . '</span><br />' . PHP_EOL;
 			if ( ! empty( $this->number_of_payments ) ) {
 				echo '<select name="number_of_payments">';
 				foreach ( $this->number_of_payments as $key => $value ) {
@@ -302,7 +302,7 @@ class WC_Gateway_Metaps_CC extends WC_Payment_Gateway {
 				echo '</select>';
 			}
 			echo '<br />';
-			echo '<input type="radio" name="select_card" value="new_credit"><span style="padding-left:15px;">' . esc_html__( 'Use New Card.', 'metaps-for-woocommerce' ) . '</span><br />' . PHP_EOL;
+			echo '<input type="radio" name="user_id_payment" value="no"><span style="padding-left:15px;">' . esc_html__( 'Use New Card.', 'metaps-for-woocommerce' ) . '</span><br />' . PHP_EOL;
 		}
 	}
 
@@ -335,7 +335,7 @@ class WC_Gateway_Metaps_CC extends WC_Payment_Gateway {
 		$setting_data['pass'] = $this->pass_code;
 		// User ID payment check.
 		$setting_data['store'] = '51';
-		if ( 'yes' === $this->user_id_payment && $this->get_post( 'select_card' ) === 'old' && is_user_logged_in() ) {
+		if ( 'yes' === $this->user_id_payment && $this->get_post( 'user_id_payment' ) === 'yes' && is_user_logged_in() ) {
 			$setting_data['store'] = null;
 		}
 
@@ -375,10 +375,12 @@ class WC_Gateway_Metaps_CC extends WC_Payment_Gateway {
 			);
 		} else { // When use user id payment.
 			$connect_url = METAPS_CC_SALES_USER_URL;
-			$response    = $this->metaps_request->metaps_post_request( $order, $connect_url, $setting_data, $this->debug, $this->emv_tds );
+			$response    = $this->metaps_request->metaps_post_request( $order, $connect_url, $setting_data, $this->debug, 'no' );
 			if ( isset( $response[0] ) && substr( $response[0], 0, 2 ) === 'OK' ) {
 				update_user_meta( $user->ID, '_metaps_user_id', $customer_id );
-				$order->update_status( 'on-hold', __( 'Finished to send payment data to metaps PAYMENT.', 'metaps-for-woocommerce' ) );
+				$order->add_order_note( __( 'Finished to send payment data to metaps PAYMENT . ', 'metaps-for-woocommerce' ) );
+				// Reduce stock levels.
+				wc_reduce_stock_levels( $order_id );
 				return array(
 					'result'   => 'success',
 					'redirect' => $this->get_return_url( $order ),
@@ -571,10 +573,10 @@ class WC_Gateway_Metaps_CC extends WC_Payment_Gateway {
 	 * Recieved Credit Payment complete from metaps
 	 */
 	public function metaps_cc_return() {
-		if ( isset( $_GET['pd'] ) && 'return' === $_GET['pd'] && isset( $_GET['sid'] ) ) {
+		if ( isset( $_GET['pd'] ) && 'return' === $_GET['pd'] && isset( $_GET['sid'] ) ) {// phpcs:ignore
 			$metaps_settings      = get_option( 'woocommerce_metaps_settings' );
 			$prefix_order         = $metaps_settings['prefixorder'];
-			$order_id             = str_replace( $prefix_order, '', sanitize_text_field( wp_unslash( $_GET['sid'] ) ) );
+			$order_id             = str_replace( $prefix_order, '', sanitize_text_field( wp_unslash( $_GET['sid'] ) ) );// phpcs:ignore
 			$order                = wc_get_order( $order_id );
 			$order_payment_method = $order->get_payment_method();
 			if ( 'metaps_cc' === $order_payment_method ) {

@@ -418,11 +418,13 @@ class WC_Gateway_Metaps_CS extends WC_Payment_Gateway {
 		} else {
 			$error_message = __( 'This order is cancelled, because of Payment error.', 'metaps-for-woocommerce' );
 			if ( isset( $response[2] ) ) {
-				$error_message .= ' ' . mb_convert_encoding( $response[2], 'UTF-8', 'sjis' );
+				$add_error_message = mb_convert_encoding( $response[2], 'UTF-8', 'sjis' );
 			}
+			$error_message .= ' ' . $add_error_message;
 			$order->update_status( 'cancelled', $error_message );
 
 			$front_error_message  = __( 'Convenience store payment failed.', 'metaps-for-woocommerce' );
+			$front_error_message .= $add_error_message;
 			$front_error_message .= __( 'Please try again.', 'metaps-for-woocommerce' );
 			throw new Exception( esc_html( $front_error_message ) );
 		}

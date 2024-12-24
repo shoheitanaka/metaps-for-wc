@@ -500,8 +500,14 @@ if ( ! class_exists( '\\ArtisanWorkshop\\PluginFramework\\v2_0_12\\JP4WC_Framewo
 		 */
 		public function jp4wc_author_info( $plugin_url ) {
 			?>
-			<p class="jp4wc-link inner"><?php echo esc_html( $this->text_array['author_info_01'] ); ?> <a href="https://wc.artws.info/?utm_source=jp4wc-settings&utm_medium=link&utm_campaign=created-by" target="_blank" title="Artisan Workshop"><img src="<?php echo esc_url( $plugin_url ); ?>assets/images/woo-logo.png" title="Artsain Workshop" alt="Artsain Workshop" class="jp4wc-logo" /></a><br />
-				<a href="https://docs.artws.info/?utm_source=jp4wc-settings&utm_medium=link&utm_campaign=created-by" target="_blank"><?php echo esc_html( $this->text_array['author_info_02'] ); ?></a>
+			<p class="jp4wc-link inner">
+				<?php echo esc_html( $this->text_array['author_info_01'] ); ?> 
+				<a href="https://wc.artws.info/?utm_source=jp4wc-settings&utm_medium=link&utm_campaign=created-by" target="_blank" title="Artisan Workshop">
+					<img src="<?php echo esc_url( $plugin_url ); ?>assets/images/woo-logo.png" title="Artsain Workshop" alt="Artsain Workshop" class="jp4wc-logo" />
+				</a><br />
+				<a href="https://docs.artws.info/?utm_source=jp4wc-settings&utm_medium=link&utm_campaign=created-by" target="_blank">
+					<?php echo esc_html( $this->text_array['author_info_02'] ); ?>
+				</a>
 			</p>
 			<?php
 		}
@@ -637,19 +643,26 @@ if ( ! class_exists( '\\ArtisanWorkshop\\PluginFramework\\v2_0_12\\JP4WC_Framewo
 		 * @return int The ID of an order, or 0 if the order could not be found
 		 */
 		public function get_order_id_by_transaction_id( $transaction_id ) {
-			$order_query = new WC_Order_Query(
-				array(
-					'limit'       => 1,
-					'return'      => 'ids',
-					'meta_key'    => '_transaction_id',
-					'meta_value'  => $transaction_id,
-					'post_status' => array_keys( wc_get_order_statuses() ),
-				)
-			);
+			global $wpdb;
 
-			$orders = $order_query->get_orders();
-			if ( ! empty( $orders ) ) {
-				return $orders[0];
+			$cache_key = 'order_id_' . $transaction_id;
+			$order_id  = wp_cache_get( $cache_key, 'orders' );
+
+			if ( false === $order_id ) {
+				$query     = new \WC_Order_Query(
+					array(
+						'transaction_id' => $transaction_id,
+						'limit'          => 1,
+						'return'         => 'ids',
+					)
+				);
+				$order_ids = $query->get_orders();
+				$order_id  = ! empty( $order_ids ) ? $order_ids[0] : false;
+				wp_cache_set( $cache_key, $order_id, 'orders', 3600 );
+			}
+
+			if ( $order_id ) {
+				return $order_id;
 			} else {
 				return false;
 			}
