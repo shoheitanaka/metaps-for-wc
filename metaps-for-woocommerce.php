@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Metaps Payments for WooCommerce
+ * Plugin Name: Metaps for WooCommerce
  * Plugin URI: https://www.wordpress.org/plugins/metaps-for-woocommerce/
  * Description: Metaps for WooCommerce is a WooCommerce payment extention plugin.
  * Version: 0.9.6
