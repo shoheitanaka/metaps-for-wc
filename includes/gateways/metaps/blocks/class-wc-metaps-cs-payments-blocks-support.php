@@ -2,7 +2,10 @@
 /**
  * WC_Metaps_CS_Payments_Blocks_Support class file.
  *
- * @package Metaps_For_WC
+ * @package  Metaps_For_WooCommerce
+ * @category Payment_Gateway
+ * @author   Shohei Tanaka
+ * @license  GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.html
  */
 
 use Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType;

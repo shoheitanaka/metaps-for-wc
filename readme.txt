@@ -1,18 +1,18 @@
-=== Metaps Payments for WooCommerce ===
+=== Metaps for WooCommerce ===
 Contributors: metapspayment, artisan-workshop-1, shohei.tanaka
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=info@artws.info&item_name=Donation+for+Artisan&currency_code=JPY
 Tags: woocommerce, ecommerce, e-commerce, Japanese
-Requires at least: 6.5.0
 Tested up to: 6.7.1
 Stable tag: 0.9.6
+Requires PHP: 8.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-metaps PAYMENT gateway payment for WooCommerce.
+Metaps Payment for WooCommerce.
 
 == Description ==
 
-This plugin extends the WooCommerce shop plugin for metaps PAYMENT in Japan.
+This plugin extends the WooCommerce shop plugin for Metaps Payment in Japan.
 Checkout Blocks compatible.
 
 = Key Features =
@@ -23,8 +23,11 @@ Checkout Blocks compatible.
 4. Payeasy Payment.
 
 == External services ==
-This plugin connects to external services to use services such as obtaining tokens from metaps payments to make payments.
-In addition, you will need to complete a contract with metaps payments to use the payments.
+This plugin connects to external services to use services such as obtaining tokens from Metaps Payment to make payments.
+In addition, you will need to complete a contract with Metaps Payment to use the payments.
+
+This service is provided by "[Metaps Payment](https://www.metaps-payment.com/)":
+[terms of use](https://www.metaps-payment.com/introduction/agreement.html), [privacy policy](https://www.metaps-payment.com/etc/privacy.html).
 
 == Installation ==
 
@@ -44,10 +47,13 @@ In the search field type “metaps for WooCommerce” and click Search Plugins. 
 = Manual installation =
 The manual installation method involves downloading our plugin and uploading it to your webserver via your favourite FTP application.
 
+== Information for Developers ==
+The development hub for this plugin's project can be found at [https://github.com/artisanworkshop/metaps-for-wc/](https://github.com/artisanworkshop/metaps-for-wc/).
+
 == Frequently Asked Questions ==
 Q: Do you have the forum of this plugin in Japanese?<br />
 A: Here<br />
-<a href="https://wordpress.org/support/plugin/metaps-for-wc/">(wordpress.org Support Forum)https://wordpress.org/support/plugin/metaps-for-wc/</a>
+[wordpress.org Support Forum](https://wordpress.org/support/plugin/metaps-for-woocommerce/)
 
 == Screenshots ==
 1. 

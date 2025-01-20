@@ -1,15 +1,19 @@
 <?php
 /**
- * Plugin Name: Metaps for WooCommerce
- * Framework Name: Artisan Workshop FrameWork for WooCommerce
+ * Artisan Workshop FrameWork for WooCommerce
+ *
  * Framework Version : 2.0.12
- * Author: Artisan Workshop
+ *
+ * @wordpress-plugin
+ * Plugin Name: Metaps for WooCommerce
+ * Author: Shohei Tanaka
  * Author URI: https://wc.artws.info/
  * Text Domain: metaps-for-woocommerce
  *
- * @category JP4WC_Framework
  * @package MetapsForWooCommerce
- * @author Artisan Workshop
+ * @category JP4WC_Framework
+ * @author Shohei Tanaka
+ * @license  GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.html
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

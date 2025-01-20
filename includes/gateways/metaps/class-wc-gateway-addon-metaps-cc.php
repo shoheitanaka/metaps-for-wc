@@ -2,8 +2,10 @@
 /**
  * WC Gateway Addons Metaps CC
  *
- * @package WooCommerce/Classes/Payment
- * @version 0.9.2
+ * @package  Metaps_For_WooCommerce
+ * @category Payment_Gateway
+ * @author   Shohei Tanaka
+ * @license  GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.html
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -2,7 +2,10 @@
 /**
  * WC_Gateway_Metaps_CC class file.
  *
- * @package WooCommerce/Classes/Payment
+ * @package  Metaps_For_WooCommerce
+ * @category Payment_Gateway
+ * @author   Shohei Tanaka
+ * @license  GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.html
  */
 
 use ArtisanWorkshop\PluginFramework\v2_0_12 as Framework;
