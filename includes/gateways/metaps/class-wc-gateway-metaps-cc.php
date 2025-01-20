@@ -96,18 +96,18 @@ class WC_Gateway_Metaps_CC extends WC_Payment_Gateway {
 	public $number_of_payments;
 
 	/**
-	 * Array Number of Payments
-	 *
-	 * @var array
-	 */
-	public $array_number_of_payments;
-
-	/**
 	 * EMV 3D Secure
 	 *
 	 * @var string
 	 */
 	public $emv_tds;
+
+	/**
+	 * Array Number of Payments
+	 *
+	 * @var array
+	 */
+	public $array_number_of_payments;
 
 	/**
 	 * Constructor for the gateway
@@ -152,7 +152,8 @@ class WC_Gateway_Metaps_CC extends WC_Payment_Gateway {
 		foreach ( $this->settings as $key => $val ) {
 			$this->$key = $val;
 		}
-		// Number of payments.
+
+		// Set number of payments.
 		$this->array_number_of_payments = array(
 			'100' => __( '1 time', 'metaps-for-woocommerce' ),
 			'80'  => __( 'Revolving payment', 'metaps-for-woocommerce' ),
@@ -173,6 +174,7 @@ class WC_Gateway_Metaps_CC extends WC_Payment_Gateway {
 		add_action( 'woocommerce_order_status_completed', array( $this, 'order_status_completed_to_capture' ) );
 		add_action( 'woocommerce_before_cart', array( $this, 'metaps_cc_return' ) );
 	}
+
 	/**
 	 * Initialize Gateway Settings Form Fields.
 	 */
@@ -246,7 +248,7 @@ class WC_Gateway_Metaps_CC extends WC_Payment_Gateway {
 				'title'       => __( 'Number of payments', 'metaps-for-woocommerce' ),
 				'type'        => 'multiselect',
 				'class'       => 'wc-number-select',
-				'description' => __( 'Choose whether you wish to capture funds immediately or authorize payment only.', 'metaps-for-woocommerce' ),
+				'description' => __( 'Please select the number of installments available.', 'metaps-for-woocommerce' ),
 				'desc_tip'    => true,
 				'options'     => array(
 					'100' => __( '1 time', 'metaps-for-woocommerce' ),

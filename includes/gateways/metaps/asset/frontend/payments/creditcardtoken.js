@@ -231,7 +231,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _woocommerce_settings__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_woocommerce_settings__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _wordpress_html_entities__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/html-entities */ "@wordpress/html-entities");
+/* harmony import */ var _wordpress_html_entities__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_html_entities__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -240,21 +243,22 @@ const settings = (0,_woocommerce_settings__WEBPACK_IMPORTED_MODULE_1__.getSettin
 const NumberOfPaymentsSelectControl = () => {
   const numberOfPaymentsSelect = [];
   const numberOfPayments = settings.number_of_payments;
+  const payment_time_text = (0,_wordpress_html_entities__WEBPACK_IMPORTED_MODULE_3__.decodeEntities)(settings.payment_time_text) || (0,_wordpress_html_entities__WEBPACK_IMPORTED_MODULE_3__.decodeEntities)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Number of Payments', 'metaps-for-woocommerce'));
   for (let i = 0; i < numberOfPayments.length; i++) {
     numberOfPaymentsSelect.push({
       label: numberOfPayments[i].value,
       value: numberOfPayments[i].id
     });
   }
-  const NumberOfPaymentsSelectControl = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Number of Payments', 'metaps-for-woocommerce'),
+  const NumberOfPaymentsSelectControl = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+    label: payment_time_text,
     className: 'number_of_payments',
     labelPosition: 'side',
     id: 'number_of_payments',
     size: 'compact',
     options: numberOfPaymentsSelect
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     className: "number_of_payments",
     children: numberOfPayments && NumberOfPaymentsSelectControl
   });

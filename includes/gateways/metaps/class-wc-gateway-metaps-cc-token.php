@@ -68,6 +68,13 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 	public $number_of_payments;
 
 	/**
+	 * Array Number of Payments
+	 *
+	 * @var array
+	 */
+	public $array_number_of_payments;
+
+	/**
 	 * IP Code.
 	 *
 	 * @var string
@@ -87,25 +94,6 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 	 * @var string
 	 */
 	public $payment_time_text;
-
-	/**
-	 * Array of number of payments.
-	 *
-	 * @var array
-	 */
-	public $array_number_of_payments = array(
-		'100' => '1 time',
-		'80'  => 'Revolving payment',
-		'3'   => '3 times',
-		'5'   => '5 times',
-		'6'   => '6 times',
-		'10'  => '10 times',
-		'12'  => '12 times',
-		'15'  => '15 times',
-		'18'  => '18 times',
-		'20'  => '20 times',
-		'24'  => '24 times',
-	);
 
 	/**
 	 * Constructor
@@ -147,6 +135,22 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 		foreach ( $this->settings as $key => $val ) {
 			$this->$key = $val;
 		}
+
+		// Set number of payments.
+		$this->array_number_of_payments = array(
+			'100' => __( '1 time', 'metaps-for-woocommerce' ),
+			'80'  => __( 'Revolving payment', 'metaps-for-woocommerce' ),
+			'3'   => '3' . __( 'times', 'metaps-for-woocommerce' ),
+			'5'   => '5' . __( 'times', 'metaps-for-woocommerce' ),
+			'6'   => '6' . __( 'times', 'metaps-for-woocommerce' ),
+			'10'  => '10' . __( 'times', 'metaps-for-woocommerce' ),
+			'12'  => '12' . __( 'times', 'metaps-for-woocommerce' ),
+			'15'  => '15' . __( 'times', 'metaps-for-woocommerce' ),
+			'18'  => '18' . __( 'times', 'metaps-for-woocommerce' ),
+			'20'  => '20' . __( 'times', 'metaps-for-woocommerce' ),
+			'24'  => '24' . __( 'times', 'metaps-for-woocommerce' ),
+		);
+
 		// Actions hook.
 		add_action( 'woocommerce_update_options_payment_gateways', array( $this, 'process_admin_options' ) );
 		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
@@ -233,9 +237,21 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 				'title'       => __( 'Number of payments', 'metaps-for-woocommerce' ),
 				'type'        => 'multiselect',
 				'class'       => 'wc-number-select',
-				'description' => __( 'Choose whether you wish to capture funds immediately or authorize payment only.', 'metaps-for-woocommerce' ),
+				'description' => __( 'Please select the number of installments available.', 'metaps-for-woocommerce' ),
 				'desc_tip'    => true,
-				'options'     => $this->array_number_of_payments,
+				'options'     => array(
+					'100' => __( '1 time', 'metaps-for-woocommerce' ),
+					'80'  => __( 'Revolving payment', 'metaps-for-woocommerce' ),
+					'3'   => '3' . __( 'times', 'metaps-for-woocommerce' ),
+					'5'   => '5' . __( 'times', 'metaps-for-woocommerce' ),
+					'6'   => '6' . __( 'times', 'metaps-for-woocommerce' ),
+					'10'  => '10' . __( 'times', 'metaps-for-woocommerce' ),
+					'12'  => '12' . __( 'times', 'metaps-for-woocommerce' ),
+					'15'  => '15' . __( 'times', 'metaps-for-woocommerce' ),
+					'18'  => '18' . __( 'times', 'metaps-for-woocommerce' ),
+					'20'  => '20' . __( 'times', 'metaps-for-woocommerce' ),
+					'24'  => '24' . __( 'times', 'metaps-for-woocommerce' ),
+				),
 			),
 			'debug'              => array(
 				'title'       => __( 'Debug Mode', 'metaps-for-woocommerce' ),
@@ -246,6 +262,16 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 			),
 		);
 	}
+
+	/**
+	 * Get the number of payments.
+	 *
+	 * @return array The array of number of payments.
+	 */
+	public function get_number_payments() {
+		return $this->number_of_payments;
+	}
+
 	/**
 	 * UI - Payment page fields for metaps PAYMENT Payment.
 	 */
@@ -256,7 +282,7 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 					<?php
 		}
 		$user                 = wp_get_current_user();
-		$number_payment_array = $this->form_fields['number_of_payments']['options'];
+		$number_payment_array = $this->get_number_payments();
 		$metaps_user_id       = get_user_meta( $user->ID, '_metaps_user_id', true );
 		if ( 'yes' === $this->user_id_payment && '' !== $metaps_user_id && is_user_logged_in() ) {
 			?>

@@ -194,7 +194,15 @@ class WC_Admin_Screen_Metaps {
 				'metaps-for-woocommerce',
 				METAPS_FOR_WC_DIR . 'i18n'
 			);
-
+			// Setting data.
+			$rest_url = get_rest_url();
+			wp_localize_script(
+				'metaps-for-wc-admin-script',
+				'metapsForWcSettings',
+				array(
+					'restUrl' => $rest_url,
+				)
+			);
 		}
 	}
 }

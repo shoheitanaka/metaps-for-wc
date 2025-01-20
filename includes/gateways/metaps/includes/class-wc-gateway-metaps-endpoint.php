@@ -68,12 +68,12 @@ class WC_Gateway_Metaps_Endpoint {
 		if ( isset( $get_data['SID'] ) ) {
 
 			// Create a response object.
-			$response = new WP_REST_Response();
+			$response = new WP_REST_Response( '0¥r¥n' );
 			// Set the status code (if necessary).
 			$response->set_status( 302 );
 			// Set Header.
 			$empty_url = METAPS_FOR_WC_URL . 'empty.php';
-			$response->header( 'Location', $empty_url );
+			$response->header( 'Content-Type', 'text/plain; charset=Shift_JIS' );
 
 			// Get the order ID.
 			$pd_order_id     = sanitize_text_field( wp_unslash( $get_data['SID'] ) );
