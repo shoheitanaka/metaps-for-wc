@@ -4,7 +4,7 @@ This is [Metaps for WooCommerce] WordPress extention plugin for Japanese WooComm
 
 ## Payment agency service
 
-By linking with Metaps Payment services, you can make payments in Japan. To use this service, you must sign a contract with Metaps Payment.
+By linking with [Metaps Payment](https://www.metaps-payment.com/) services, you can make payments in Japan. To use this service, you must sign a contract with Metaps Payment.
 
 ## How to build a development environment
 
