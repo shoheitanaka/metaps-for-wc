@@ -219,7 +219,7 @@ if ( ! class_exists( '\\ArtisanWorkshop\\PluginFramework\\v2_0_12\\JP4WC_Framewo
 				echo '<select id="woocommerce_input_' . esc_attr( $slug ) . '" name="' . esc_attr( $slug ) . '">';
 				foreach ( $select_options as $key => $value ) {
 					$checked = '';
-					if ( $jp4wc_options_setting == $key ) {
+					if ( $jp4wc_options_setting === $key ) {
 						$checked = ' selected="selected"';
 					}
 					echo '<option value="' . esc_attr( $key ) . '"' . esc_attr( $checked ) . '>' . esc_attr( $value ) . '</option>';
@@ -568,7 +568,7 @@ if ( ! class_exists( '\\ArtisanWorkshop\\PluginFramework\\v2_0_12\\JP4WC_Framewo
 				}
 				if ( ! is_null( $start_time ) && is_numeric( $end_time ) && is_numeric( $start_time ) ) {
 					$formatted_start_time = date_i18n( get_option( 'date_format' ) . ' g:ia', $start_time );
-					$end_time             = is_null( $end_time ) ? current_time( 'timestamp' ) : $end_time;
+					$end_time             = is_null( $end_time ) ? time() : $end_time;
 					$formatted_end_time   = date_i18n( get_option( 'date_format' ) . ' g:ia', $end_time );
 					$elapsed_time         = round( abs( $end_time - $start_time ) / 60, 2 );
 
@@ -586,13 +586,13 @@ if ( ! class_exists( '\\ArtisanWorkshop\\PluginFramework\\v2_0_12\\JP4WC_Framewo
 		/**
 		 * Create debug log as each plugin.
 		 *
-		 * @param array $array message array.
+		 * @param array $data message array.
 		 * @return string message
 		 */
-		public function jp4wc_array_to_message( $array ) {
-			if ( is_array( $array ) ) {
+		public function jp4wc_array_to_message( $data ) {
+			if ( is_array( $data ) ) {
 				$message = '';
-				foreach ( $array as $key => $value ) {
+				foreach ( $data as $key => $value ) {
 					if ( is_array( $value ) ) {
 						$message .= $key . ' : ' . "\n";
 						foreach ( $value as $key1 => $value1 ) {

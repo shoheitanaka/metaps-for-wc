@@ -3,7 +3,7 @@
  * Plugin Name: Metaps Payments for WooCommerce
  * Plugin URI: https://www.wordpress.org/plugins/metaps-for-woocommerce/
  * Description: Metaps for WooCommerce is a WooCommerce payment extention plugin.
- * Version: 0.9.4
+ * Version: 0.9.6
  * Author: Shohei Tanaka
  * Author URI: https://wc.artws.info/
  * Text Domain: metaps-for-woocommerce
@@ -13,7 +13,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
  * WC requires at least: 9.0.0
- * WC tested up to: 9.4.2
+ * WC tested up to: 9.5.2
  * Requires at least: 6.5.0
  * Tested up to: 6.7.1
  *
@@ -39,7 +39,7 @@ if ( ! class_exists( 'WC_Metaps_Payments' ) ) :
 		 *
 		 * @var string
 		 */
-		public $version = '0.9.4';
+		public $version = '0.9.6';
 
 		/**
 		 * Metaps PAYMENT for WooCommerce Framework version.
@@ -164,6 +164,10 @@ if ( ! class_exists( 'WC_Metaps_Payments' ) ) :
 		 * Load Localisation files.
 		 */
 		protected function load_plugin_textdomain() {
+			$locale = apply_filters( 'plugin_locale', get_locale(), 'metaps-for-woocommerce' );
+			// Load plugin text domain.
+			unload_textdomain( 'metaps-for-woocommerce', true );
+			load_textdomain( 'metaps-for-woocommerce', WP_LANG_DIR . '/metaps-for-woocommerce/metaps-for-woocommerce-' . $locale . '.mo' );
 			load_plugin_textdomain( 'metaps-for-woocommerce', false, basename( __DIR__ ) . '/i18n' );
 		}
 
