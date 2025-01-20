@@ -3,6 +3,8 @@
  * Add checkout addition field in WooCommerce.
  *
  * @package WC_JP4WC_Checkout_Add_Fields
+ * @author   Shohei Tanaka
+ * @license  GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.html
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

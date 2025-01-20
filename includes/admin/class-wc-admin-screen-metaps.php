@@ -2,13 +2,10 @@
 /**
  * Admin Screen Metaps
  *
+ * @package  Metaps_For_WooCommerce
  * @category Payment_Gateway
- * @package  Metaps_For_WC
  * @author   Shohei Tanaka
  * @license  GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.html
- * @version  0.9.3
- * @link     https://github.com/artisanworkshop/metaps-for-wc
- * @php      8.2.0
  */
 
 namespace ArtisanWorkshop\Metaps\Admin;
@@ -20,8 +17,8 @@ defined( 'ABSPATH' ) || exit;
  *
  * This class handles the admin screen for Metaps settings in WooCommerce.
  *
+ * @package  Metaps_For_WooCommerce
  * @category Payment_Gateway
- * @package  Metaps_For_WC
  * @author   Shohei Tanaka
  * @license  GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.html
  */

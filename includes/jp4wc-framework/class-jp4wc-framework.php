@@ -5,9 +5,10 @@
  * Author: Artisan Workshop
  * Author URI: https://wc.artws.info/
  *
- * @package JP4WC_Framework
+ * @package MetapsForWooCommerce
  * @category JP4WC_Framework
  * @author Artisan Workshop
+ * @license  GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.html
  */
 
 namespace ArtisanWorkshop\PluginFramework\v2_0_12;

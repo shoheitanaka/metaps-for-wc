@@ -4,20 +4,19 @@
  * Plugin URI: https://www.wordpress.org/plugins/metaps-for-woocommerce/
  * Description: Metaps for WooCommerce is a WooCommerce payment extention plugin.
  * Version: 0.9.6
+ * Requires at least: 6.5
  * Author: Shohei Tanaka
  * Author URI: https://wc.artws.info/
  * Text Domain: metaps-for-woocommerce
- * Domain Path: /i18n
- *
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ * Domain Path: /i18n
+ * Requires Plugins: woocommerce
  *
  * WC requires at least: 9.0.0
  * WC tested up to: 9.5.2
- * Requires at least: 6.5.0
- * Tested up to: 6.7.1
  *
- * @package Metaps_for_WooCommerce
+ * @package Metaps_For_WooCommerce
  */
 
 defined( 'ABSPATH' ) || exit;
