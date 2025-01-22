@@ -12,6 +12,9 @@
 .wc-block-components-checkout-step__container .metaps_cc_token .wc-block-card-elements {
   padding-top: 15px;
 }
+.wc-block-components-checkout-step__container .metaps_cc_token .wc-block-card-elements .wc-block-gateway-container {
+  margin-bottom: 0;
+}
 .wc-block-components-checkout-step__container .metaps_cc_token .wc-block-card-elements .wc-block-gateway-container .wc-block-gateway-input {
   background-color: #fff;
   border: 1px solid #50575e;

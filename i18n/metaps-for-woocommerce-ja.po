@@ -383,7 +383,7 @@ msgstr "新しいカードを使う。"
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:512
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:367
 msgid "Finished to send payment data to metaps PAYMENT . "
-msgstr "メタップスペイメントへの支払いデータの送信を終了しました。 "
+msgstr "メタップスペイメントへの支払いデータの送信しました。 "
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:488
 msgid "Payment received, awaiting fulfilment"
@@ -571,7 +571,7 @@ msgstr "クレジットカード (メタップスペイメント)"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:355
 msgid "Finished to send payment data to metaps PAYMENT."
-msgstr "メタップスペイメントへの支払いデータの送信を終了しました。"
+msgstr "メタップスペイメントへの支払いデータの送信しました。"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:355
 msgid "Awaiting payment confirmation from metaps PAYMENT."
