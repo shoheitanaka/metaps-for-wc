@@ -27,10 +27,12 @@ const CreditCardInputControl = () => {
   const [cardNumber, setCardNumber] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
   const [expiryDate, setExpiryDate] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
   const [securityCode, setSecurityCode] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
+  const [cardName, setCardName] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
   const tokenIdRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useRef)(null);
   const cardNumberTokenRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useRef)(null);
   const expYRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useRef)(null);
   const expMRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useRef)(null);
+  const cardNameRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useRef)(null);
 
   // Load external script
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
@@ -56,6 +58,7 @@ const CreditCardInputControl = () => {
     let exp_my = expiryDate.replace(/ /g, '').replace('/', '');
     let exp_m = exp_my.slice(0, 2);
     let exp_y = exp_my.slice(2).slice(-2);
+    let card_holder_name = cardName;
     if (window.metapspayment.validateCardNumber(cr) && window.metapspayment.validateExpiry(exp_m, exp_y) && window.metapspayment.validateCSC(cs)) {
       if (tokenIdRef.current) tokenIdRef.current.value = '';
       window.metapspayment.setTimeout(20000);
@@ -64,7 +67,8 @@ const CreditCardInputControl = () => {
         number: cr,
         csc: cs,
         exp_m: exp_m,
-        exp_y: exp_y
+        exp_y: exp_y,
+        card_holder_name: card_holder_name
       }, metapspaymentResponseHandler);
     }
   };
@@ -75,12 +79,13 @@ const CreditCardInputControl = () => {
     if (cardNumberTokenRef.current) cardNumberTokenRef.current.value = response.crno;
     if (expYRef.current) expYRef.current.value = response.exp_y;
     if (expMRef.current) expMRef.current.value = response.exp_m;
+    if (cardNameRef.current) cardNameRef.current.value = response.card_holder_name;
   };
 
   // Trigger metapspaymentToken on input change
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
     metapspaymentToken();
-  }, [cardNumber, securityCode, expiryDate]);
+  }, [cardNumber, securityCode, expiryDate, cardName]);
   const handleCardNumberChange = cardNumber => {
     // Remove all non-numeric characters
     let value = cardNumber.replace(/\D/g, '');
@@ -147,67 +152,85 @@ const CreditCardInputControl = () => {
       return;
     }
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: 'wc-block-card-elements',
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: 'wc-block-gateway-container wc-card-number-element',
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: 'wc-block-gateway-input',
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
-          className: 'card_number',
-          id: 'card_number',
-          type: 'text',
-          value: cardNumber,
-          onChange: handleCardNumberChange,
-          placeholder: '4242 4242 4242 4242'
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: 'wc-block-card-elements',
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: 'wc-block-gateway-container wc-card-number-element',
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: 'wc-block-gateway-input',
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+            className: 'card_number',
+            id: 'card_number',
+            type: 'text',
+            value: cardNumber,
+            onChange: handleCardNumberChange,
+            placeholder: '4242 4242 4242 4242'
+          })
         })
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: 'wc-block-gateway-container wc-card-expiry-element',
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: 'wc-block-gateway-input',
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
-          className: 'expiration_date',
-          id: 'expiration_date',
-          type: 'text',
-          value: expiryDate,
-          onChange: handleExpiryDateChange,
-          onBlur: handleExpiryDateBlur,
-          placeholder: 'MM/YY'
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: 'wc-block-gateway-container wc-card-expiry-element',
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: 'wc-block-gateway-input',
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+            className: 'expiration_date',
+            id: 'expiration_date',
+            type: 'text',
+            value: expiryDate,
+            onChange: handleExpiryDateChange,
+            onBlur: handleExpiryDateBlur,
+            placeholder: 'MM/YY'
+          })
         })
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: 'wc-block-gateway-container wc-card-cvc-element',
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: 'wc-block-gateway-input',
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
-          className: 'security_code',
-          id: 'security_code',
-          type: 'text',
-          value: securityCode,
-          onChange: value => setSecurityCode(value),
-          placeholder: 'CVV/CVC'
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: 'wc-block-gateway-container wc-card-cvc-element',
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: 'wc-block-gateway-input',
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+            className: 'security_code',
+            id: 'security_code',
+            type: 'text',
+            value: securityCode,
+            onChange: value => setSecurityCode(value),
+            placeholder: 'CVV/CVC'
+          })
         })
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: 'input-hiddens',
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-        type: 'hidden',
-        ref: tokenIdRef,
-        id: 'metaps_cc_token_id'
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-        type: 'hidden',
-        ref: cardNumberTokenRef,
-        id: 'metaps_cc_token_crno'
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-        type: 'hidden',
-        ref: expYRef,
-        id: 'metaps_cc_token_exp_y'
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-        type: 'hidden',
-        ref: expMRef,
-        id: 'metaps_cc_token_exp_m'
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: 'input-hiddens',
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          type: 'hidden',
+          ref: tokenIdRef,
+          id: 'metaps_cc_token_id'
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          type: 'hidden',
+          ref: cardNumberTokenRef,
+          id: 'metaps_cc_token_crno'
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          type: 'hidden',
+          ref: expYRef,
+          id: 'metaps_cc_token_exp_y'
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          type: 'hidden',
+          ref: expMRef,
+          id: 'metaps_cc_token_exp_m'
+        })]
       })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: 'wc-block-card-elements',
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: 'wc-block-gateway-container wc-card-name-element',
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: 'wc-block-gateway-input',
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+            className: 'card_name',
+            id: 'card_name',
+            type: 'text',
+            value: cardName,
+            onChange: value => setCardName(value),
+            placeholder: 'Taro Suzuki'
+          })
+        })
+      })
     })]
   });
 };
@@ -2036,7 +2059,7 @@ const Content = props => {
     className: 'metaps_cc_token',
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.RawHTML, {
       children: description
-    }), user_id_payment_setting === 'yes' && isLoggedIn && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_user_id_payment__WEBPACK_IMPORTED_MODULE_7__.UserIdPaymentSelectControl, {}), user_id_payment_setting !== 'yes' || isLoggedIn === false && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_credit_card_form__WEBPACK_IMPORTED_MODULE_6__.CreditCardInputControl, {}), numberOfPayments && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_number_of_payments__WEBPACK_IMPORTED_MODULE_5__.NumberOfPaymentsSelectControl, {})]
+    }), user_id_payment_setting === 'yes' && isLoggedIn && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_user_id_payment__WEBPACK_IMPORTED_MODULE_7__.UserIdPaymentSelectControl, {}), user_id_payment_setting !== 'yes' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_credit_card_form__WEBPACK_IMPORTED_MODULE_6__.CreditCardInputControl, {}), numberOfPayments && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_number_of_payments__WEBPACK_IMPORTED_MODULE_5__.NumberOfPaymentsSelectControl, {})]
   });
 };
 

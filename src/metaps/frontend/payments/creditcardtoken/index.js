@@ -126,7 +126,7 @@ const Content = ( props ) => {
 			{ user_id_payment_setting === 'yes' && isLoggedIn && 
 				<UserIdPaymentSelectControl />
 			}
-			{ user_id_payment_setting !== 'yes' || isLoggedIn === false &&
+			{ user_id_payment_setting !== 'yes' &&
 				<CreditCardInputControl />
 			}
 			{ numberOfPayments &&

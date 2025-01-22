@@ -6,11 +6,13 @@ const CreditCardInputControl = () => {
 	const [cardNumber, setCardNumber] = useState('');
 	const [expiryDate, setExpiryDate] = useState('');
 	const [securityCode, setSecurityCode] = useState('');
+	const [cardName, setCardName] = useState('');
 
 	const tokenIdRef = useRef(null);
     const cardNumberTokenRef = useRef(null);
     const expYRef = useRef(null);
     const expMRef = useRef(null);
+    const cardNameRef = useRef(null);
 
     // Load external script
 	useEffect(() => {
@@ -40,6 +42,7 @@ const CreditCardInputControl = () => {
 		let exp_my = expiryDate.replace(/ /g, '').replace('/', '');
 		let exp_m = exp_my.slice(0, 2);
 		let exp_y = exp_my.slice(2).slice(-2);
+		let card_holder_name = cardName;
 		if (window.metapspayment.validateCardNumber(cr) && 
 			window.metapspayment.validateExpiry(exp_m, exp_y) && 
 			window.metapspayment.validateCSC(cs)) {
@@ -47,7 +50,7 @@ const CreditCardInputControl = () => {
 			if (tokenIdRef.current) tokenIdRef.current.value = '';
 			window.metapspayment.setTimeout(20000);
 			window.metapspayment.setLang("ja");
-			window.metapspayment.createToken({ number: cr, csc: cs, exp_m: exp_m, exp_y: exp_y }, metapspaymentResponseHandler);
+			window.metapspayment.createToken({ number: cr, csc: cs, exp_m: exp_m, exp_y: exp_y, card_holder_name: card_holder_name }, metapspaymentResponseHandler);
 		}
 	};
 
@@ -57,12 +60,13 @@ const CreditCardInputControl = () => {
 		if (cardNumberTokenRef.current) cardNumberTokenRef.current.value = response.crno;
 		if (expYRef.current) expYRef.current.value = response.exp_y;
 		if (expMRef.current) expMRef.current.value = response.exp_m;
+		if (cardNameRef.current) cardNameRef.current.value = response.card_holder_name;
 	};
 	
 	// Trigger metapspaymentToken on input change
 	useEffect(() => {
 		metapspaymentToken();
-	}, [cardNumber, securityCode, expiryDate]);	
+	}, [cardNumber, securityCode, expiryDate, cardName]);	
 
 	const handleCardNumberChange = ( cardNumber ) => {
 	    // Remove all non-numeric characters
@@ -138,6 +142,7 @@ const CreditCardInputControl = () => {
 	  };
 	
 	return (
+		<>
 		<div className={ 'wc-block-card-elements' }>
 			<div className={ 'wc-block-gateway-container wc-card-number-element' }>
 				<div className={ 'wc-block-gateway-input' }>
@@ -183,6 +188,21 @@ const CreditCardInputControl = () => {
 				<input type={ 'hidden' } ref={ expMRef } id={ 'metaps_cc_token_exp_m' }/>
 			</div>
 		</div>
+		<div className={ 'wc-block-card-elements' }>
+			<div className={ 'wc-block-gateway-container wc-card-name-element' }>
+				<div className={ 'wc-block-gateway-input' }>
+					<TextControl
+						className={ 'card_name' }
+						id={ 'card_name' }
+						type={ 'text' }
+						value={ cardName }
+						onChange={ ( value ) => setCardName( value ) }
+						placeholder={ 'Taro Suzuki' }
+					/>
+				</div>
+			</div>
+		</div>
+		</>
 	);
 };
 
