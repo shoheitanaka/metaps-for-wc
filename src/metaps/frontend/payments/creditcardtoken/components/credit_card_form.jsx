@@ -1,6 +1,37 @@
 import { __ } from '@wordpress/i18n';
 import { TextControl } from '@wordpress/components';
 import { useEffect,useState, useRef } from '@wordpress/element';
+import { getSetting } from '@woocommerce/settings';
+
+const settings = getSetting( 'metaps_cc_token_data', {} );
+
+const CreditCardHolderNameControl = () => {
+	const emv_tds = settings.emv_tds || '';
+	const [cardName, setCardName] = useState('');
+
+	if( emv_tds === 'yes' ) {
+	return (
+		<div className={ 'wc-block-card-elements' }>
+			<div className={ 'wc-block-gateway-container wc-card-name-element' }>
+				<div className={ 'wc-block-gateway-input' }>
+					<TextControl
+						className={ 'card_name' }
+						id={ 'card_name' }
+						type={ 'text' }
+						value={ cardName }
+						onChange={ ( value ) => setCardName( value ) }
+						placeholder={ 'Taro Suzuki' }
+					/>
+				</div>
+			</div>
+		</div>
+	);
+	} else {
+		return (
+			<input type={ 'hidden' } value={ '' } id={ 'card_name' }/>
+		);
+	}
+};
 
 const CreditCardInputControl = () => {
 	const [cardNumber, setCardNumber] = useState('');
@@ -188,20 +219,7 @@ const CreditCardInputControl = () => {
 				<input type={ 'hidden' } ref={ expMRef } id={ 'metaps_cc_token_exp_m' }/>
 			</div>
 		</div>
-		<div className={ 'wc-block-card-elements' }>
-			<div className={ 'wc-block-gateway-container wc-card-name-element' }>
-				<div className={ 'wc-block-gateway-input' }>
-					<TextControl
-						className={ 'card_name' }
-						id={ 'card_name' }
-						type={ 'text' }
-						value={ cardName }
-						onChange={ ( value ) => setCardName( value ) }
-						placeholder={ 'Taro Suzuki' }
-					/>
-				</div>
-			</div>
-		</div>
+		<CreditCardHolderNameControl />
 		</>
 	);
 };
