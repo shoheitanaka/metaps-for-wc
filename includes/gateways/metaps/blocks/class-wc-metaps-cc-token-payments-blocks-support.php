@@ -111,6 +111,7 @@ final class WC_Metaps_CC_Token_Payments_Blocks_Support extends AbstractPaymentMe
 			'description'        => $this->get_setting( 'description' ),
 			'user_id_payment'    => $this->get_setting( 'user_id_payment' ),
 			'payment_time_text'  => $this->get_setting( 'payment_time_text' ),
+			'emv_tds'            => $this->get_setting( 'emv_tds' ),
 			'number_of_payments' => $set_number_of_payments,
 			'supports'           => array_filter( $this->gateway->supports, array( $this->gateway, 'supports' ) ),
 		);
