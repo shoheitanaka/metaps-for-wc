@@ -43,7 +43,7 @@ const CreditCardHolderNameControl = () => {
             type: 'text',
             value: cardName,
             onChange: value => setCardName(value),
-            placeholder: 'Taro Suzuki'
+            placeholder: 'TARO SUSUKI'
           })
         })
       })
