@@ -5,33 +5,6 @@ import { getSetting } from '@woocommerce/settings';
 
 const settings = getSetting( 'metaps_cc_token_data', {} );
 
-const CreditCardHolderNameControl = () => {
-	const emv_tds = settings.emv_tds || '';
-	const [cardName, setCardName] = useState('');
-
-	if( emv_tds === 'yes' ) {
-	return (
-		<div className={ 'wc-block-card-elements' }>
-			<div className={ 'wc-block-gateway-container wc-card-name-element' }>
-				<div className={ 'wc-block-gateway-input' }>
-					<TextControl
-						className={ 'card_name' }
-						id={ 'card_name' }
-						type={ 'text' }
-						value={ cardName }
-						onChange={ ( value ) => setCardName( value ) }
-						placeholder={ 'TARO SUSUKI' }
-					/>
-				</div>
-			</div>
-		</div>
-	);
-	} else {
-		return (
-			<input type={ 'hidden' } value={ '' } id={ 'card_name' }/>
-		);
-	}
-};
 
 const CreditCardInputControl = () => {
 	const [cardNumber, setCardNumber] = useState('');
@@ -44,6 +17,7 @@ const CreditCardInputControl = () => {
     const expYRef = useRef(null);
     const expMRef = useRef(null);
     const cardNameRef = useRef(null);
+	const emv_tds = settings.emv_tds || '';
 
     // Load external script
 	useEffect(() => {
@@ -172,7 +146,34 @@ const CreditCardInputControl = () => {
 		}
 	  };
 	
-	return (
+	  const CreditCardHolderNameControl = () => {
+		const emv_tds = settings.emv_tds || '';
+		const [cardName, setCardName] = useState('');
+	
+		if( emv_tds === 'yes' ) {
+		return (
+			<div className={ 'wc-block-card-elements' }>
+				<div className={ 'wc-block-gateway-container wc-card-name-element' }>
+					<div className={ 'wc-block-gateway-input' }>
+						<TextControl
+							className={ 'card_name' }
+							id={ 'card_name' }
+							type={ 'text' }
+							value={ cardName }
+							onChange={ ( value ) => setCardName( value ) }
+							placeholder={ 'TARO SUSUKI' }
+						/>
+					</div>
+				</div>
+			</div>
+		);
+		} else {
+			return (
+				<input type={ 'hidden' } value={ '' } id={ 'card_name' }/>
+			);
+		}
+	};
+		return (
 		<>
 		<div className={ 'wc-block-card-elements' }>
 			<div className={ 'wc-block-gateway-container wc-card-number-element' }>
@@ -219,7 +220,25 @@ const CreditCardInputControl = () => {
 				<input type={ 'hidden' } ref={ expMRef } id={ 'metaps_cc_token_exp_m' }/>
 			</div>
 		</div>
-		<CreditCardHolderNameControl />
+		{ emv_tds === 'yes' ? (
+			<div className={ 'wc-block-card-elements' }>
+			<div className={ 'wc-block-gateway-container wc-card-name-element' }>
+				<div className={ 'wc-block-gateway-input' }>
+					<TextControl
+						className={ 'card_name' }
+						id={ 'card_name' }
+						type={ 'text' }
+						value={ cardName }
+						onChange={ ( value ) => setCardName( value ) }
+						placeholder={ 'TARO SUSUKI' }
+					/>
+				</div>
+			</div>
+		</div>
+
+		) : (
+			<input type={ 'hidden' } value={ '' } id={ 'card_name' }/>
+		)}
 		</>
 	);
 };

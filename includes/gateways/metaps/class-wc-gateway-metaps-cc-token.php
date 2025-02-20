@@ -160,7 +160,7 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 		add_action( 'wp_enqueue_scripts', array( $this, 'metaps_cc_token_wp_enqueue_script' ) );
 		add_action( 'woocommerce_order_status_completed', array( $this, 'metaps_order_status_completed_to_capture_token' ) );
 		// Filter hook.
-		add_action( 'woocommerce_thankyou_order_received_text', array( $this, 'metaps_thankyou_order_received_text' ), 10, 2 );
+		add_filter( 'woocommerce_thankyou_order_received_text', array( $this, 'metaps_thankyou_order_received_text' ), 10, 2 );
 	}
 
 	/**
@@ -284,7 +284,7 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 		// Description of payment method from settings.
 		if ( $this->description ) { ?>
 			<p><?php echo esc_html( $this->description ); ?></p>
-					<?php
+						<?php
 		}
 		$user                 = wp_get_current_user();
 		$number_payment_array = $this->get_number_payments();
@@ -294,7 +294,7 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 			<input type="radio" name="user_id_payment" value="yes" checked="checked" onclick="document.getElementById('metaps-new-info').style.display='none'"><span style="padding-left:15px;"><?php echo esc_html__( 'Use Stored Card.', 'metaps-for-woocommerce' ); ?></span><br />
 			<br />
 			<input type="radio" name="user_id_payment" value="no" onclick="document.getElementById('metaps-new-info').style.display='block'"><span style="padding-left:15px;"><?php echo esc_html__( 'Use New Card.', 'metaps-for-woocommerce' ); ?></span><br />
-				<?php
+			<?php
 		}
 		if ( 'yes' === $this->user_id_payment && '' !== $metaps_user_id && is_user_logged_in() ) {
 			echo '<div id="metaps-new-info" style="display:none">';
@@ -492,10 +492,20 @@ jQuery(function($){
 		}
 		if ( isset( $setting_data['store'] ) ) {// When not use user id payment.
 			if ( 'yes' === $this->emv_tds ) {
+				// Reduce stock levels.
+				wc_reduce_stock_levels( $order_id );
+				$order->update_meta_data( '_metaps_payment_setting_data', $setting_data );
+				$order->save();
 				$connect_url = METAPS_CC_SALES_URL;
-			} else {
-				$connect_url = METAPS_CS_SALES_URL;
+				$thanks_url  = $this->get_return_url( $order );
+				$get_url     = $this->metaps_request->get_post_to_metaps( $order, $connect_url, $setting_data, $thanks_url, $this->debug, $this->emv_tds );
+				// Return 3D Secure 2.0 redirect.
+				return array(
+					'result'   => 'success',
+					'redirect' => $get_url,
+				);
 			}
+			$connect_url = METAPS_CC_SALES_URL;
 			$order->add_order_note( __( 'Finished to send payment data to metaps PAYMENT.', 'metaps-for-woocommerce' ) );
 
 			$response = $this->metaps_request->metaps_post_request( $order, $connect_url, $setting_data, $this->debug, $this->emv_tds );
@@ -522,14 +532,6 @@ jQuery(function($){
 					'result'   => 'success',
 					'redirect' => $this->get_return_url( $order ),
 				);
-			} elseif ( 'yes' === $this->emv_tds ) {
-				// Reduce stock levels.
-				wc_reduce_stock_levels( $order_id );
-				// Return 3D Secure 2.0 redirect.
-				return array(
-					'result'   => 'success',
-					'redirect' => $this->get_return_url( $order ),
-				);
 			} else {
 				if ( isset( $response[2] ) ) {
 					$error_message = 'This order is cancelled, because of Payment error. ' . mb_convert_encoding( $response[2], 'UTF-8', 'sjis' );
@@ -539,7 +541,7 @@ jQuery(function($){
 				$order->update_status( 'cancelled', __( 'This order is cancelled, because of Payment error: ', 'metaps-for-woocommerce' ) . $error_message );
 
 				$front_error_message  = __( 'Credit card payment failed. ', 'metaps-for-woocommerce' );
-				$front_error_message .= __( 'Please try again. ', 'metaps-for-woocommerce' );
+				$front_error_message .= __( 'If you wish to make another credit card payment, please reload.', 'metaps-for-woocommerce' );
 				throw new Exception( esc_html( $front_error_message ) );
 			}
 		} else { // When use user id payment.
@@ -558,7 +560,8 @@ jQuery(function($){
 			} else {
 				$error_message = __( 'This order is cancelled, because of Payment error: ', 'metaps-for-woocommerce' ) . mb_convert_encoding( $response[2], 'UTF-8', 'sjis' );
 				$order->update_status( 'cancelled', __( 'This order is cancelled, because of Payment error: ', 'metaps-for-woocommerce' ) . $error_message );
-				$front_error_message = __( 'Credit card payment failed. Please try again. ', 'metaps-for-woocommerce' );
+				$front_error_message  = __( 'Credit card payment failed. ', 'metaps-for-woocommerce' );
+				$front_error_message .= __( 'If you wish to make another credit card payment, please reload.', 'metaps-for-woocommerce' );
 				throw new Exception( esc_html( $front_error_message ) );
 			}
 		}

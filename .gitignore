@@ -33,3 +33,6 @@ docker/bin/jt
 docker/data
 docker/wordpress
 docker/logs
+
+# TEST html
+/test.html

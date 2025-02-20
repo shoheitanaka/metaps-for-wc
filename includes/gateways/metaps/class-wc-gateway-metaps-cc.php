@@ -400,7 +400,11 @@ class WC_Gateway_Metaps_CC extends WC_Payment_Gateway {
 
 				$front_error_message  = __( 'Credit card payment failed.', 'metaps-for-woocommerce' );
 				$front_error_message .= __( 'Please try again.', 'metaps-for-woocommerce' );
-				throw new Exception( esc_html( $front_error_message ) );
+				wc_add_notice( esc_html( $front_error_message ), 'error' );
+				return array(
+					'result'   => 'failed',
+					'redirect' => wc_get_cart_url(),
+				);
 			}
 		}
 	}

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-31T05:00:24+00:00\n"
+"POT-Creation-Date: 2025-02-04T07:38:35+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -107,14 +107,14 @@ msgid "Please set this payment at Control Panel! "
 msgstr ""
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:144
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:248
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:249
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:161
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:257
 msgid "1 time"
 msgstr ""
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:145
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:249
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:250
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:162
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:258
 msgid "Revolving payment"
@@ -129,7 +129,6 @@ msgstr ""
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:152
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:153
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:154
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:250
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:251
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:252
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:253
@@ -138,6 +137,7 @@ msgstr ""
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:256
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:257
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:258
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:259
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:163
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:164
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:165
@@ -159,32 +159,32 @@ msgstr ""
 msgid "times"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:172
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:173
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:187
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:221
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:145
 msgid "Enable/Disable"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:173
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:174
 msgid "Enable metaps PAYMENT Credit Card Token Payment"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:179
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:180
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:194
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:228
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:152
 msgid "Title"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:181
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:182
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:196
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:230
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:154
 msgid "This controls the title which the user sees during checkout."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:182
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:183
 #: includes/gateways/metaps/asset/admin/settings.js:44
 #: includes/gateways/metaps/asset/admin/settings.js:45
 #: includes/gateways/metaps/asset/frontend/payments/creditcard.js:1724
@@ -196,20 +196,20 @@ msgstr ""
 #: includes/gateways/metaps/asset/admin/settings.js:22
 #: includes/gateways/metaps/asset/admin/settings.js:23
 #: includes/gateways/metaps/asset/frontend/payments/creditcard.js:1511
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:1743
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:1745
 msgid "Credit Card"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:185
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:186
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:200
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:234
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:158
 msgid "Description"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:187
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:193
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:229
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:188
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:194
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:230
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:202
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:208
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:236
@@ -219,73 +219,73 @@ msgstr ""
 msgid "This controls the description which the user sees during checkout."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:188
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:189
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:203
 msgid "Pay with your credit card via metaps PAYMENT."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:191
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:192
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:206
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:240
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:164
 msgid "Order Button Text"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:194
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:195
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:209
 msgid "Proceed to metaps PAYMENT Credit Card"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:197
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:198
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:212
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:246
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:170
 msgid "IP Code"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:199
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:200
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:214
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:248
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:172
 msgid "Enter IP Code here."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:202
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:203
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:217
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:251
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:175
 msgid "IP Password"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:204
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:205
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:219
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:253
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:177
 msgid "Enter IP Password here"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:207
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:208
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:222
 msgid "Payment Action"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:210
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:211
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:225
 msgid "Choose whether you wish to capture funds immediately or authorize payment only."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:214
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:215
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:229
 msgid "Capture"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:215
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:216
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:230
 msgid "Authorize"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:219
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:222
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:220
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:223
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:234
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:237
 #: includes/gateways/metaps/asset/frontend/payments/creditcard.js:91
@@ -297,71 +297,71 @@ msgstr ""
 msgid "User ID Payment"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:224
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:225
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:239
 msgid "Use the payment method of User ID payment."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:227
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:228
 msgid "Payment Time Text"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:230
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:231
 msgid "Payment Times : "
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:233
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:234
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:242
 msgid "EMV 3D Secure"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:236
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:237
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:245
 msgid "Enable EMV 3D Secure"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:238
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:239
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:247
 msgid "Use EMV 3D Secure for Credit Card."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:239
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:240
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:248
 msgid "In order to increase your chances of passing the 3DS, it is better to always verify your address so that you are more likely to pass the screening."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:242
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:243
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:251
 msgid "Number of payments"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:245
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:246
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:254
 msgid "Please select the number of installments available."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:262
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:263
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:271
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:324
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:222
 msgid "Debug Mode"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:264
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:265
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:273
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:326
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:224
 msgid "Enable Debug Mode"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:266
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:267
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:275
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:328
 #: includes/gateways/metaps/class-wc-gateway-metaps-pe.php:226
 msgid "Save debug data using WooCommerce logging."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:294
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:295
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:301
 #: includes/gateways/metaps/asset/frontend/payments/creditcard.js:82
 #: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:341
@@ -372,7 +372,7 @@ msgstr ""
 msgid "Use Stored Card."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:296
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:297
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:310
 #: includes/gateways/metaps/asset/frontend/payments/creditcard.js:85
 #: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:344
@@ -383,14 +383,14 @@ msgstr ""
 msgid "Use New Card."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:499
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:507
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:551
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:374
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:386
 msgid "Finished to send payment data to metaps PAYMENT."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:515
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:523
 msgid "Payment received, awaiting fulfilment"
 msgstr ""
 
@@ -402,171 +402,173 @@ msgid "This order is cancelled, because of Payment error: "
 msgstr ""
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:541
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:561
 msgid "Credit card payment failed. "
 msgstr ""
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:542
-msgid "Please try again. "
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:562
+msgid "If you wish to make another credit card payment, please reload."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:561
-msgid "Credit card payment failed. Please try again. "
-msgstr ""
-
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:576
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:577
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:395
 msgid "Payment error:"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:576
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:577
 msgid "Enter your card details"
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:587
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:588
 msgid "A phone number or email address is required for credit card payments . "
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:607
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:608
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:609
 msgid "Auto refund must total only . "
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:607
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:608
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:627
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:629
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:631
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:633
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:635
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:609
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:628
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:630
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:632
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:634
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:636
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:638
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:637
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:639
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:652
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:654
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:656
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:658
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:660
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:662
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:640
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:653
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:655
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:657
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:659
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:661
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:663
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:665
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:664
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:666
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:667
 msgid "if you need, please contact to metaps PAYMENT Support . "
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:623
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:648
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:624
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:649
 msgid "This order is refunded now at metaps PAYMENT . "
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:627
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:654
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:628
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:655
 msgid "This order has already auth canselled . "
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:629
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:656
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:630
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:657
 msgid "This order has completed . "
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:631
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:658
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:632
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:659
 msgid "This order has already canselled . "
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:633
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:636
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:639
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:660
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:663
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:666
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:634
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:637
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:640
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:661
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:664
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:667
 msgid "Error has happened . "
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:635
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:662
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:636
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:663
 msgid "Expired . Status not changed . "
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:638
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:665
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:639
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:666
 msgid "Error has happend . Status not changed . "
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:652
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:653
 msgid "This order is authorized now . "
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:732
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:547
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:733
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:551
 msgid "This order has already completed."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:732
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:736
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:738
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:754
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:442
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:443
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:462
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:464
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:733
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:737
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:739
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:755
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:446
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:447
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:466
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:468
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:470
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:471
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:473
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:472
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:474
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:487
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:489
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:475
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:477
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:478
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:491
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:493
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:495
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:497
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:498
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:500
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:499
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:501
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:547
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:502
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:504
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:505
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:551
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:553
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:569
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:555
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:557
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:573
 msgid "If you need, please contact to metaps PAYMENT Support."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:736
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:462
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:489
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:551
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:737
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:466
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:493
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:555
 msgid "This order has already auth canselled."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:738
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:466
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:493
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:553
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:739
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:470
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:497
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:557
 msgid "This order has already canselled."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:754
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:473
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:500
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:569
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:755
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:477
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:504
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:573
 msgid "Error has happend. Status not changed."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:775
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:778
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:776
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:779
 msgid "This order is cancelled."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:777
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:778
 msgid "Your credit card was not authorized. This order is cancelled."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:780
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:781
 msgid "Thank you. Your order has been completed."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:782
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:783
 msgid "Thank you. Your order has been received."
+msgstr ""
+
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:812
+msgid "We'll redirect you to an external payment page, please wait."
 msgstr ""
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:125
@@ -603,44 +605,44 @@ msgstr ""
 msgid "Please try again."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:423
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:427
 msgid "A phone number or email address is required for credit card payments."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:442
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:443
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:446
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:447
 msgid "Auto refund must total only. "
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:458
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:483
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:462
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:487
 msgid "This order is refunded now at metaps PAYMENT."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:464
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:491
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:468
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:495
 msgid "This order has completed."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:468
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:471
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:474
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:495
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:498
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:501
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:472
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:475
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:478
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:499
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:502
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:505
 msgid "Error has happened. "
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:470
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:497
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:474
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:501
 msgid "Expired. Status not changed."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:487
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:491
 msgid "This order is authorized now."
 msgstr ""
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:589
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:593
 msgid "This order is cancelled, because of the return from metaps PAYMENT site."
 msgstr ""
 
@@ -1323,8 +1325,8 @@ msgstr ""
 
 #: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:2070
 #: src/metaps/frontend/payments/creditcardtoken/index.js:112
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:1835
-msgid "Your credit card information has not been entered correctly. Please check the number of digits, etc."
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:1837
+msgid "Your credit card information has not been entered correctly. Please check the number of digits and CVV and Expire, etc."
 msgstr ""
 
 #: includes/gateways/metaps/asset/frontend/payments/payeasy.js:1516

@@ -27,35 +27,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const settings = (0,_woocommerce_settings__WEBPACK_IMPORTED_MODULE_3__.getSetting)('metaps_cc_token_data', {});
-const CreditCardHolderNameControl = () => {
-  const emv_tds = settings.emv_tds || '';
-  const [cardName, setCardName] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
-  if (emv_tds === 'yes') {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: 'wc-block-card-elements',
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: 'wc-block-gateway-container wc-card-name-element',
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: 'wc-block-gateway-input',
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
-            className: 'card_name',
-            id: 'card_name',
-            type: 'text',
-            value: cardName,
-            onChange: value => setCardName(value),
-            placeholder: 'TARO SUSUKI'
-          })
-        })
-      })
-    });
-  } else {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-      type: 'hidden',
-      value: '',
-      id: 'card_name'
-    });
-  }
-};
 const CreditCardInputControl = () => {
   const [cardNumber, setCardNumber] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
   const [expiryDate, setExpiryDate] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
@@ -66,6 +37,7 @@ const CreditCardInputControl = () => {
   const expYRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useRef)(null);
   const expMRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useRef)(null);
   const cardNameRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useRef)(null);
+  const emv_tds = settings.emv_tds || '';
 
   // Load external script
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
@@ -185,6 +157,35 @@ const CreditCardInputControl = () => {
       return;
     }
   };
+  const CreditCardHolderNameControl = () => {
+    const emv_tds = settings.emv_tds || '';
+    const [cardName, setCardName] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
+    if (emv_tds === 'yes') {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: 'wc-block-card-elements',
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: 'wc-block-gateway-container wc-card-name-element',
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: 'wc-block-gateway-input',
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+              className: 'card_name',
+              id: 'card_name',
+              type: 'text',
+              value: cardName,
+              onChange: value => setCardName(value),
+              placeholder: 'TARO SUSUKI'
+            })
+          })
+        })
+      });
+    } else {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+        type: 'hidden',
+        value: '',
+        id: 'card_name'
+      });
+    }
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: 'wc-block-card-elements',
@@ -248,7 +249,27 @@ const CreditCardInputControl = () => {
           id: 'metaps_cc_token_exp_m'
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(CreditCardHolderNameControl, {})]
+    }), emv_tds === 'yes' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: 'wc-block-card-elements',
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: 'wc-block-gateway-container wc-card-name-element',
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: 'wc-block-gateway-input',
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+            className: 'card_name',
+            id: 'card_name',
+            type: 'text',
+            value: cardName,
+            onChange: value => setCardName(value),
+            placeholder: 'TARO SUSUKI'
+          })
+        })
+      })
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+      type: 'hidden',
+      value: '',
+      id: 'card_name'
+    })]
   });
 };
 
@@ -2067,7 +2088,7 @@ const Content = props => {
       }
       return {
         type: 'error',
-        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Your credit card information has not been entered correctly. Please check the number of digits, etc.', 'metaps-for-woocommerce')
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Your credit card information has not been entered correctly. Please check the number of digits and CVV and Expire, etc.', 'metaps-for-woocommerce')
       };
     }
     return handlePaymentProcessing();

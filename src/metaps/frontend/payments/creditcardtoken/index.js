@@ -109,7 +109,7 @@ const Content = ( props ) => {
 
 					return {
 						type: 'error',
-						message: __( 'Your credit card information has not been entered correctly. Please check the number of digits, etc.', 'metaps-for-woocommerce' ),
+						message: __( 'Your credit card information has not been entered correctly. Please check the number of digits and CVV and Expire, etc.', 'metaps-for-woocommerce' ),
 					};
 				}
 				return handlePaymentProcessing();

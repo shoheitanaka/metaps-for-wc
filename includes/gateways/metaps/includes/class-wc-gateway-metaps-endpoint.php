@@ -68,12 +68,12 @@ class WC_Gateway_Metaps_Endpoint {
 		if ( isset( $get_data['SID'] ) ) {
 
 			// Create a response object.
-			$response = new WP_REST_Response( '0¥r¥n' );
+			$data     = '0';
+			$response = new WP_REST_Response( $data );
 			// Set the status code (if necessary).
-			$response->set_status( 302 );
+			$response->set_status( 200 );
 			// Set Header.
-			$empty_url = METAPS_FOR_WC_URL . 'empty.php';
-			$response->header( 'Content-Type', 'text/plain; charset=Shift_JIS' );
+			$response->header( 'Content-Type', 'text/plain;' );
 
 			// Get the order ID.
 			$pd_order_id     = sanitize_text_field( wp_unslash( $get_data['SID'] ) );
@@ -137,21 +137,23 @@ class WC_Gateway_Metaps_Endpoint {
 				}
 				return $response;
 			} elseif ( 'metaps_cc' === $order_payment_method || 'metaps_cc_token' === $order_payment_method ) {// Credit Card received from metaps.
-				if ( isset( $get_data['TIME'] ) && isset( $get_data['SEQ'] ) && isset( $order_status ) && 'processing' !== $order_status ) {
+				if ( isset( $get_data['TIME'] ) && isset( $get_data['SEQ'] ) && isset( $order_status ) ) {
 					/**
 					 * Payment completion (deposit) notification
 					 * The received parameters are:
 					 * SEQ, DATE, TIME, SID, KINGAKU, CVS, SCODE, SHONIN, HISHIMUKE, FUKA, PAYMODE, INCOUNT, IP_USER_ID
 					 */
 
-					// Mark as processing (payment complete).
-					$order->payment_complete( $get_data['SID'] );
-					$order->update_status(
-						'processing',
-						// translators: %s is the payment method name.
-						sprintf( __( 'Payment of %s was complete.', 'metaps-for-woocommerce' ), __( 'Credit Card (metaps)', 'metaps-for-woocommerce' ) ) .
-						__( 'The site has received a payment completion (deposit) notification from Metaps.', 'metaps-for-woocommerce' )
-					);
+					if ( 'processing' !== $order_status ) {
+						// Mark as processing (payment complete).
+						$order->payment_complete( $get_data['SID'] );
+						$order->update_status(
+							'processing',
+							// translators: %s is the payment method name.
+							sprintf( __( 'Payment of %s was complete.', 'metaps-for-woocommerce' ), __( 'Credit Card (metaps)', 'metaps-for-woocommerce' ) ) .
+							__( 'The site has received a payment completion (deposit) notification from Metaps.', 'metaps-for-woocommerce' )
+						);
+					}
 					if ( isset( $get_data['IP_USER_ID'] ) && ! empty( $get_data['IP_USER_ID'] ) ) {
 						update_user_meta( $order->get_user_id(), '_metaps_user_id', $get_data['IP_USER_ID'] );
 					}
@@ -174,6 +176,8 @@ class WC_Gateway_Metaps_Endpoint {
 						);
 					}
 					$this->metaps_get_logger( $order_payment_method, __( ': payment apply', 'metaps-for-woocommerce' ), $get_data );
+					return $response;
+				} else {
 					return $response;
 				}
 			} elseif ( 'metaps_cs' === $order_payment_method ) {// Convinience Store payment received from metaps.
@@ -229,8 +233,9 @@ class WC_Gateway_Metaps_Endpoint {
 					$this->metaps_get_logger( $order_payment_method, __( ': payment apply', 'metaps-for-woocommerce' ), $get_data );
 					return $response;
 				}
+			} else {
+				wc_get_logger()->error( 'Metaps Webhook Received. Payment is wrong. Payment Method: ' . $order_payment_method, array( 'get_data' => $get_data ) );
 			}
-			wc_get_logger()->error( 'Metaps Webhook Received. Something is wrong.', array( 'get_data' => $get_data ) );
 			return $response;
 		} else {
 			wc_get_logger()->error( 'Metaps Webhook Received. No order ID.', array( 'get_data' => $get_data ) );
