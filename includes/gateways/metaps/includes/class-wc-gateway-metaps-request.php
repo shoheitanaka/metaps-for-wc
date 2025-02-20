@@ -355,6 +355,8 @@ class WC_Gateway_Metaps_Request {
 		$post_data['BILL_ADDR_LINE']  = mb_convert_encoding( $billing_address_1, 'SJIS' );
 		$countries                    = new WC_Countries();
 		$post_data['TEL_COUNTRY']     = substr( $countries->get_country_calling_code( $country_code ), 1 );
+		unset( $post_data['PASS'] );
+		unset( $post_data['LANG'] );
 
 		return $post_data;
 	}

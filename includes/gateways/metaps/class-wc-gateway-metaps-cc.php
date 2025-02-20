@@ -383,7 +383,7 @@ class WC_Gateway_Metaps_CC extends WC_Payment_Gateway {
 			$response    = $this->metaps_request->metaps_post_request( $order, $connect_url, $setting_data, $this->debug, 'no' );
 			if ( isset( $response[0] ) && substr( $response[0], 0, 2 ) === 'OK' ) {
 				update_user_meta( $user->ID, '_metaps_user_id', $customer_id );
-				$order->add_order_note( __( 'Finished to send payment data to metaps PAYMENT. ', 'metaps-for-woocommerce' ) );
+				$order->add_order_note( __( 'Finished to send payment data to metaps PAYMENT.', 'metaps-for-woocommerce' ) );
 				// Reduce stock levels.
 				wc_reduce_stock_levels( $order_id );
 				return array(
@@ -400,7 +400,11 @@ class WC_Gateway_Metaps_CC extends WC_Payment_Gateway {
 
 				$front_error_message  = __( 'Credit card payment failed.', 'metaps-for-woocommerce' );
 				$front_error_message .= __( 'Please try again.', 'metaps-for-woocommerce' );
-				throw new Exception( esc_html( $front_error_message ) );
+				wc_add_notice( esc_html( $front_error_message ), 'error' );
+				return array(
+					'result'   => 'failed',
+					'redirect' => wc_get_cart_url(),
+				);
 			}
 		}
 	}
