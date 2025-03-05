@@ -6,7 +6,7 @@
  */
 
 // To avoid HTTP status 404 code.
-status_header( 200 );
+// status_header( 200 );
 
 if ( isset( $_GET['SEQ'] ) && isset( $_GET['DATE'] ) && isset( $_GET['SID'] ) ) {
 	require '../../../wp-blog-header.php';
@@ -17,8 +17,8 @@ if ( isset( $_GET['SEQ'] ) && isset( $_GET['DATE'] ) && isset( $_GET['SID'] ) ) 
 	$metaps_settings      = get_option( 'woocommerce_metaps_settings' );
 	$prefix_order         = $metaps_settings['prefixorder'];
 	$order_id             = str_replace( $prefix_order, '', $pd_order_id );
-	$order_type           = get_post_type( $order_id );
 	$current_order        = wc_get_order( $order_id );
+	$order_type           = get_post_type( $order_id );
 	$order_payment_method = $current_order->get_payment_method();
 	$order_status         = $current_order->get_status();
 	// Logger object.
@@ -30,10 +30,10 @@ if ( isset( $_GET['SEQ'] ) && isset( $_GET['DATE'] ) && isset( $_GET['SID'] ) ) 
 	}
 	/* translators: %s: GET parameters received from metaps */
 	$message = sprintf( __( 'I received GET data from metaps. (%s)', 'metaps-for-woocommerce' ), $get_message );
-	if ( 'shop_order' !== $order_type ) {
+	if ( 'shop_order' !== $order_type && 'shop_order_placehold' !== $order_type ) {
 		// Add to logger.
 		/* translators: %s: Order ID */
-		$message = sprintf( __( 'This order number (%s) does not exist..', 'metaps-for-woocommerce' ), $pd_order_id );
+		$message = sprintf( __( 'This order number (%s) does not exist..', 'metaps-for-woocommerce' ) . $order_type, $pd_order_id );
 		$wc_logger->add( 'error-metaps', $message );
 		header( 'Content-Type: text/plain; charset=Shift_JIS' );
 		print '9';
@@ -70,6 +70,7 @@ if ( isset( $_GET['SEQ'] ) && isset( $_GET['DATE'] ) && isset( $_GET['SID'] ) ) 
 			} else {
 				$current_order->payment_complete();
 			}
+			$current_order->set_status( 'processing' );
 			$current_order->save();
 		}
 

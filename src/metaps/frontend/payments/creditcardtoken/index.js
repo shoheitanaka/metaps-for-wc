@@ -35,8 +35,8 @@ const Content = ( props ) => {
 	const { onPaymentSetup } = eventRegistration;
 	const { userSavedID, isLoggedIn } = getUserId();
 
-	const [userIdPaymentSetting, setUserIdPaymentSetting] = useState(settings.user_id_payment || 'no');
-
+	const [userIdPaymentSetting, setUserIdPaymentSetting] = useState(user_id_payment_setting || 'no');
+	
 	useEffect(
 		() => 
 			onPaymentSetup( () => {
@@ -108,7 +108,7 @@ const Content = ( props ) => {
 							},
 						};
 					}
-
+					setUserIdPaymentSetting('no')
 					return {
 						type: 'error',
 						message: __( 'Your credit card information has not been entered correctly. Please check the number of digits and CVV and Expire, etc.', 'metaps-for-woocommerce' ),

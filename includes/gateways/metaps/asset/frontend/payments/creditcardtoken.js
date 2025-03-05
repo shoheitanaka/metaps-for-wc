@@ -1992,7 +1992,7 @@ const Content = props => {
     userSavedID,
     isLoggedIn
   } = (0,_hooks__WEBPACK_IMPORTED_MODULE_8__.getUserId)();
-  const [userIdPaymentSetting, setUserIdPaymentSetting] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useState)(settings.user_id_payment || 'no');
+  const [userIdPaymentSetting, setUserIdPaymentSetting] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useState)(user_id_payment_setting || 'no');
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useEffect)(() => onPaymentSetup(() => {
     async function handlePaymentProcessing() {
       let number_of_payments;
@@ -2058,6 +2058,7 @@ const Content = props => {
           }
         };
       }
+      setUserIdPaymentSetting('no');
       return {
         type: 'error',
         message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Your credit card information has not been entered correctly. Please check the number of digits and CVV and Expire, etc.', 'metaps-for-woocommerce')
