@@ -161,6 +161,7 @@ class WC_Gateway_Metaps_CC_Token extends WC_Payment_Gateway_CC {
 		add_action( 'woocommerce_order_status_completed', array( $this, 'metaps_order_status_completed_to_capture_token' ) );
 		// Filter hook.
 		add_filter( 'woocommerce_thankyou_order_received_text', array( $this, 'metaps_thankyou_order_received_text' ), 10, 2 );
+		add_action( 'woocommerce_before_cart', array( $this, 'metaps_cc_token_return' ) );
 	}
 
 	/**
@@ -786,5 +787,28 @@ jQuery(function($){
 			}
 		}
 		return $message;
+	}
+
+	/**
+	 * Handles the return process for credit card token payments.
+	 *
+	 * This method processes the response after a credit card token payment attempt,
+	 * managing the return flow from the Metaps payment gateway.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function metaps_cc_token_return() {
+		if ( isset( $_GET['pd'] ) && 'return' === $_GET['pd'] && isset( $_GET['sid'] ) ) {// phpcs:ignore
+			$metaps_settings      = get_option( 'woocommerce_metaps_settings' );
+			$prefix_order         = $metaps_settings['prefixorder'];
+			$order_id             = str_replace( $prefix_order, '', sanitize_text_field( wp_unslash( $_GET['sid'] ) ) );// phpcs:ignore
+			$order                = wc_get_order( $order_id );
+			$order_payment_method = $order->get_payment_method();
+			if ( $this->id === $order_payment_method ) {
+				wc_increase_stock_levels( $order_id );
+				$order->update_status( 'cancelled', __( 'This order is cancelled, because of the return from metaps PAYMENT site.', 'metaps-for-woocommerce' ) );
+			}
+		}
 	}
 }
