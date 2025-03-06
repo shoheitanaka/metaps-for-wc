@@ -201,7 +201,7 @@ if ( ! class_exists( 'WC_Metaps_Payments' ) ) :
 			if ( isset( $metaps_settings['creditcardtokencheck'] ) && $metaps_settings['creditcardtokencheck'] ) {
 				include_once METAPS_FOR_WC_INCLUDES_PATH . 'gateways/metaps/class-wc-gateway-metaps-cc-token.php'; // Credit Card with Token.
 				// Credit Card Token Subscription.
-				// include_once METAPS_FOR_WC_INCLUDES_PATH . 'gateways/metaps/class-wc-gateway-addon-metaps-cc-token.php'; // Credit Card with Token Subscription.
+				include_once METAPS_FOR_WC_INCLUDES_PATH . 'gateways/metaps/class-wc-gateway-addon-metaps-cc-token.php'; // Credit Card with Token Subscription.
 				add_filter( 'woocommerce_payment_gateways', array( $this, 'add_wc_metaps_cc_token_gateway' ) );
 			}
 			if ( isset( $metaps_settings['conveniencepaymentscheck'] ) && $metaps_settings['conveniencepaymentscheck'] ) {

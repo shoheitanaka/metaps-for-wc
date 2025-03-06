@@ -777,9 +777,6 @@ jQuery(function($){
 		if ( $this->id === $order->get_payment_method() ) {
 			if ( 'cancelled' === $order->get_status() ) {
 				$message = '<span style="color:red">' . __( 'This order is cancelled.', 'metaps-for-woocommerce' ) . '</span>';
-			} elseif ( 'pending' === $order->get_status() ) {
-				$message = '<span style="color:red">' . __( 'Your credit card was not authorized. This order is cancelled.', 'metaps-for-woocommerce' ) . '</span>';
-				$order->update_status( 'cancelled', __( 'This order is cancelled.', 'metaps-for-woocommerce' ) );
 			} elseif ( 'completed' === $order->get_status() ) {
 				$message = __( 'Thank you. Your order has been completed.', 'metaps-for-woocommerce' );
 			} elseif ( 'processing' === $order->get_status() ) {
