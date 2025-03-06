@@ -3,7 +3,7 @@ Contributors: metapspayment, artisan-workshop-1, shohei.tanaka
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=info@artws.info&item_name=Donation+for+Artisan&currency_code=JPY
 Tags: woocommerce, ecommerce, e-commerce, Japanese
 Tested up to: 6.7.2
-Stable tag: 0.9.13
+Stable tag: 0.9.14
 Requires PHP: 8.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
