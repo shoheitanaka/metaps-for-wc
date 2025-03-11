@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Class WC_Addons_Gateway_Metaps_CC_TOKEN
+ * Class WC_Gateway_Addon_Metaps_CC_TOKEN
  *
  * Extends the Metaps Credit Card Token payment gateway for WooCommerce Subscriptions.
  * Handles tokenized credit card payments for recurring payments and subscriptions.

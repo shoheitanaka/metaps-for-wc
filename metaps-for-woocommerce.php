@@ -226,9 +226,9 @@ if ( ! class_exists( 'WC_Metaps_Payments' ) ) :
 				$subscription_support_enabled = true;
 			}
 			if ( $subscription_support_enabled ) {
-				$methods[] = 'WC_Addon_Gateway_METAPS_CC_TOKEN';
+				$methods[] = 'WC_Gateway_Addon_Metaps_CC_TOKEN';
 			} else {
-				$methods[] = 'WC_Gateway_METAPS_CC_TOKEN';
+				$methods[] = 'WC_Gateway_Metaps_CC_TOKEN';
 			}
 			return $methods;
 		}

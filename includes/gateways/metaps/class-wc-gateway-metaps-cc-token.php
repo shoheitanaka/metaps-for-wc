@@ -711,7 +711,7 @@ jQuery(function($){
 	 */
 	public function metaps_order_status_completed_to_capture_token( $order_id ) {
 		global $woocommerce;
-		$payment_setting = new WC_Gateway_METAPS_CC_TOKEN();
+		$payment_setting = new WC_Gateway_Metaps_CC_TOKEN();
 
 		if ( 'sale' !== $payment_setting->paymentaction ) {
 			$metaps_setting  = get_option( 'woocommerce_metaps_cc_token_settings' );
