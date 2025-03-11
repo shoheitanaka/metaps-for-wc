@@ -6,4 +6,4 @@
  */
 
 header( 'Content-Type: text/plain; charset=Shift_JIS' );
-print '0ﾂ･rﾂ･n';
+print '0';
