@@ -96,13 +96,16 @@ final class WC_Metaps_CC_Payments_Blocks_Support extends AbstractPaymentMethodTy
 	 * @return array
 	 */
 	public function get_payment_method_data() {
-		$number_of_payments = $this->get_setting( 'number_of_payments' );
-		$array              = $this->gateway->array_number_of_payments;
-		foreach ( $number_of_payments as $value ) {
-			$set_number_of_payments[] = array(
-				'id'    => $value,
-				'value' => $array[ $value ],
-			);
+		$number_of_payments     = $this->get_setting( 'number_of_payments' );
+		$array                  = $this->gateway->array_number_of_payments;
+		$set_number_of_payments = array();
+		if ( is_array( $number_of_payments ) ) {
+			foreach ( $number_of_payments as $value ) {
+				$set_number_of_payments[] = array(
+					'id'    => $value,
+					'value' => $array[ $value ],
+				);
+			}
 		}
 		return array(
 			'title'              => $this->get_setting( 'title' ),

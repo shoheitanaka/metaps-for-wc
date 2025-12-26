@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: Metaps for WooCommerce\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/metaps-for-"
 "woocommerce\n"
-"POT-Creation-Date: 2025-02-04T07:38:35+00:00\n"
-"PO-Revision-Date: 2025-02-04 16:40+0900\n"
+"POT-Creation-Date: 2025-03-05T07:20:22+00:00\n"
+"PO-Revision-Date: 2025-03-05 16:22+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -200,7 +200,7 @@ msgstr "支払い時の決済タイトルをここで設定します。"
 #: includes/gateways/metaps/asset/admin/settings.js:44
 #: includes/gateways/metaps/asset/admin/settings.js:45
 #: includes/gateways/metaps/asset/frontend/payments/creditcard.js:1724
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:1983
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:1975
 #: src/metaps/admin/components/controls.jsx:22
 #: src/metaps/admin/components/controls.jsx:23
 #: src/metaps/frontend/payments/creditcard/index.js:20
@@ -208,7 +208,7 @@ msgstr "支払い時の決済タイトルをここで設定します。"
 #: includes/gateways/metaps/asset/admin/settings.js:22
 #: includes/gateways/metaps/asset/admin/settings.js:23
 #: includes/gateways/metaps/asset/frontend/payments/creditcard.js:1511
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:1745
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:1735
 msgid "Credit Card"
 msgstr "クレジット決済"
 
@@ -303,11 +303,11 @@ msgstr "与信決済"
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:234
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:237
 #: includes/gateways/metaps/asset/frontend/payments/creditcard.js:91
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:350
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:342
 #: src/metaps/frontend/payments/creditcard/components/user_id_payment.jsx:20
 #: src/metaps/frontend/payments/creditcardtoken/components/user_id_payment.jsx:21
 #: includes/gateways/metaps/asset/frontend/payments/creditcard.js:49
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:279
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:271
 msgid "User ID Payment"
 msgstr "ユーザー ID 支払い"
 
@@ -382,148 +382,148 @@ msgstr "WooCommerce ロギングを使用してデバッグデータを保存し
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:295
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:301
 #: includes/gateways/metaps/asset/frontend/payments/creditcard.js:82
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:341
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:333
 #: src/metaps/frontend/payments/creditcard/components/user_id_payment.jsx:12
 #: src/metaps/frontend/payments/creditcardtoken/components/user_id_payment.jsx:13
 #: includes/gateways/metaps/asset/frontend/payments/creditcard.js:41
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:271
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:263
 msgid "Use Stored Card."
 msgstr "保存したカードを使用する。"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:297
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:310
 #: includes/gateways/metaps/asset/frontend/payments/creditcard.js:85
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:344
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:336
 #: src/metaps/frontend/payments/creditcard/components/user_id_payment.jsx:13
 #: src/metaps/frontend/payments/creditcardtoken/components/user_id_payment.jsx:14
 #: includes/gateways/metaps/asset/frontend/payments/creditcard.js:42
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:272
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:264
 msgid "Use New Card."
 msgstr "新しいカードを使う。"
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:507
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:551
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:510
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:554
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:374
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:386
 msgid "Finished to send payment data to metaps PAYMENT."
 msgstr "メタップスペイメントへの支払いデータの送信しました。"
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:523
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:526
 msgid "Payment received, awaiting fulfilment"
 msgstr "支払い済み、履行待ち"
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:539
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:559
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:560
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:542
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:562
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:563
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:398
 msgid "This order is cancelled, because of Payment error: "
 msgstr "決済エラーで支払がキャンセルされました:"
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:541
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:561
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:544
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:564
 msgid "Credit card payment failed. "
 msgstr "クレジットカード決済に失敗しました。 "
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:542
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:562
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:545
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:565
 msgid "If you wish to make another credit card payment, please reload."
 msgstr ""
 "再度クレジットカードでのお支払いをご希望の場合は、このページをリロードしてく"
 "ださい。"
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:577
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:580
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:395
 msgid "Payment error:"
 msgstr "支払いエラー:"
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:577
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:580
 msgid "Enter your card details"
 msgstr "カード情報を入力してください"
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:588
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:591
 msgid "A phone number or email address is required for credit card payments . "
 msgstr ""
 "クレジットカードでのお支払いには、電話番号またはメールアドレスが必要です。 "
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:608
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:609
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:611
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:612
 msgid "Auto refund must total only . "
 msgstr "自動払い戻しは合計額のみ。 "
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:608
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:609
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:628
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:630
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:632
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:634
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:636
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:611
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:612
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:631
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:633
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:635
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:637
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:639
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:640
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:653
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:655
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:657
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:659
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:661
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:663
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:642
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:643
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:656
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:658
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:660
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:662
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:664
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:666
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:667
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:669
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:670
 msgid "if you need, please contact to metaps PAYMENT Support . "
 msgstr "必要な場合は、 メタップスペイメントサポートまでご連絡ください。 "
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:624
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:649
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:627
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:652
 msgid "This order is refunded now at metaps PAYMENT . "
 msgstr "この注文はメタップスペイメントで払い戻されます。 "
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:628
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:655
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:631
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:658
 msgid "This order has already auth canselled . "
 msgstr "この注文はすでに承認されています。 "
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:630
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:657
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:633
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:660
 msgid "This order has completed . "
 msgstr "この注文は完了しました。 "
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:632
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:659
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:635
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:662
 msgid "This order has already canselled . "
 msgstr "この注文はすでにキャンセルされた。 "
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:634
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:637
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:640
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:661
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:643
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:664
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:667
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:670
 msgid "Error has happened . "
 msgstr "エラーが発生しました。 "
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:636
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:663
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:639
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:666
 msgid "Expired . Status not changed . "
 msgstr "期限切れ。ステータス変更なし。 "
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:639
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:666
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:642
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:669
 msgid "Error has happend . Status not changed . "
 msgstr "エラーが発生しました。ステータスは変更されていません。 "
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:653
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:656
 msgid "This order is authorized now . "
 msgstr "このオーダーは現在許可されています。 "
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:733
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:736
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:551
 msgid "This order has already completed."
 msgstr "この注文はすでに完了した。"
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:733
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:737
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:739
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:755
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:736
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:740
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:742
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:758
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:446
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:447
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:466
@@ -550,48 +550,51 @@ msgstr "この注文はすでに完了した。"
 msgid "If you need, please contact to metaps PAYMENT Support."
 msgstr "必要な場合は、 メタップスペイメントサポートまでご連絡ください。"
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:737
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:740
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:466
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:493
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:555
 msgid "This order has already auth canselled."
 msgstr "この注文はすでに承認されています。"
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:739
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:742
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:470
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:497
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:557
 msgid "This order has already canselled."
 msgstr "この注文はすでにキャンセルされた。"
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:755
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:758
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:477
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:504
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:573
 msgid "Error has happend. Status not changed."
 msgstr "エラーが発生しました。ステータスは変更されていません。"
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:776
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:779
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:782
 msgid "This order is cancelled."
 msgstr "この注文はすでにキャンセルされた。"
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:778
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:781
 msgid "Your credit card was not authorized. This order is cancelled."
 msgstr ""
 "クレジットカードが承認されませんでした。この注文はキャンセルされました。"
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:781
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:784
 msgid "Thank you. Your order has been completed."
 msgstr "この注文は完了しました。"
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:783
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:786
 msgid "Thank you. Your order has been received."
 msgstr "ご注文ありがとうございます。"
 
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:812
-msgid "We'll redirect you to an external payment page, please wait."
-msgstr "外部の支払いページにリダイレクトされますので、しばらくお待ちください。"
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc-token.php:810
+#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:593
+msgid ""
+"This order is cancelled, because of the return from metaps PAYMENT site."
+msgstr ""
+"メタップスペイメントサイトからの返品のため、この注文はキャンセルされます。"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:125
 msgid "metaps PAYMENT Credit Card"
@@ -609,8 +612,8 @@ msgstr "メタップスペイメントクレジットカード決済を有効に
 #. translators: %s is the payment method name.
 #. translators: %s: Payment method name.
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:197
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:152
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:172
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:153
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:174
 msgid "Credit Card (metaps)"
 msgstr "クレジットカード (メタップスペイメント)"
 
@@ -665,12 +668,6 @@ msgstr "期限切れ。ステータス変更なし。"
 #: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:491
 msgid "This order is authorized now."
 msgstr "このオーダーは現在許可されています。"
-
-#: includes/gateways/metaps/class-wc-gateway-metaps-cc.php:593
-msgid ""
-"This order is cancelled, because of the return from metaps PAYMENT site."
-msgstr ""
-"メタップスペイメントサイトからの返品のため、この注文はキャンセルされます。"
 
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:156
 msgid "metaps PAYMENT Convenience Store"
@@ -731,9 +728,9 @@ msgstr "コンビニ決済を有効にする"
 
 #. translators: %s: Payment method name.
 #: includes/gateways/metaps/class-wc-gateway-metaps-cs.php:231
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:192
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:208
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:225
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:196
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:212
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:229
 msgid "Convenience Store Payment (metaps)"
 msgstr "コンビニ決済 (メタップスペイメント)"
 
@@ -1028,7 +1025,7 @@ msgid "Payment Information URL : "
 msgstr "支払い情報 URL : "
 
 #: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:86
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:252
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:257
 msgid "Metaps Webhook Received."
 msgstr "メタップスペイメント Webhook を受信した。"
 
@@ -1048,9 +1045,9 @@ msgstr "メタップスペイメント Webhook を受信しました。通知番
 #. translators: %s: Payment method name.
 #. translators: %s is the payment method name.
 #: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:113
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:152
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:172
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:192
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:153
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:174
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:196
 msgid "Payment of %s was complete."
 msgstr "%sの支払いが完了した。"
 
@@ -1062,11 +1059,11 @@ msgstr "ペイジー支払い（メタップス）"
 
 #: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:114
 #: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:132
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:153
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:173
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:193
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:209
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:226
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:154
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:175
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:197
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:213
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:230
 msgid ""
 "The site has received a payment completion (deposit) notification from "
 "Metaps."
@@ -1074,20 +1071,20 @@ msgstr "このサイトはメタップスから支払い完了（入金）通知
 
 #: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:116
 #: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:118
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:158
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:195
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:160
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:199
 msgid ": payment complete"
 msgstr ": 決済完了"
 
 #. translators: %s: Payment method name.
 #: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:131
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:208
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:212
 msgid "Payment of %s was cancelled."
 msgstr "%sの支払いはキャンセルされた。"
 
 #: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:134
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:176
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:229
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:178
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:233
 msgid ": payment apply"
 msgstr ": 決済申し込み"
 
@@ -1095,21 +1092,21 @@ msgstr ": 決済申し込み"
 msgid ": something notices"
 msgstr ": 何かしらの通知"
 
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:211
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:215
 msgid ": cancelled"
 msgstr ": キャンセルされました"
 
 #. translators: %s: Payment method name.
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:225
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:229
 msgid "Payment of %s was applied."
 msgstr "%sの支払いはキャンセルされた。"
 
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:253
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-endpoint.php:258
 msgid "Payment Method: "
 msgstr "決済方法： "
 
 #. translators: %s is the type of data being sent.
-#: includes/gateways/metaps/includes/class-wc-gateway-metaps-request.php:490
+#: includes/gateways/metaps/includes/class-wc-gateway-metaps-request.php:492
 msgid "This %s data for order ID:"
 msgstr "この%sは注文 ID のデータを送信する:"
 
@@ -1268,6 +1265,48 @@ msgstr ""
 "metaps for WooCommerce は有効ですが、動作しません。動作させるにはWooCommerce"
 "が必要です。"
 
+#. translators: %s: GET parameters received from metaps
+#: notice-url.php:32
+msgid "I received GET data from metaps. (%s)"
+msgstr ""
+
+#. translators: %s: Order ID
+#: notice-url.php:36
+msgid "This order number (%s) does not exist.."
+msgstr ""
+
+#: notice-url.php:43
+msgid "Credit Card (Metaps)"
+msgstr "クレジットカード（メタップス）"
+
+#: notice-url.php:49
+msgid "Convenience Store Payment (Metaps)"
+msgstr "コンビニ決済（メタップス）"
+
+#: notice-url.php:51
+msgid "Payeasey Payment (Metaps)"
+msgstr "ペイジー支払い（メタップス）"
+
+#. translators: %s: order ID
+#: notice-url.php:81
+msgid "This order (%s)  has already been paid."
+msgstr "この注文 (%s) は既に支払われています。"
+
+#. translators: %s: order ID
+#: notice-url.php:87
+msgid "This order (%s) has already completed."
+msgstr "この注文 (%s) は既に完了しています。"
+
+#. translators: %s: order ID
+#: notice-url.php:93
+msgid "This order (%s) has already Cancelled."
+msgstr "この注文 (%s) は既にキャンセルされています。"
+
+#. translators: %s: order ID
+#: notice-url.php:99
+msgid "This order (%s) has already Refunded."
+msgstr "この注文(%s) は既に払い戻しされています。"
+
 #: includes/gateways/metaps/asset/admin/settings.js:32
 #: src/metaps/admin/components/controls.jsx:10
 #: includes/gateways/metaps/asset/admin/settings.js:10
@@ -1369,19 +1408,19 @@ msgid "Convenience store is not selected properly."
 msgstr "コンビニエンスストアが正しく選択されていません。"
 
 #: includes/gateways/metaps/asset/frontend/payments/creditcard.js:37
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:286
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:278
 #: src/metaps/frontend/payments/creditcard/components/number_of_payments.jsx:14
 #: src/metaps/frontend/payments/creditcardtoken/components/number_of_payments.jsx:11
 #: includes/gateways/metaps/asset/frontend/payments/creditcard.js:14
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:238
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:230
 msgid "Number of Payments"
 msgstr "お支払い回数"
 
 #: includes/gateways/metaps/asset/frontend/payments/creditcard.js:139
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:396
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:388
 #: src/metaps/frontend/payments/hooks/get_user_id.jsx:20
 #: includes/gateways/metaps/asset/frontend/payments/creditcard.js:81
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:313
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:305
 msgid "Failed to get user data:"
 msgstr "ユーザーデータの取得に失敗しました:"
 
@@ -1391,21 +1430,21 @@ msgstr "ユーザーデータの取得に失敗しました:"
 msgid "There seems to be a problem. Please contact the site."
 msgstr "問題があるようです。サイトまでご連絡ください。"
 
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:155
-#: src/metaps/frontend/payments/creditcardtoken/components/credit_card_form.jsx:138
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:138
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:127
+#: src/metaps/frontend/payments/creditcardtoken/components/credit_card_form.jsx:112
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:112
 msgid "Please enter a month between 01 and 12."
 msgstr "01から12の間の月を入力してください。"
 
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:182
-#: src/metaps/frontend/payments/creditcardtoken/components/credit_card_form.jsx:168
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:168
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:154
+#: src/metaps/frontend/payments/creditcardtoken/components/credit_card_form.jsx:142
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:142
 msgid "The expiration date must be the current year or later."
 msgstr "有効期限は当年以降でなければならない。"
 
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:2070
-#: src/metaps/frontend/payments/creditcardtoken/index.js:112
-#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:1837
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:2064
+#: src/metaps/frontend/payments/creditcardtoken/index.js:114
+#: includes/gateways/metaps/asset/frontend/payments/creditcardtoken.js:1829
 msgid ""
 "Your credit card information has not been entered correctly. Please check "
 "the number of digits and CVV and Expire, etc."
@@ -1418,6 +1457,10 @@ msgstr ""
 #: includes/gateways/metaps/asset/frontend/payments/payeasy.js:1406
 msgid "Pay-easy"
 msgstr "ペイジー"
+
+#~ msgid "We'll redirect you to an external payment page, please wait."
+#~ msgstr ""
+#~ "外部の支払いページにリダイレクトされますので、しばらくお待ちください。"
 
 #~ msgid "Please try again. "
 #~ msgstr "エラーが発生しました。もう一度やり直してください。 "

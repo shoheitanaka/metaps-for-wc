@@ -35,6 +35,8 @@ const Content = ( props ) => {
 	const { onPaymentSetup } = eventRegistration;
 	const { userSavedID, isLoggedIn } = getUserId();
 
+	const [userIdPaymentSetting, setUserIdPaymentSetting] = useState(user_id_payment_setting || 'no');
+	
 	useEffect(
 		() => 
 			onPaymentSetup( () => {
@@ -48,9 +50,9 @@ const Content = ( props ) => {
 					}
 
 					if( userSavedID !== '' ){
-						user_id_payment_setting = 'yes';
+						setUserIdPaymentSetting('yes');
 					} else {
-						user_id_payment_setting = 'no';
+						setUserIdPaymentSetting('no');
 					}
 
 					const selectedUserIdPaymentData = document.querySelector('input[name="user_id_payment"]:checked');
@@ -106,7 +108,7 @@ const Content = ( props ) => {
 							},
 						};
 					}
-
+					setUserIdPaymentSetting('no')
 					return {
 						type: 'error',
 						message: __( 'Your credit card information has not been entered correctly. Please check the number of digits and CVV and Expire, etc.', 'metaps-for-woocommerce' ),
@@ -123,10 +125,10 @@ const Content = ( props ) => {
 	return (
 		<div className={ 'metaps_cc_token' }>
 			<RawHTML>{ description }</RawHTML>
-			{ user_id_payment_setting === 'yes' && isLoggedIn && 
+			{ userIdPaymentSetting === 'yes' && isLoggedIn && 
 				<UserIdPaymentSelectControl />
 			}
-			{ user_id_payment_setting !== 'yes' &&
+			{ userIdPaymentSetting !== 'yes' &&
 				<CreditCardInputControl />
 			}
 			{ numberOfPayments &&

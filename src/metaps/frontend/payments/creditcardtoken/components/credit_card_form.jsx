@@ -146,34 +146,7 @@ const CreditCardInputControl = () => {
 		}
 	  };
 	
-	  const CreditCardHolderNameControl = () => {
-		const emv_tds = settings.emv_tds || '';
-		const [cardName, setCardName] = useState('');
-	
-		if( emv_tds === 'yes' ) {
-		return (
-			<div className={ 'wc-block-card-elements' }>
-				<div className={ 'wc-block-gateway-container wc-card-name-element' }>
-					<div className={ 'wc-block-gateway-input' }>
-						<TextControl
-							className={ 'card_name' }
-							id={ 'card_name' }
-							type={ 'text' }
-							value={ cardName }
-							onChange={ ( value ) => setCardName( value ) }
-							placeholder={ 'TARO SUSUKI' }
-						/>
-					</div>
-				</div>
-			</div>
-		);
-		} else {
-			return (
-				<input type={ 'hidden' } value={ '' } id={ 'card_name' }/>
-			);
-		}
-	};
-		return (
+	return (
 		<>
 		<div className={ 'wc-block-card-elements' }>
 			<div className={ 'wc-block-gateway-container wc-card-number-element' }>

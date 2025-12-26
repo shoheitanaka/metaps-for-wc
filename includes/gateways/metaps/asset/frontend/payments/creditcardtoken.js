@@ -157,35 +157,6 @@ const CreditCardInputControl = () => {
       return;
     }
   };
-  const CreditCardHolderNameControl = () => {
-    const emv_tds = settings.emv_tds || '';
-    const [cardName, setCardName] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
-    if (emv_tds === 'yes') {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: 'wc-block-card-elements',
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: 'wc-block-gateway-container wc-card-name-element',
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            className: 'wc-block-gateway-input',
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
-              className: 'card_name',
-              id: 'card_name',
-              type: 'text',
-              value: cardName,
-              onChange: value => setCardName(value),
-              placeholder: 'TARO SUSUKI'
-            })
-          })
-        })
-      });
-    } else {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-        type: 'hidden',
-        value: '',
-        id: 'card_name'
-      });
-    }
-  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: 'wc-block-card-elements',
@@ -2021,6 +1992,7 @@ const Content = props => {
     userSavedID,
     isLoggedIn
   } = (0,_hooks__WEBPACK_IMPORTED_MODULE_8__.getUserId)();
+  const [userIdPaymentSetting, setUserIdPaymentSetting] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useState)(user_id_payment_setting || 'no');
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useEffect)(() => onPaymentSetup(() => {
     async function handlePaymentProcessing() {
       let number_of_payments;
@@ -2031,9 +2003,9 @@ const Content = props => {
         }
       }
       if (userSavedID !== '') {
-        user_id_payment_setting = 'yes';
+        setUserIdPaymentSetting('yes');
       } else {
-        user_id_payment_setting = 'no';
+        setUserIdPaymentSetting('no');
       }
       const selectedUserIdPaymentData = document.querySelector('input[name="user_id_payment"]:checked');
       let user_id_payment;
@@ -2086,6 +2058,7 @@ const Content = props => {
           }
         };
       }
+      setUserIdPaymentSetting('no');
       return {
         type: 'error',
         message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Your credit card information has not been entered correctly. Please check the number of digits and CVV and Expire, etc.', 'metaps-for-woocommerce')
@@ -2097,7 +2070,7 @@ const Content = props => {
     className: 'metaps_cc_token',
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.RawHTML, {
       children: description
-    }), user_id_payment_setting === 'yes' && isLoggedIn && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_user_id_payment__WEBPACK_IMPORTED_MODULE_7__.UserIdPaymentSelectControl, {}), user_id_payment_setting !== 'yes' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_credit_card_form__WEBPACK_IMPORTED_MODULE_6__.CreditCardInputControl, {}), numberOfPayments && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_number_of_payments__WEBPACK_IMPORTED_MODULE_5__.NumberOfPaymentsSelectControl, {})]
+    }), userIdPaymentSetting === 'yes' && isLoggedIn && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_user_id_payment__WEBPACK_IMPORTED_MODULE_7__.UserIdPaymentSelectControl, {}), userIdPaymentSetting !== 'yes' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_credit_card_form__WEBPACK_IMPORTED_MODULE_6__.CreditCardInputControl, {}), numberOfPayments && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_number_of_payments__WEBPACK_IMPORTED_MODULE_5__.NumberOfPaymentsSelectControl, {})]
   });
 };
 
